@@ -1,0 +1,22 @@
+{
+  "cell": "go2_china_office",
+  "n_matched_local": 387,
+  "local_ate_rmse_m": 2.2784730806076428,
+  "local_umeyama_scale": 1.8500924775733993,
+  "extent_m": 8.238995159681913,
+  "gt_path_length_m": 44.93280366914762,
+  "ate_rmse_pct_extent": 27.654744740687637,
+  "ate_rmse_pct_path": 5.070845561707335,
+  "rotation_audit": {
+    "err_mean_high_rotation_m": 2.1456408589828504,
+    "err_mean_low_rotation_m": 2.0805625763220963,
+    "ratio_high_over_low": 1.0312791758351223,
+    "pearson_r_err_vs_angspeed": 0.037566027784072795
+  },
+  "gait_residual_check": {
+    "autocorr_2_4hz_peak": 0.9961738737577671,
+    "autocorr_first_min": 0.8479886266574429,
+    "flag_gait_signature": true
+  },
+  "note": "local audit numbers; OFFICIAL metrics = ate_rpe.json from frozen scorer"
+}

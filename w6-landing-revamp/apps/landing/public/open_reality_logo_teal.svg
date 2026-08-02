@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 174" width="200" height="174" role="img" aria-label="Open Reality logo">
+  <title>Open Reality</title>
+  <polygon points="100,12 12,164 188,164"
+           fill="none"
+           stroke="#0EA5A0"
+           stroke-width="6"
+           stroke-linejoin="round"/>
+  <polygon points="56,88 144,88 100,164"
+           fill="#0EA5A0"
+           stroke="#0EA5A0"
+           stroke-width="6"
+           stroke-linejoin="round"/>
+</svg>

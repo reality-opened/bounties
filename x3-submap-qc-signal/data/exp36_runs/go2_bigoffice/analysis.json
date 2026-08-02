@@ -1,0 +1,22 @@
+{
+  "cell": "go2_bigoffice",
+  "n_matched_local": 689,
+  "local_ate_rmse_m": 6.291866416935893,
+  "local_umeyama_scale": 4.6125814514796515,
+  "extent_m": 29.517696141085096,
+  "gt_path_length_m": 174.88085216885565,
+  "ate_rmse_pct_extent": 21.315574179173044,
+  "ate_rmse_pct_path": 3.597801782702203,
+  "rotation_audit": {
+    "err_mean_high_rotation_m": 5.232629616848025,
+    "err_mean_low_rotation_m": 5.4131624592876,
+    "ratio_high_over_low": 0.9666492842589961,
+    "pearson_r_err_vs_angspeed": -0.02955689157939762
+  },
+  "gait_residual_check": {
+    "autocorr_2_4hz_peak": 0.9938243389071973,
+    "autocorr_first_min": 0.9164229689497194,
+    "flag_gait_signature": true
+  },
+  "note": "local audit numbers; OFFICIAL metrics = ate_rpe.json from frozen scorer"
+}

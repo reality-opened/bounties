@@ -1,0 +1,6 @@
+# Deps to run scripts/make_isaac_fixture.py and reference/inspect_isaac.py.
+numpy
+scipy
+pydantic
+usd-core        # hard requirement: no fallback for a missing USD writer
+open3d          # optional: mesh/collider reconstruction; without it, points-only export

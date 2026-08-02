@@ -1,0 +1,241 @@
+/* BeforeAfterDataset — raw demo vs refined LeRobot episode, a loader snippet,
+   and an honest "validation in progress" strip. Surveyor's-instrument tokens
+   from globals.css; added channels carry the teal accent, the experimental /
+   unproven items carry the warn color. */
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: start;
+  gap: clamp(1rem, 2.5vw, 2rem);
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.4rem;
+  background: var(--paper-bright);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-card);
+}
+
+.colOut {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border-soft));
+  box-shadow: 0 16px 32px -28px rgba(10, 165, 181, 0.6);
+}
+
+.colHead {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-display), serif;
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.colKind {
+  align-self: flex-start;
+  padding: 0.2rem 0.5rem;
+  color: var(--ink-faint);
+  background: var(--paper-raised);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.colKindOut {
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+.channels {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.channel {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.55rem 0.7rem;
+  background: var(--paper-raised);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+}
+
+.added {
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--border-soft));
+  background: color-mix(in srgb, var(--accent) 6%, var(--paper-raised));
+}
+
+.channelName {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  color: var(--ink-soft);
+  font-family: var(--font-body), sans-serif;
+  font-size: 0.85rem;
+}
+
+.added .channelName {
+  color: var(--ink);
+}
+
+.plus {
+  color: var(--accent);
+  font-family: var(--font-mono), monospace;
+  font-weight: 600;
+}
+
+.channelTag {
+  flex: none;
+  color: var(--ink-faint);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.05em;
+}
+
+.added .channelTag {
+  color: var(--accent);
+}
+
+/* ── Center arrow ── */
+
+.arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: center;
+  color: var(--accent);
+}
+
+.arrow span {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* ── Loader snippet ── */
+
+.loaderBlock {
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.loaderHead {
+  margin: 0 0 0.6rem;
+  color: var(--ink-faint);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.loader {
+  margin: 0;
+  padding: 1.1rem 1.25rem;
+  overflow-x: auto;
+  background: var(--paper-bright);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-card);
+  color: var(--ink-soft);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.74rem;
+  line-height: 1.7;
+  white-space: pre;
+}
+
+/* ── Validation-in-progress strip ── */
+
+.validating {
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+  padding: 1.3rem 1.4rem;
+  border: 1px dashed
+    color-mix(in srgb, var(--signal-warn) 50%, var(--border-medium));
+  border-radius: var(--radius-card);
+  background: color-mix(in srgb, var(--signal-warn) 5%, var(--paper-bright));
+}
+
+.validatingHead {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0 0 1rem;
+  color: var(--ink);
+  font-family: var(--font-display), serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.badge {
+  padding: 0.2rem 0.5rem;
+  color: var(--signal-warn);
+  background: color-mix(in srgb, var(--signal-warn) 12%, var(--paper-bright));
+  border: 1px solid color-mix(in srgb, var(--signal-warn) 45%, transparent);
+  border-radius: var(--radius);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.validatingList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem;
+}
+
+.validatingItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.validatingLabel {
+  color: var(--ink);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.validatingDetail {
+  color: var(--ink-soft);
+  font-family: var(--font-body), sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+/* ── Stacked layout ── */
+
+@media (max-width: 860px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+
+  .arrow {
+    flex-direction: row;
+    justify-self: center;
+  }
+
+  .arrow svg {
+    transform: rotate(90deg);
+  }
+}

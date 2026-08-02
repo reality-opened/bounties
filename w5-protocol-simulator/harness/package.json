@@ -1,0 +1,22 @@
+{
+  "name": "@reality/protocol-simulator-harness",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Frontend-only mock of the OpenReality streaming server (socket events + REST routes), driven by canned fixtures. Starting point for the protocol-simulator bounty — see ../README.md.",
+  "scripts": {
+    "mock-server": "tsx mock-server/index.ts",
+    "capture-fixtures": "tsx capture-fixtures.ts",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@reality/protocol": "file:../protocol",
+    "socket.io": "^4.7.0",
+    "socket.io-client": "^4.7.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^2.0.0"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "cell": "hk_village1",
+  "n_matched_local": 586,
+  "local_ate_rmse_m": 3.264638808454883,
+  "local_umeyama_scale": 10.631190498030746,
+  "extent_m": 13.203097913018937,
+  "gt_path_length_m": 85.87242642963874,
+  "ate_rmse_pct_extent": 24.726309158366394,
+  "ate_rmse_pct_path": 3.8017311775041427,
+  "rotation_audit": {
+    "err_mean_high_rotation_m": 2.116741767640652,
+    "err_mean_low_rotation_m": 3.0704710013405934,
+    "ratio_high_over_low": 0.6893866663181202,
+    "pearson_r_err_vs_angspeed": -0.167271811758399
+  },
+  "gait_residual_check": {
+    "autocorr_2_4hz_peak": 0.9934906725665887,
+    "autocorr_first_min": 0.8455716601881846,
+    "flag_gait_signature": true
+  },
+  "note": "local audit numbers; OFFICIAL metrics = ate_rpe.json from frozen scorer"
+}

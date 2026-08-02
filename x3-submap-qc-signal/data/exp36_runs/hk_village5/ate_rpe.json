@@ -1,0 +1,104 @@
+{
+  "cell": "hk_village5",
+  "ate": {
+    "n_gt": 969,
+    "n_est": 471,
+    "n_matched": 471,
+    "umeyama_scale": 0.7757748709724461,
+    "umeyama_R": [
+      [
+        0.020386588976254918,
+        -0.06672591544783586,
+        -0.997563050236707
+      ],
+      [
+        0.9988333748346003,
+        0.045046063708912155,
+        0.01739946725783514
+      ],
+      [
+        0.043775293333535706,
+        -0.9967539838656181,
+        0.06756640690152159
+      ]
+    ],
+    "umeyama_t": [
+      -1.5468610907019,
+      -27.078476306916127,
+      0.310599066969069
+    ],
+    "gt_path_length": 81.6500249130874,
+    "matched_time_span": 133.25592589378357,
+    "rmse": 3.70555964598256,
+    "mean": 3.110188702888136,
+    "median": 2.6748985201139943,
+    "std": 2.014422627544034,
+    "min": 0.18125075602902638,
+    "max": 8.205049587515735,
+    "est_path_length": 9.809311189191762,
+    "path_length_fraction": 0.12013849597269946
+  },
+  "rpe_trans_1s": {
+    "rot": false,
+    "n_gt": 969,
+    "n_est": 471,
+    "scale_aligned": true,
+    "delta": 1.0,
+    "delta_unit": "frames",
+    "n_pairs": 470,
+    "fallback_used": true,
+    "note": "requested delta_unit 's' yielded too few pairs; fell back to 1 frame",
+    "rmse": 0.23347762172798495,
+    "mean": 0.16167335233445565,
+    "median": 0.11810239896709084,
+    "std": 0.168444432952517,
+    "min": 0.0,
+    "max": 1.1206145939425787
+  },
+  "rpe_rot_1s": {
+    "rot": true,
+    "n_gt": 969,
+    "n_est": 471,
+    "scale_aligned": true,
+    "delta": 1.0,
+    "delta_unit": "frames",
+    "n_pairs": 470,
+    "fallback_used": true,
+    "note": "requested delta_unit 's' yielded too few pairs; fell back to 1 frame",
+    "rmse": 10.622416338144145,
+    "mean": 8.08141727026803,
+    "median": 6.376224206685489,
+    "std": 6.893941090891717,
+    "min": 1.765562519220062e-31,
+    "max": 64.63101594825599
+  },
+  "rot_ape_deg": {
+    "n_gt": 969,
+    "n_est": 471,
+    "n_matched": 471,
+    "umeyama_scale": 0.7757748709724461,
+    "rmse": 63.10690240689738,
+    "mean": 51.044325254882125,
+    "median": 45.97164472427532,
+    "std": 37.10738458403493,
+    "min": 2.2225329491992425,
+    "max": 178.03674715620363
+  },
+  "scale_window_variance": {
+    "global_scale": 0.7757748709724458,
+    "window_scale_mean": 435.6893228363152,
+    "window_scale_std": 642.2600578233639,
+    "window_scale_cv": 1.4741239322604551,
+    "n_windows": 452,
+    "n_matched": 471
+  },
+  "coverage_ok": false,
+  "coverage_reasons": [
+    "path_length_fraction 0.120 < min_path_fraction 0.8"
+  ],
+  "metric_valid": false,
+  "metric_invalid_reason": "coverage gate failed",
+  "extent_m": 13.788607310072111,
+  "ate_rmse_pct_extent": 26.874067573711912,
+  "timeline_coverage_pct": 98.23978789301202
+}

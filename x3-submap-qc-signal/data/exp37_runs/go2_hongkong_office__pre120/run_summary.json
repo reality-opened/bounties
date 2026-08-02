@@ -1,0 +1,25 @@
+{
+  "cell": "go2_hongkong_office",
+  "tag": "pre120",
+  "n_pose_sign_repairs": 0,
+  "n_poses_written": 365,
+  "export_errors": [
+    "submap 51: empty, skipped",
+    "submap 87: empty, skipped",
+    "submap 178: empty, skipped",
+    "submap 195: empty, skipped"
+  ],
+  "frames_total": 849,
+  "frames_kept": 344,
+  "submaps": 22,
+  "loop_closures": 8,
+  "total_time_s": 49.01,
+  "config": {
+    "submap_size": 16,
+    "max_loops": 1,
+    "min_disparity": 50.0,
+    "conf_threshold": 25.0,
+    "lc_thres": 0.95,
+    "downsample": 1
+  }
+}

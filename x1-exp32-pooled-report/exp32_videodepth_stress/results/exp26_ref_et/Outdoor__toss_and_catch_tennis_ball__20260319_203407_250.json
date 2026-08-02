@@ -1,0 +1,1102 @@
+{
+  "episode_id": "Outdoor__toss_and_catch_tennis_ball__20260319_203407_250",
+  "status": "OK",
+  "flags": [
+    "short_approach"
+  ],
+  "n_frames_used": 244,
+  "meta": {
+    "n_frames_ingest": 244,
+    "frame_hw": [
+      480,
+      640
+    ],
+    "video_fps": 30.0
+  },
+  "alignment": {
+    "window_source": "provenance",
+    "n_windows": 3,
+    "s_bar": 0.6517216586274264,
+    "alignment_degenerate": false,
+    "n_refit": 1,
+    "n_none": 0,
+    "windows": [
+      {
+        "start": 0,
+        "end": 120,
+        "n_valid": 120,
+        "fit_kind": "direct",
+        "refit": false,
+        "s": 0.5954470812145816,
+        "s_direct": 0.5954470812145816,
+        "ate_mm": 33.14003788076368,
+        "ate_mm_direct": 33.14003788076368,
+        "path_m": 0.6676471367994863,
+        "R": [
+          [
+            0.8636712118911934,
+            0.17445121799196933,
+            0.47290465243166685
+          ],
+          [
+            0.38182821859426036,
+            -0.8389061733359408,
+            -0.3878706534709501
+          ],
+          [
+            0.32905812440286475,
+            0.5155610583432062,
+            -0.7911495091855282
+          ]
+        ],
+        "t": [
+          0.055246205924597835,
+          0.3921817211887698,
+          -0.4107296848956949
+        ]
+      },
+      {
+        "start": 120,
+        "end": 240,
+        "n_valid": 120,
+        "fit_kind": "direct",
+        "refit": false,
+        "s": 0.7079962360402712,
+        "s_direct": 0.7079962360402712,
+        "ate_mm": 48.56368109200642,
+        "ate_mm_direct": 48.56368109200642,
+        "path_m": 0.9231736590386742,
+        "R": [
+          [
+            0.9973412881319251,
+            0.008869864800474423,
+            0.07233035659923648
+          ],
+          [
+            0.0561013384884467,
+            -0.7269248655280716,
+            -0.684421565774194
+          ],
+          [
+            0.04650800798955139,
+            0.6866597158530678,
+            -0.7254897930484121
+          ]
+        ],
+        "t": [
+          0.043771399015852606,
+          0.2588354661042914,
+          -0.4630840819246797
+        ]
+      },
+      {
+        "start": 240,
+        "end": 244,
+        "n_valid": 4,
+        "fit_kind": "refit",
+        "refit": true,
+        "s": 0.6517216586274264,
+        "s_direct": null,
+        "ate_mm": 6.572829819036075,
+        "ate_mm_direct": null,
+        "path_m": null,
+        "R": [
+          [
+            0.6762522438964037,
+            0.6258707031749056,
+            -0.38854699269512916
+          ],
+          [
+            0.6733065399794058,
+            -0.7391264880604026,
+            -0.01871731467002179
+          ],
+          [
+            -0.2988999930512547,
+            -0.24895360522564305,
+            -0.9212387837032885
+          ]
+        ],
+        "t": [
+          0.09986865781174475,
+          0.4221480462618966,
+          -0.39662923262232946
+        ]
+      }
+    ],
+    "global_fallback": {
+      "R": [
+        [
+          0.9705014758173242,
+          -0.08339468980706397,
+          0.2262127563785466
+        ],
+        [
+          0.1772450861311458,
+          -0.38924939178499135,
+          -0.9039187410588285
+        ],
+        [
+          0.16343520085574834,
+          0.9173495717048098,
+          -0.3629858102105963
+        ]
+      ],
+      "t": [
+        0.06718487660134474,
+        0.3482974554773816,
+        -0.4234509204067592
+      ],
+      "s": 0.29471336925353964,
+      "ate_mm": 73.9400390245877,
+      "n_valid": 244,
+      "path_m": 1.6443940774493475
+    }
+  },
+  "contacting_hand": "right",
+  "contacting_hand_scores": {
+    "left": 83,
+    "right": 129
+  },
+  "reference": {
+    "rule": "_contact_baseline_rel(sensor_left_sum + sensor_right_sum), EXP-22 verbatim; v2 onset = >=5 consecutive valid 0-frames immediately before a sustained >=3 1-run (scoring_prereg.md section 2)",
+    "n_onsets": 5,
+    "onsets": [
+      10,
+      30,
+      57,
+      113,
+      167
+    ],
+    "t0": 30,
+    "t0_eligible": true,
+    "t0_surface_frames": 15,
+    "n_contact_frames_baseline_rel": 114,
+    "n_contact_frames_ingest_frozen_threshold": 0
+  },
+  "surface_window": {
+    "end_frame": 15,
+    "n_frames": 15,
+    "guard": 15,
+    "cloud_A_n_points": 400000,
+    "cloud_B_n_points": 400000,
+    "cloud_A_per_window": {
+      "0": 400000
+    },
+    "cloud_B_per_window": {
+      "0": 400000
+    }
+  },
+  "scores": {
+    "A": {
+      "a": {
+        "n_valid_index": 199,
+        "n_valid_thumb": 199,
+        "n_valid_d": 199,
+        "tau_sweep_mm": [
+          {
+            "tau": 0.005,
+            "n_pred": 3,
+            "tp": 2,
+            "fp": 1,
+            "fn": 3,
+            "precision": 0.6666666666666666,
+            "recall": 0.4,
+            "f1": 0.5,
+            "offsets": [
+              -6.0,
+              -9.0
+            ],
+            "median_offset": -7.5,
+            "mad_offset": 1.5,
+            "tau_mm": 5.0
+          },
+          {
+            "tau": 0.01,
+            "n_pred": 6,
+            "tp": 3,
+            "fp": 3,
+            "fn": 2,
+            "precision": 0.5,
+            "recall": 0.6,
+            "f1": 0.5454545454545454,
+            "offsets": [
+              2.0,
+              -6.0,
+              -9.0
+            ],
+            "median_offset": -6.0,
+            "mad_offset": 3.0,
+            "tau_mm": 10.0
+          },
+          {
+            "tau": 0.015,
+            "n_pred": 6,
+            "tp": 3,
+            "fp": 3,
+            "fn": 2,
+            "precision": 0.5,
+            "recall": 0.6,
+            "f1": 0.5454545454545454,
+            "offsets": [
+              2.0,
+              -6.0,
+              -10.0
+            ],
+            "median_offset": -6.0,
+            "mad_offset": 4.0,
+            "tau_mm": 15.0
+          },
+          {
+            "tau": 0.02,
+            "n_pred": 7,
+            "tp": 4,
+            "fp": 3,
+            "fn": 1,
+            "precision": 0.5714285714285714,
+            "recall": 0.8,
+            "f1": 0.6666666666666666,
+            "offsets": [
+              0.0,
+              2.0,
+              -6.0,
+              -10.0
+            ],
+            "median_offset": -3.0,
+            "mad_offset": 4.0,
+            "tau_mm": 20.0
+          },
+          {
+            "tau": 0.03,
+            "n_pred": 7,
+            "tp": 4,
+            "fp": 3,
+            "fn": 1,
+            "precision": 0.5714285714285714,
+            "recall": 0.8,
+            "f1": 0.6666666666666666,
+            "offsets": [
+              0.0,
+              2.0,
+              -6.0,
+              -10.0
+            ],
+            "median_offset": -3.0,
+            "mad_offset": 4.0,
+            "tau_mm": 30.0
+          },
+          {
+            "tau": 0.05,
+            "n_pred": 7,
+            "tp": 4,
+            "fp": 3,
+            "fn": 1,
+            "precision": 0.5714285714285714,
+            "recall": 0.8,
+            "f1": 0.6666666666666666,
+            "offsets": [
+              0.0,
+              2.0,
+              -6.0,
+              -10.0
+            ],
+            "median_offset": -3.0,
+            "mad_offset": 4.0,
+            "tau_mm": 50.0
+          },
+          {
+            "tau": 0.075,
+            "n_pred": 6,
+            "tp": 5,
+            "fp": 1,
+            "fn": 0,
+            "precision": 0.8333333333333334,
+            "recall": 1.0,
+            "f1": 0.9090909090909091,
+            "offsets": [
+              0.0,
+              2.0,
+              6.0,
+              -6.0,
+              9.0
+            ],
+            "median_offset": 2.0,
+            "mad_offset": 4.0,
+            "tau_mm": 75.0
+          },
+          {
+            "tau": 0.1,
+            "n_pred": 4,
+            "tp": 4,
+            "fp": 0,
+            "fn": 1,
+            "precision": 1.0,
+            "recall": 0.8,
+            "f1": 0.888888888888889,
+            "offsets": [
+              0.0,
+              2.0,
+              -6.0,
+              -10.0
+            ],
+            "median_offset": -3.0,
+            "mad_offset": 4.0,
+            "tau_mm": 100.0
+          }
+        ],
+        "contrast": {
+          "eligible": true,
+          "n_valid_approach": 16,
+          "d_at_onset_mm": 74.24679123654309,
+          "d_approach_mm": 7.197445193519605,
+          "ratio": 10.315714707128716,
+          "difference_mm": 67.04934604302349
+        },
+        "h2": {
+          "eligible": true,
+          "tau_star_mm": 50.0,
+          "detected": false,
+          "offset_frames": null,
+          "argmin_offset_frames": -28.0,
+          "pre_onset_fp_count": 1,
+          "predicted_onsets_taustar": [
+            0,
+            59,
+            84,
+            107,
+            167,
+            187,
+            205
+          ]
+        },
+        "jerk_index_mm": 33.32481438407991,
+        "jerk_thumb_mm": 42.01901417869788,
+        "jerk_primary_mm": 33.32481438407991
+      },
+      "b": {
+        "n_valid_index": 199,
+        "n_valid_thumb": 199,
+        "n_valid_d": 199,
+        "tau_sweep_mm": [
+          {
+            "tau": 0.005,
+            "n_pred": 2,
+            "tp": 0,
+            "fp": 2,
+            "fn": 5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": NaN,
+            "offsets": [],
+            "median_offset": NaN,
+            "mad_offset": NaN,
+            "tau_mm": 5.0
+          },
+          {
+            "tau": 0.01,
+            "n_pred": 2,
+            "tp": 0,
+            "fp": 2,
+            "fn": 5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": NaN,
+            "offsets": [],
+            "median_offset": NaN,
+            "mad_offset": NaN,
+            "tau_mm": 10.0
+          },
+          {
+            "tau": 0.015,
+            "n_pred": 3,
+            "tp": 1,
+            "fp": 2,
+            "fn": 4,
+            "precision": 0.3333333333333333,
+            "recall": 0.2,
+            "f1": 0.25,
+            "offsets": [
+              0.0
+            ],
+            "median_offset": 0.0,
+            "mad_offset": 0.0,
+            "tau_mm": 15.0
+          },
+          {
+            "tau": 0.02,
+            "n_pred": 4,
+            "tp": 1,
+            "fp": 3,
+            "fn": 4,
+            "precision": 0.25,
+            "recall": 0.2,
+            "f1": 0.22222222222222224,
+            "offsets": [
+              0.0
+            ],
+            "median_offset": 0.0,
+            "mad_offset": 0.0,
+            "tau_mm": 20.0
+          },
+          {
+            "tau": 0.03,
+            "n_pred": 5,
+            "tp": 2,
+            "fp": 3,
+            "fn": 3,
+            "precision": 0.4,
+            "recall": 0.4,
+            "f1": 0.4000000000000001,
+            "offsets": [
+              0.0,
+              10.0
+            ],
+            "median_offset": 5.0,
+            "mad_offset": 5.0,
+            "tau_mm": 30.0
+          },
+          {
+            "tau": 0.05,
+            "n_pred": 6,
+            "tp": 2,
+            "fp": 4,
+            "fn": 3,
+            "precision": 0.3333333333333333,
+            "recall": 0.4,
+            "f1": 0.3636363636363636,
+            "offsets": [
+              0.0,
+              -6.0
+            ],
+            "median_offset": -3.0,
+            "mad_offset": 3.0,
+            "tau_mm": 50.0
+          },
+          {
+            "tau": 0.075,
+            "n_pred": 5,
+            "tp": 4,
+            "fp": 1,
+            "fn": 1,
+            "precision": 0.8,
+            "recall": 0.8,
+            "f1": 0.8000000000000002,
+            "offsets": [
+              0.0,
+              4.0,
+              -6.0,
+              8.0
+            ],
+            "median_offset": 2.0,
+            "mad_offset": 4.0,
+            "tau_mm": 75.0
+          },
+          {
+            "tau": 0.1,
+            "n_pred": 5,
+            "tp": 5,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "offsets": [
+              0.0,
+              2.0,
+              -6.0,
+              -10.0,
+              11.0
+            ],
+            "median_offset": 0.0,
+            "mad_offset": 6.0,
+            "tau_mm": 100.0
+          }
+        ],
+        "contrast": {
+          "eligible": true,
+          "n_valid_approach": 16,
+          "d_at_onset_mm": 74.47545643290576,
+          "d_approach_mm": 81.21610318520646,
+          "ratio": 0.9170035684065114,
+          "difference_mm": -6.740646752300697
+        },
+        "h2": {
+          "eligible": true,
+          "tau_star_mm": 50.0,
+          "detected": false,
+          "offset_frames": null,
+          "argmin_offset_frames": 22.0,
+          "pre_onset_fp_count": 0,
+          "predicted_onsets_taustar": [
+            91,
+            107,
+            123,
+            146,
+            167,
+            187
+          ]
+        },
+        "jerk_index_mm": 33.30046662659083,
+        "jerk_thumb_mm": 41.484579447618785,
+        "jerk_primary_mm": 33.30046662659083
+      }
+    },
+    "B": {
+      "a": {
+        "n_valid_index": 199,
+        "n_valid_thumb": 199,
+        "n_valid_d": 199,
+        "tau_sweep_mm": [
+          {
+            "tau": 0.005,
+            "n_pred": 1,
+            "tp": 0,
+            "fp": 1,
+            "fn": 5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": NaN,
+            "offsets": [],
+            "median_offset": NaN,
+            "mad_offset": NaN,
+            "tau_mm": 5.0
+          },
+          {
+            "tau": 0.01,
+            "n_pred": 4,
+            "tp": 3,
+            "fp": 1,
+            "fn": 2,
+            "precision": 0.75,
+            "recall": 0.6,
+            "f1": 0.6666666666666665,
+            "offsets": [
+              0.0,
+              -6.0,
+              -9.0
+            ],
+            "median_offset": -6.0,
+            "mad_offset": 3.0,
+            "tau_mm": 10.0
+          },
+          {
+            "tau": 0.015,
+            "n_pred": 4,
+            "tp": 3,
+            "fp": 1,
+            "fn": 2,
+            "precision": 0.75,
+            "recall": 0.6,
+            "f1": 0.6666666666666665,
+            "offsets": [
+              0.0,
+              -6.0,
+              -9.0
+            ],
+            "median_offset": -6.0,
+            "mad_offset": 3.0,
+            "tau_mm": 15.0
+          },
+          {
+            "tau": 0.02,
+            "n_pred": 5,
+            "tp": 3,
+            "fp": 2,
+            "fn": 2,
+            "precision": 0.6,
+            "recall": 0.6,
+            "f1": 0.6,
+            "offsets": [
+              0.0,
+              -6.0,
+              -9.0
+            ],
+            "median_offset": -6.0,
+            "mad_offset": 3.0,
+            "tau_mm": 20.0
+          },
+          {
+            "tau": 0.03,
+            "n_pred": 5,
+            "tp": 3,
+            "fp": 2,
+            "fn": 2,
+            "precision": 0.6,
+            "recall": 0.6,
+            "f1": 0.6,
+            "offsets": [
+              -1.0,
+              -6.0,
+              -9.0
+            ],
+            "median_offset": -6.0,
+            "mad_offset": 3.0,
+            "tau_mm": 30.0
+          },
+          {
+            "tau": 0.05,
+            "n_pred": 5,
+            "tp": 3,
+            "fp": 2,
+            "fn": 2,
+            "precision": 0.6,
+            "recall": 0.6,
+            "f1": 0.6,
+            "offsets": [
+              -1.0,
+              -6.0,
+              -10.0
+            ],
+            "median_offset": -6.0,
+            "mad_offset": 4.0,
+            "tau_mm": 50.0
+          },
+          {
+            "tau": 0.075,
+            "n_pred": 6,
+            "tp": 3,
+            "fp": 3,
+            "fn": 2,
+            "precision": 0.5,
+            "recall": 0.6,
+            "f1": 0.5454545454545454,
+            "offsets": [
+              -4.0,
+              -6.0,
+              -10.0
+            ],
+            "median_offset": -6.0,
+            "mad_offset": 2.0,
+            "tau_mm": 75.0
+          },
+          {
+            "tau": 0.1,
+            "n_pred": 7,
+            "tp": 4,
+            "fp": 3,
+            "fn": 1,
+            "precision": 0.5714285714285714,
+            "recall": 0.8,
+            "f1": 0.6666666666666666,
+            "offsets": [
+              -4.0,
+              -6.0,
+              -10.0,
+              15.0
+            ],
+            "median_offset": -5.0,
+            "mad_offset": 3.0,
+            "tau_mm": 100.0
+          }
+        ],
+        "contrast": {
+          "eligible": true,
+          "n_valid_approach": 16,
+          "d_at_onset_mm": 4.834272360132182,
+          "d_approach_mm": 16.238847264069072,
+          "ratio": 0.29769800045036127,
+          "difference_mm": -11.404574903936892
+        },
+        "h2": {
+          "eligible": true,
+          "tau_star_mm": 50.0,
+          "detected": true,
+          "offset_frames": -1.0,
+          "argmin_offset_frames": 4.0,
+          "pre_onset_fp_count": 1,
+          "predicted_onsets_taustar": [
+            0,
+            29,
+            76,
+            107,
+            217
+          ]
+        },
+        "jerk_index_mm": 83.18428935666262,
+        "jerk_thumb_mm": 81.21120204267362,
+        "jerk_primary_mm": 83.18428935666262
+      },
+      "b": {
+        "n_valid_index": 199,
+        "n_valid_thumb": 199,
+        "n_valid_d": 199,
+        "tau_sweep_mm": [
+          {
+            "tau": 0.005,
+            "n_pred": 1,
+            "tp": 0,
+            "fp": 1,
+            "fn": 5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": NaN,
+            "offsets": [],
+            "median_offset": NaN,
+            "mad_offset": NaN,
+            "tau_mm": 5.0
+          },
+          {
+            "tau": 0.01,
+            "n_pred": 1,
+            "tp": 0,
+            "fp": 1,
+            "fn": 5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": NaN,
+            "offsets": [],
+            "median_offset": NaN,
+            "mad_offset": NaN,
+            "tau_mm": 10.0
+          },
+          {
+            "tau": 0.015,
+            "n_pred": 1,
+            "tp": 0,
+            "fp": 1,
+            "fn": 5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": NaN,
+            "offsets": [],
+            "median_offset": NaN,
+            "mad_offset": NaN,
+            "tau_mm": 15.0
+          },
+          {
+            "tau": 0.02,
+            "n_pred": 1,
+            "tp": 0,
+            "fp": 1,
+            "fn": 5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": NaN,
+            "offsets": [],
+            "median_offset": NaN,
+            "mad_offset": NaN,
+            "tau_mm": 20.0
+          },
+          {
+            "tau": 0.03,
+            "n_pred": 1,
+            "tp": 0,
+            "fp": 1,
+            "fn": 5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": NaN,
+            "offsets": [],
+            "median_offset": NaN,
+            "mad_offset": NaN,
+            "tau_mm": 30.0
+          },
+          {
+            "tau": 0.05,
+            "n_pred": 4,
+            "tp": 2,
+            "fp": 2,
+            "fn": 3,
+            "precision": 0.5,
+            "recall": 0.4,
+            "f1": 0.4444444444444445,
+            "offsets": [
+              -3.0,
+              3.0
+            ],
+            "median_offset": 0.0,
+            "mad_offset": 3.0,
+            "tau_mm": 50.0
+          },
+          {
+            "tau": 0.075,
+            "n_pred": 5,
+            "tp": 2,
+            "fp": 3,
+            "fn": 3,
+            "precision": 0.4,
+            "recall": 0.4,
+            "f1": 0.4000000000000001,
+            "offsets": [
+              0.0,
+              -10.0
+            ],
+            "median_offset": -5.0,
+            "mad_offset": 5.0,
+            "tau_mm": 75.0
+          },
+          {
+            "tau": 0.1,
+            "n_pred": 6,
+            "tp": 2,
+            "fp": 4,
+            "fn": 3,
+            "precision": 0.3333333333333333,
+            "recall": 0.4,
+            "f1": 0.3636363636363636,
+            "offsets": [
+              0.0,
+              -10.0
+            ],
+            "median_offset": -5.0,
+            "mad_offset": 5.0,
+            "tau_mm": 100.0
+          }
+        ],
+        "contrast": {
+          "eligible": true,
+          "n_valid_approach": 16,
+          "d_at_onset_mm": 51.960531045956195,
+          "d_approach_mm": 54.09288174517424,
+          "ratio": 0.9605798280582772,
+          "difference_mm": -2.1323506992180428
+        },
+        "h2": {
+          "eligible": true,
+          "tau_star_mm": 50.0,
+          "detected": true,
+          "offset_frames": 3.0,
+          "argmin_offset_frames": -14.0,
+          "pre_onset_fp_count": 1,
+          "predicted_onsets_taustar": [
+            7,
+            33,
+            76,
+            218
+          ]
+        },
+        "jerk_index_mm": 67.70638906416335,
+        "jerk_thumb_mm": 71.90323359957853,
+        "jerk_primary_mm": 67.70638906416335
+      }
+    },
+    "Brs": {
+      "b": {
+        "n_valid_index": 199,
+        "n_valid_thumb": 199,
+        "n_valid_d": 199,
+        "tau_sweep_mm": [
+          {
+            "tau": 0.005,
+            "n_pred": 6,
+            "tp": 2,
+            "fp": 4,
+            "fn": 3,
+            "precision": 0.3333333333333333,
+            "recall": 0.4,
+            "f1": 0.3636363636363636,
+            "offsets": [
+              0.0,
+              -5.0
+            ],
+            "median_offset": -2.5,
+            "mad_offset": 2.5,
+            "tau_mm": 5.0
+          },
+          {
+            "tau": 0.01,
+            "n_pred": 6,
+            "tp": 2,
+            "fp": 4,
+            "fn": 3,
+            "precision": 0.3333333333333333,
+            "recall": 0.4,
+            "f1": 0.3636363636363636,
+            "offsets": [
+              0.0,
+              -10.0
+            ],
+            "median_offset": -5.0,
+            "mad_offset": 5.0,
+            "tau_mm": 10.0
+          },
+          {
+            "tau": 0.015,
+            "n_pred": 6,
+            "tp": 2,
+            "fp": 4,
+            "fn": 3,
+            "precision": 0.3333333333333333,
+            "recall": 0.4,
+            "f1": 0.3636363636363636,
+            "offsets": [
+              0.0,
+              -10.0
+            ],
+            "median_offset": -5.0,
+            "mad_offset": 5.0,
+            "tau_mm": 15.0
+          },
+          {
+            "tau": 0.02,
+            "n_pred": 5,
+            "tp": 2,
+            "fp": 3,
+            "fn": 3,
+            "precision": 0.4,
+            "recall": 0.4,
+            "f1": 0.4000000000000001,
+            "offsets": [
+              0.0,
+              -10.0
+            ],
+            "median_offset": -5.0,
+            "mad_offset": 5.0,
+            "tau_mm": 20.0
+          },
+          {
+            "tau": 0.03,
+            "n_pred": 5,
+            "tp": 3,
+            "fp": 2,
+            "fn": 2,
+            "precision": 0.6,
+            "recall": 0.6,
+            "f1": 0.6,
+            "offsets": [
+              -1.0,
+              -10.0,
+              15.0
+            ],
+            "median_offset": -1.0,
+            "mad_offset": 9.0,
+            "tau_mm": 30.0
+          },
+          {
+            "tau": 0.05,
+            "n_pred": 5,
+            "tp": 3,
+            "fp": 2,
+            "fn": 2,
+            "precision": 0.6,
+            "recall": 0.6,
+            "f1": 0.6,
+            "offsets": [
+              -4.0,
+              -10.0,
+              15.0
+            ],
+            "median_offset": -4.0,
+            "mad_offset": 6.0,
+            "tau_mm": 50.0
+          },
+          {
+            "tau": 0.075,
+            "n_pred": 4,
+            "tp": 3,
+            "fp": 1,
+            "fn": 2,
+            "precision": 0.75,
+            "recall": 0.6,
+            "f1": 0.6666666666666665,
+            "offsets": [
+              3.0,
+              -10.0,
+              15.0
+            ],
+            "median_offset": 3.0,
+            "mad_offset": 12.0,
+            "tau_mm": 75.0
+          },
+          {
+            "tau": 0.1,
+            "n_pred": 4,
+            "tp": 4,
+            "fp": 0,
+            "fn": 1,
+            "precision": 1.0,
+            "recall": 0.8,
+            "f1": 0.888888888888889,
+            "offsets": [
+              3.0,
+              -10.0,
+              13.0,
+              13.0
+            ],
+            "median_offset": 8.0,
+            "mad_offset": 5.0,
+            "tau_mm": 100.0
+          }
+        ],
+        "contrast": {
+          "eligible": true,
+          "n_valid_approach": 16,
+          "d_at_onset_mm": 2.0189272247642,
+          "d_approach_mm": 2.411415373124875,
+          "ratio": 0.8372374362646355,
+          "difference_mm": -0.3924881483606752
+        },
+        "h2": {
+          "eligible": true,
+          "tau_star_mm": 50.0,
+          "detected": true,
+          "offset_frames": -4.0,
+          "argmin_offset_frames": -20.0,
+          "pre_onset_fp_count": 1,
+          "predicted_onsets_taustar": [
+            0,
+            26,
+            72,
+            131,
+            186
+          ]
+        },
+        "jerk_index_mm": null,
+        "jerk_thumb_mm": null,
+        "jerk_primary_mm": null
+      }
+    }
+  },
+  "d_series_path": "/root/data/exp26_scores_et/Outdoor__toss_and_catch_tennis_ball__20260319_203407_250_dseries.npz",
+  "b_rescale": {
+    "median_A_mm": 525.0866350944991,
+    "median_B_mm": 1391.6015625,
+    "rescale_factor": 0.3773254135696611
+  },
+  "provenance": {
+    "params": {
+      "taus_mm": [
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        30.0,
+        50.0,
+        75.0,
+        100.0
+      ],
+      "guard": 15,
+      "min_run": 3,
+      "min_gap": 15,
+      "match_window": 15,
+      "approach_window": [
+        90,
+        15
+      ],
+      "approach_min_valid": 5,
+      "tau_star_mm": 50.0,
+      "onset_tolerance": 2,
+      "conf_floor_pct": 30.0,
+      "max_points": 400000,
+      "dilate_frac": 0.2,
+      "index_tip": 8,
+      "thumb_tip": 4,
+      "root_idx": 9,
+      "window_max": 120,
+      "min_valid_direct": 10,
+      "min_valid_refit": 3,
+      "min_path_m": 0.05,
+      "min_zero_prefix": 5
+    },
+    "detector_roles": {
+      "a": "H3 jerk PRIMARY (EXP-22-verbatim pixel-depth lift; geometry degenerate by construction -- reported for context only elsewhere, scoring_prereg.md section 3)",
+      "b": "H1/H2 PRIMARY geometric detector (root-anchored MANO metric offset)"
+    },
+    "tau_sweep_note": "exploratory: F1 computed over ALL reference onsets (n_onsets), not just t0 -- later onsets scored against a static pre-t0 cloud are contaminated by object motion (scoring_prereg.md section 4). The frozen H2 primary statistic is cell.h2 (anchored on t0 only).",
+    "git_shas": {
+      "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+      "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+    },
+    "runtime_s": 11.63
+  }
+}

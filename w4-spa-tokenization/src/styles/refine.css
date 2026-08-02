@@ -1,0 +1,315 @@
+/*
+ * Refine-stage pilot page styles.
+ *
+ * TWO SOURCES, kept side by side on purpose (this is the actual bug the W4 bounty is about):
+ *
+ *   1. The `:root { --bg-primary: #E7E2D2; ... }` block below is copied verbatim from
+ *      apps/webserver/src/summary.css's `:root` — the app's own hand-rolled CSS custom
+ *      properties, hardcoded as raw hex/rgba. workflow.css (which the `.wf-*` rules below are
+ *      trimmed from) depends on these var names existing.
+ *   2. `packages/design` (this kit's `design/` folder) is the ACTUAL shared design-token source
+ *      of truth (`tokens.ts` → `cssVars` / `toCssRoot()`). Compare its `color.paper` (#e7e2d2),
+ *      `color.accent` (#0e7c8a), `color.signalWarn` (#a96f14) etc. against the hardcoded values
+ *      below — several are IDENTICAL (this page's `--bg-primary` and design's `--paper` are the
+ *      same #e7e2d2), some are close-but-not-quite (`--text-primary: #1a1a1a` vs. design's
+ *      `--ink: #211f1a`), and none of them are actually WIRED to the shared token package. That's
+ *      the drift the bounty task fixes: re-express this page's CSS through `@reality/design`'s
+ *      tokens (via `toCssRoot()` / CSS custom properties) instead of a second, hand-copied set of
+ *      the same colors.
+ *
+ * Scoped to ONLY what the Refine-stage pilot page (refine.html / src/refine.ts /
+ * src/refineStage.ts) actually renders — trimmed from the much larger summary.css (1075 lines)
+ * and workflow.css (646 lines) in the source app, which cover six other pages/stages this kit
+ * doesn't include. See README.md "What's in this repo" for the exact rule list this was
+ * extracted from.
+ */
+
+:root {
+  --bg-primary: #E7E2D2;
+  --bg-secondary: #DDD7C4;
+  --bg-card: rgba(0, 0, 0, 0.04);
+  --text-primary: #1a1a1a;
+  --text-secondary: #5c5a52;
+  --text-tertiary: #8a877d;
+  --accent-blue: #0e7c8a;
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-medium: rgba(0, 0, 0, 0.14);
+  --shadow-soft: 0 2px 12px rgba(0, 0, 0, 0.08);
+  --font-body: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Newsreader', Georgia, serif;
+  --font-mono: 'IBM Plex Mono', 'Monaco', monospace;
+
+  /* Signal colors — lifted straight from packages/design/tokens.ts's color.signalWarn/signalErr
+   * (see the file header above), since this page's :root above doesn't declare them. Only warn +
+   * err are used by the Refine stage's findings/errors; the stepper's ok/locked signals belong to
+   * workflow.css rules this pilot page doesn't include. */
+  --wf-signal-warn: #a96f14;
+  --wf-signal-err: #a23b2a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── This kit's own minimal host chrome (not part of the real app) ── */
+.pilot-topbar {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-secondary);
+}
+.pilot-topbar-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.pilot-topbar-sub {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+.pilot-page {
+  max-width: 640px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+/* ── Panel shell (trimmed from workflow.css .wf-panel*) ── */
+.wf-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 1.75rem 2rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.wf-panel-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin: 0 0 4px;
+}
+
+.wf-panel-sub {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin: 0 0 1.1rem;
+}
+
+.wf-panel-h3 {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-tertiary);
+  margin: 1.3rem 0 0.6rem;
+}
+
+.wf-panel-error {
+  color: var(--wf-signal-err);
+  font-size: 0.85rem;
+}
+
+.wf-empty {
+  color: var(--text-tertiary);
+  font-size: 0.85rem;
+}
+
+.wf-note {
+  margin-top: 1rem;
+  font-size: 0.78rem;
+  color: var(--text-tertiary);
+  line-height: 1.5;
+}
+
+.wf-note code {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+/* ── Findings ── */
+.wf-findings {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.wf-finding {
+  display: flex;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border-subtle);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.wf-finding-warn { border-color: rgba(169, 111, 20, 0.35); background: rgba(169, 111, 20, 0.07); }
+.wf-finding-info { border-color: var(--border-subtle); }
+
+.wf-finding-icon { flex: 0 0 auto; }
+.wf-finding-warn .wf-finding-icon { color: var(--wf-signal-warn); }
+.wf-finding-info .wf-finding-icon { color: var(--accent-blue); }
+
+.wf-finding-title { font-weight: 600; font-size: 0.85rem; }
+.wf-finding-detail { font-size: 0.78rem; color: var(--text-secondary); margin-top: 2px; }
+
+/* ── Actions ── */
+.wf-actions {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.wf-action {
+  padding: 10px 12px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+}
+
+.wf-action-desc {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin: 6px 0 0;
+}
+
+.wf-action-btn {
+  font-size: 0.8rem;
+  font-family: inherit;
+  padding: 7px 14px;
+  border-radius: 7px;
+  border: 1px solid var(--accent-blue);
+  background: var(--accent-blue);
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.wf-action-btn:disabled {
+  cursor: not-allowed;
+  border-color: var(--border-medium);
+  background: transparent;
+  color: var(--text-tertiary);
+}
+
+.wf-action-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.wf-inline-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.wf-number-input {
+  font-size: 0.8rem;
+  padding: 5px 7px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 5px;
+  width: 80px;
+}
+
+.wf-mini-btn {
+  font-size: 0.72rem;
+  padding: 4px 8px;
+  border-radius: 5px;
+  border: 1px solid var(--border-medium);
+  background: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+}
+
+.wf-inline-form {
+  margin-top: 0.75rem;
+  padding: 12px 14px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.wf-form-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.wf-form-row:last-of-type { margin-bottom: 0; }
+
+.wf-form-label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.72rem;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.wf-select {
+  font-size: 0.82rem;
+  padding: 6px 8px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--text-primary);
+  min-width: 160px;
+  text-transform: none;
+}
+
+/* ── Before / after ── */
+.wf-before-after {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 14px;
+  border: 1px dashed var(--border-medium);
+  border-radius: 8px;
+}
+
+.wf-before-after-inert { opacity: 0.6; }
+
+.wf-ba-col { display: flex; flex-direction: column; gap: 2px; }
+.wf-ba-label { font-family: var(--font-mono); font-size: 0.65rem; text-transform: uppercase; color: var(--text-tertiary); }
+.wf-ba-value { font-size: 1.1rem; font-weight: 600; }
+.wf-ba-arrow { color: var(--text-tertiary); }
+
+.wf-ba-meta {
+  margin: 0.6rem 0 0;
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+@media (max-width: 700px) {
+  .pilot-page { padding: 0 1rem; }
+  .wf-panel { padding: 1.25rem 1.25rem; }
+}

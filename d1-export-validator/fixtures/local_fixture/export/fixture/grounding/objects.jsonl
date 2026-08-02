@@ -1,0 +1,1 @@
+{"object_id": 0, "query": "laptop", "world_center": [1.0, 1.0, 1.0], "world_extent": [0.4, 0.3, 0.02], "confidence": 0.8, "description": null, "evidence": [{"submap_id": 0, "frame_idx": 2, "global_frame_index": 2}], "relations": []}

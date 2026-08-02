@@ -1,0 +1,36 @@
+{
+  "dataset": "hk_village1",
+  "streams": [
+    "color_image",
+    "lidar",
+    "odom"
+  ],
+  "fps_target": 10.0,
+  "camera": {
+    "n_frames": 1984,
+    "n_kept": 992,
+    "measured_fps_median": 14.28,
+    "span_s": 144.92,
+    "resolution": [
+      1280,
+      720
+    ],
+    "format": "ImageFormat.RGB"
+  },
+  "odom_stream": "odom",
+  "odom": {
+    "n_samples": 2616,
+    "rate_hz_median": 18.82,
+    "span_s": 146.53
+  },
+  "reference": {
+    "n_poses": 992,
+    "kept_frames_outside_odom_span": 0
+  },
+  "db_sha256": "ea5b839d7a2a523bf5cccec9a7fc1b834fa218c38e6ee05fffd7f58cfaf67aeb",
+  "extractor": {
+    "fps": 10.0,
+    "jpeg_quality": 95,
+    "version": 1
+  }
+}

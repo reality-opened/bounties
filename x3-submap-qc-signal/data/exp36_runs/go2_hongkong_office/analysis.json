@@ -1,0 +1,22 @@
+{
+  "cell": "go2_hongkong_office",
+  "n_matched_local": 1771,
+  "local_ate_rmse_m": 9.167535793682339,
+  "local_umeyama_scale": 6.560492594584916,
+  "extent_m": 31.807859375308833,
+  "gt_path_length_m": 221.5398814530448,
+  "ate_rmse_pct_extent": 28.82160564630366,
+  "ate_rmse_pct_path": 4.13809727330083,
+  "rotation_audit": {
+    "err_mean_high_rotation_m": 8.630989672210607,
+    "err_mean_low_rotation_m": 8.500081173640975,
+    "ratio_high_over_low": 1.0154008527560399,
+    "pearson_r_err_vs_angspeed": 0.02428292757878497
+  },
+  "gait_residual_check": {
+    "autocorr_2_4hz_peak": 0.9989557383000818,
+    "autocorr_first_min": 0.9795217275694889,
+    "flag_gait_signature": true
+  },
+  "note": "local audit numbers; OFFICIAL metrics = ate_rpe.json from frozen scorer"
+}

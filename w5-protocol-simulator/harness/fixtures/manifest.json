@@ -1,0 +1,11 @@
+{
+  "source": "mock",
+  "captured_at": null,
+  "notes": "Replace with live-worker captures by running npm run capture-fixtures with MODAL_WORKER_URL and MODAL_WORKER_TOKEN.",
+  "files": [
+    "slam_update.full.json",
+    "slam_update.incremental-1.json",
+    "slam_update.incremental-2.json",
+    "scene_report.ready.json"
+  ]
+}

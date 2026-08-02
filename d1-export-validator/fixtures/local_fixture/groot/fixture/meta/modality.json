@@ -1,0 +1,23 @@
+{
+  "state": {
+    "camera_pose": {
+      "start": 0,
+      "end": 7
+    }
+  },
+  "action": {
+    "ego_motion": {
+      "start": 0,
+      "end": 6
+    }
+  },
+  "video": {
+    "ego_view": {
+      "original_key": "observation.images.ego_view"
+    }
+  },
+  "annotation": {
+    "human.action.task_description": {},
+    "scene.caption": {}
+  }
+}

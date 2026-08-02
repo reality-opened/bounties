@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 200 200"
+     width="200"
+     height="200"
+     role="img"
+     aria-label="Open Reality logo animation: a flat tetrahedron net folding up into a 3D tetrahedron"
+     style="overflow: visible;">
+  <title>Open Reality</title>
+
+  <!--
+    ANIMATION CONCEPT
+    -----------------
+    A tetrahedron net (one big triangle subdivided into 4) folds up into a
+    3D tetrahedron. The center (inverted) triangle stays put as the base.
+    The three outer triangles each "hinge" along their shared edge with the
+    base, rotating from 0° (flat) to ~109.47° (the dihedral angle of a
+    regular tetrahedron) — but we render this in 2D as an isometric-style
+    fold by using transform-origin on each hinge edge and rotating the SVG
+    in 3D space via CSS transforms.
+
+    Approach: pure SVG + CSS, no JS. Each outer face is a <polygon> wrapped
+    in a <g> with its own transform-origin set to the midpoint of its hinge
+    edge. We use CSS @keyframes to drive a 3D rotateX/Y/Z that visually
+    reads as folding upward.
+
+    The result loops every ~6s: flat → folded → hold → flat (reversed).
+  -->
+
+  <style>
+    /* The whole logo group sits in 3D space. */
+    .logo-3d {
+      transform-origin: 100px 130px;
+      transform-style: preserve-3d;
+      animation: tilt 6s ease-in-out infinite;
+    }
+
+    @keyframes tilt {
+      0%, 100%   { transform: rotateX(0deg) rotateZ(0deg); }
+      40%, 70%   { transform: rotateX(-25deg) rotateZ(0deg); }
+    }
+
+    /* Each outer face hinges along one edge.
+       We give each face its own transform-origin (the midpoint of its hinge)
+       and animate a rotation around that edge's axis. */
+
+    .face-top {
+      /* Hinges along the line from (56,88) to (144,88). Axis is horizontal. */
+      transform-origin: 100px 88px;
+      transform-box: fill-box;
+      animation: fold-top 6s ease-in-out infinite;
+    }
+    @keyframes fold-top {
+      0%, 100%  { transform: rotateX(0deg); }
+      40%, 70%  { transform: rotateX(-110deg); }
+    }
+
+    .face-left {
+      /* Hinges along the line from (56,88) to (100,164). Axis tilts -60°. */
+      transform-origin: 78px 126px;
+      transform-box: fill-box;
+      animation: fold-left 6s ease-in-out infinite;
+    }
+    @keyframes fold-left {
+      0%, 100%  { transform: rotate(0deg) rotateX(0deg); }
+      40%, 70%  { transform: rotate(60deg) rotateX(-110deg) rotate(-60deg); }
+    }
+
+    .face-right {
+      /* Hinges along the line from (144,88) to (100,164). Axis tilts +60°. */
+      transform-origin: 122px 126px;
+      transform-box: fill-box;
+      animation: fold-right 6s ease-in-out infinite;
+    }
+    @keyframes fold-right {
+      0%, 100%  { transform: rotate(0deg) rotateX(0deg); }
+      40%, 70%  { transform: rotate(-60deg) rotateX(-110deg) rotate(60deg); }
+    }
+
+    /* Stroke and fill use currentColor so the logo inherits any text color
+       you set on its parent element. */
+    .net-outline { fill: none; stroke: currentColor; stroke-width: 5; stroke-linejoin: round; }
+    .net-fill    { fill: currentColor; stroke: currentColor; stroke-width: 5; stroke-linejoin: round; }
+
+    /* Respect users who prefer reduced motion: show the static folded state. */
+    @media (prefers-reduced-motion: reduce) {
+      .logo-3d, .face-top, .face-left, .face-right {
+        animation: none;
+      }
+    }
+  </style>
+
+  <g class="logo-3d">
+    <!-- Center (base) triangle: filled, stays in place -->
+    <polygon class="net-fill" points="56,88 144,88 100,164"/>
+
+    <!-- Top outer face: hinges on the (56,88)-(144,88) edge -->
+    <polygon class="face-top net-outline" points="100,12 56,88 144,88"/>
+
+    <!-- Bottom-left outer face: hinges on the (56,88)-(100,164) edge -->
+    <polygon class="face-left net-outline" points="12,164 56,88 100,164"/>
+
+    <!-- Bottom-right outer face: hinges on the (144,88)-(100,164) edge -->
+    <polygon class="face-right net-outline" points="188,164 144,88 100,164"/>
+  </g>
+</svg>

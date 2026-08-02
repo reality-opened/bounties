@@ -1,0 +1,428 @@
+/* Capture comparison — data fidelity. Two real-colour point clouds of the SAME
+   scanned object (a mug), shown side by side and orbitable. The story is
+   capture coverage, not confidence: a deliberate multi-view pass returns dense,
+   complete geometry; a casual single pass returns a sparse, noisy cloud with a
+   whole side missing. No confidence ramp, no "% flagged" / τ stat, no "%
+   trainable" — the only numbers shown are honest point counts as a coverage
+   signal, alongside the required CC-BY attribution for the demo object. */
+
+/* ── Reading key (the signature: swatches are tiny point clouds) ── */
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem 1.5rem;
+  margin: 1.5rem 0 0.85rem;
+  padding: 0.85rem 1.1rem;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-card);
+  background: var(--paper-raised);
+}
+
+.legendTitle {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-soft);
+}
+
+.legendKey {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.5rem;
+}
+
+.legendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.64rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
+}
+
+.legendSwatch {
+  display: inline-block;
+  width: 42px;
+  height: 18px;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+  background-color: var(--paper-bright);
+  /* a field of points rendered in CSS */
+  background-image: radial-gradient(
+    circle,
+    var(--ink-soft) 0.9px,
+    transparent 1.2px
+  );
+}
+
+/* Dense, complete: tight, even point field. */
+.legendDense {
+  background-size: 5px 5px;
+}
+
+/* Sparse + missing a side: wider spacing, faded to nothing on the right. */
+.legendSparse {
+  background-size: 9px 9px;
+  -webkit-mask-image: linear-gradient(90deg, #000 55%, transparent 100%);
+  mask-image: linear-gradient(90deg, #000 55%, transparent 100%);
+}
+
+/* ── Honesty disclaimer ── */
+
+.disclaimer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 0.7rem;
+  margin: 0 0 1.5rem;
+  max-width: 760px;
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: var(--ink-faint);
+}
+
+.disclaimerTag {
+  flex: none;
+  padding: 2px 8px;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+  background: var(--paper-bright);
+  color: var(--signal-warn);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ── Object selector — surveyor's-instrument segmented control ── */
+
+.selector {
+  display: flex;
+  align-items: stretch;
+  margin: 0 0 1.25rem;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: var(--paper-raised);
+}
+
+.selectorTab {
+  flex: 1;
+  padding: 0.6rem 0.9rem;
+  border: none;
+  border-right: 1px solid var(--border-medium);
+  background: transparent;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s;
+  text-align: center;
+}
+
+.selectorTab:last-child {
+  border-right: none;
+}
+
+.selectorTab:hover:not(.selectorTabActive) {
+  background: var(--paper-bright);
+  color: var(--ink-soft);
+}
+
+.selectorTabActive {
+  background: var(--paper-bright);
+  color: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .selectorTab {
+    transition: none;
+  }
+}
+
+/* ── Two-up viewer grid ── */
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-card);
+  background: var(--paper-raised);
+  overflow: hidden;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.7rem 0.95rem;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.cardLabel {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-soft);
+}
+
+.cardLabelAccent {
+  color: var(--accent);
+}
+
+.cardNote {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+}
+
+.cardMedia {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: var(--paper-bright);
+}
+
+.viewerCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+
+.viewerCanvas:active {
+  cursor: grabbing;
+}
+
+/* Static stand-in when WebGL is unavailable or ?lite=1 — keeps the card's
+   paper-bright field with a faint survey grid, no canvas. */
+.viewerFallback,
+.viewerFallback:active {
+  display: grid;
+  place-items: center;
+  cursor: default;
+  background:
+    linear-gradient(var(--border-soft) 1px, transparent 1px) 0 0 / 36px 36px,
+    linear-gradient(90deg, var(--border-soft) 1px, transparent 1px) 0 0 / 36px
+      36px,
+    var(--paper-bright);
+}
+
+.fallbackNote {
+  padding: 0 1rem;
+  color: var(--ink-faint);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* ── Specs: honest point count + a plain coverage descriptor ── */
+
+.specs {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0;
+  border-top: 1px solid var(--border-soft);
+}
+
+.specRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.5rem 0.95rem;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.specRow:last-child {
+  border-bottom: none;
+}
+
+.specTerm {
+  margin: 0;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.specVal {
+  margin: 0;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.specValWarn {
+  color: var(--signal-warn);
+}
+
+.cardCaption {
+  padding: 0.55rem 0.95rem 0.95rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.64rem;
+  line-height: 1.55;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+}
+
+/* ── "Where coverage breaks down": general context, not per-asset labels ── */
+
+.why {
+  margin: 1.6rem 0 0;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: var(--paper-raised);
+}
+
+.whyHead {
+  display: block;
+  padding: 0.7rem 0.95rem;
+  border-bottom: 1px solid var(--border-soft);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.64rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.whyList {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin: 0;
+}
+
+.whyItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.95rem;
+  border-right: 1px solid var(--border-soft);
+}
+
+.whyItem:last-child {
+  border-right: none;
+}
+
+.whyTerm {
+  margin: 0;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+}
+
+.whyBody {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+/* ── Takeaway ── */
+
+.takeaway {
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  margin-top: 1.4rem;
+  max-width: 760px;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.74rem;
+  line-height: 1.55;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+
+.takeawayMark {
+  color: var(--accent-bright);
+}
+
+/* ── CC-BY attribution for the demo object (required, visible) ── */
+
+.attribution {
+  margin: 1.2rem 0 0;
+  max-width: 760px;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.62rem;
+  line-height: 1.55;
+  letter-spacing: 0.03em;
+  color: var(--ink-faint);
+}
+
+.attributionLink {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.attributionLink:hover {
+  color: var(--accent-bright);
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 820px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .whyList {
+    grid-template-columns: 1fr;
+  }
+
+  .whyItem {
+    border-right: none;
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  .whyItem:last-child {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Stack selector tabs vertically on very narrow viewports. */
+  .selector {
+    flex-direction: column;
+  }
+
+  .selectorTab {
+    border-right: none;
+    border-bottom: 1px solid var(--border-medium);
+    text-align: left;
+  }
+
+  .selectorTab:last-child {
+    border-bottom: none;
+  }
+}

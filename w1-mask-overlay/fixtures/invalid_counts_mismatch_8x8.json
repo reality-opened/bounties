@@ -1,0 +1,25 @@
+{
+  "name": "invalid_counts_mismatch_8x8",
+  "description": "8x8 mask_rle with a truncated final run: counts sum to 61, but size[0]*size[1] = 64. Simulates a corrupt/truncated wire payload. decodeMaskRle must reject this, not return a short/zero-padded buffer.",
+  "valid": false,
+  "mask_rle": {
+    "size": [
+      8,
+      8
+    ],
+    "counts": [
+      18,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      15
+    ],
+    "order": "C"
+  },
+  "decoded": null,
+  "expected_error": "counts sum (61) does not match size[0]*size[1] (64)"
+}

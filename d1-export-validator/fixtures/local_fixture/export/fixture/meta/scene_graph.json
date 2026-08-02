@@ -1,0 +1,50 @@
+{
+  "metrics": {
+    "dimensions": [],
+    "bbox_min": [],
+    "bbox_max": [],
+    "trajectory_length": 2.1,
+    "num_submaps": 1,
+    "num_keyframes": 8,
+    "point_count": 0,
+    "vertical_axis_known": false
+  },
+  "objects": [
+    {
+      "query": "laptop",
+      "center": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "extent": [
+        0.4,
+        0.3,
+        0.02
+      ],
+      "confidence": 0.8,
+      "evidence": [
+        {
+          "submap_id": 0,
+          "frame_idx": 2,
+          "box_2d": null,
+          "mask_rle": null
+        }
+      ],
+      "description": null,
+      "human_label": null,
+      "dismissed": false
+    }
+  ],
+  "object_counts": {
+    "laptop": 1
+  },
+  "relations": [],
+  "coverage_estimate": 0.0,
+  "scene_center": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "units_note": "Coordinates and sizes are up-to-scale (SLAM world frame); not guaranteed metric."
+}

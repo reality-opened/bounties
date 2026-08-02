@@ -1,0 +1,104 @@
+{
+  "cell": "go2_short",
+  "ate": {
+    "n_gt": 428,
+    "n_est": 217,
+    "n_matched": 217,
+    "umeyama_scale": 2.685012056679631,
+    "umeyama_R": [
+      [
+        -0.13417768828247836,
+        -0.03350999687546377,
+        0.9903905432083732
+      ],
+      [
+        -0.990663358827686,
+        0.028876433900528065,
+        -0.13323761121183275
+      ],
+      [
+        -0.024134155121261894,
+        -0.9990211367506668,
+        -0.03707169920556671
+      ]
+    ],
+    "umeyama_t": [
+      -4.813365829045213,
+      12.26874178531332,
+      0.2504483510944043
+    ],
+    "gt_path_length": 38.375847114542914,
+    "matched_time_span": 57.566256046295166,
+    "rmse": 3.525826279367945,
+    "mean": 3.091012688270751,
+    "median": 3.1115195981314328,
+    "std": 1.6961991372568341,
+    "min": 0.1993915878979234,
+    "max": 8.61229553401549,
+    "est_path_length": 18.01271994990017,
+    "path_length_fraction": 0.46937647776572644
+  },
+  "rpe_trans_1s": {
+    "rot": false,
+    "n_gt": 428,
+    "n_est": 217,
+    "scale_aligned": true,
+    "delta": 1.0,
+    "delta_unit": "frames",
+    "n_pairs": 216,
+    "fallback_used": true,
+    "note": "requested delta_unit 's' yielded too few pairs; fell back to 1 frame",
+    "rmse": 0.1306177385076172,
+    "mean": 0.10447005585893179,
+    "median": 0.09276535638192532,
+    "std": 0.07840281271533527,
+    "min": 0.0,
+    "max": 0.43725429485223777
+  },
+  "rpe_rot_1s": {
+    "rot": true,
+    "n_gt": 428,
+    "n_est": 217,
+    "scale_aligned": true,
+    "delta": 1.0,
+    "delta_unit": "frames",
+    "n_pairs": 216,
+    "fallback_used": true,
+    "note": "requested delta_unit 's' yielded too few pairs; fell back to 1 frame",
+    "rmse": 5.0343904064145715,
+    "mean": 3.9826826903007064,
+    "median": 3.176464957873436,
+    "std": 3.0795008284749983,
+    "min": 7.062250076880254e-31,
+    "max": 19.262386566848544
+  },
+  "rot_ape_deg": {
+    "n_gt": 428,
+    "n_est": 217,
+    "n_matched": 217,
+    "umeyama_scale": 2.685012056679631,
+    "rmse": 64.2973975688632,
+    "mean": 55.214579306348114,
+    "median": 46.068162387385435,
+    "std": 32.947011490444005,
+    "min": 5.444594850448056,
+    "max": 115.84589362139835
+  },
+  "scale_window_variance": {
+    "global_scale": 2.6850120566796307,
+    "window_scale_mean": 5.88106144430221,
+    "window_scale_std": 1.0850296154987644,
+    "window_scale_cv": 0.18449554145535774,
+    "n_windows": 198,
+    "n_matched": 217
+  },
+  "coverage_ok": false,
+  "coverage_reasons": [
+    "path_length_fraction 0.469 < min_path_fraction 0.8"
+  ],
+  "metric_valid": false,
+  "metric_invalid_reason": "coverage gate failed",
+  "extent_m": 15.146264520363427,
+  "ate_rmse_pct_extent": 23.278520420844625,
+  "timeline_coverage_pct": 96.26913834551269
+}

@@ -1,0 +1,22 @@
+{
+  "cell": "hk_village5",
+  "tag": "",
+  "n_pose_sign_repairs": 0,
+  "n_poses_written": 471,
+  "export_errors": [
+    "submap 51: empty, skipped"
+  ],
+  "frames_total": 969,
+  "frames_kept": 444,
+  "submaps": 28,
+  "loop_closures": 11,
+  "total_time_s": 320.58,
+  "config": {
+    "submap_size": 16,
+    "max_loops": 1,
+    "min_disparity": 50.0,
+    "conf_threshold": 25.0,
+    "lc_thres": 0.95,
+    "downsample": 1
+  }
+}

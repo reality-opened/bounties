@@ -1,0 +1,27 @@
+{
+  "cell": "go2_bigoffice",
+  "tag": "",
+  "n_pose_sign_repairs": 319,
+  "n_poses_written": 690,
+  "export_errors": [
+    "submap 119: empty, skipped",
+    "submap 306: empty, skipped",
+    "submap 548: empty, skipped",
+    "submap 565: empty, skipped",
+    "submap 582: empty, skipped",
+    "submap 650: empty, skipped"
+  ],
+  "frames_total": 2075,
+  "frames_kept": 650,
+  "submaps": 41,
+  "loop_closures": 2,
+  "total_time_s": 149.24,
+  "config": {
+    "submap_size": 16,
+    "max_loops": 1,
+    "min_disparity": 50.0,
+    "conf_threshold": 25.0,
+    "lc_thres": 0.95,
+    "downsample": 1
+  }
+}

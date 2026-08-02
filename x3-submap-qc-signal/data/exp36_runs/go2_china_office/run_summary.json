@@ -1,0 +1,22 @@
+{
+  "cell": "go2_china_office",
+  "tag": "",
+  "n_pose_sign_repairs": 0,
+  "n_poses_written": 387,
+  "export_errors": [
+    "submap 17: empty, skipped"
+  ],
+  "frames_total": 963,
+  "frames_kept": 365,
+  "submaps": 23,
+  "loop_closures": 10,
+  "total_time_s": 187.15,
+  "config": {
+    "submap_size": 16,
+    "max_loops": 1,
+    "min_disparity": 50.0,
+    "conf_threshold": 25.0,
+    "lc_thres": 0.95,
+    "downsample": 1
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "cell": "markers_go2",
+  "tag": "",
+  "n_pose_sign_repairs": 0,
+  "n_poses_written": 217,
+  "export_errors": [],
+  "frames_total": 730,
+  "frames_kept": 205,
+  "submaps": 13,
+  "loop_closures": 11,
+  "total_time_s": 378.0,
+  "config": {
+    "submap_size": 16,
+    "max_loops": 1,
+    "min_disparity": 50.0,
+    "conf_threshold": 25.0,
+    "lc_thres": 0.95,
+    "downsample": 1
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "cell": "go2_bigoffice",
+  "their_map": "unitree_go2_bigoffice_map.pickle",
+  "their_points": 402339,
+  "our_points": 124,
+  "sim3_scale_applied": 4.612581451479651,
+  "icp_fitness": 0.9758064516129032,
+  "icp_inlier_rmse_m": 0.14473099134065798,
+  "icp_translation_norm_m": 0.517917802042163,
+  "pre_icp": {
+    "ours_to_theirs": {
+      "n": 124,
+      "median_m": 0.25325015866517764,
+      "rmse_m": 0.3441294305074776,
+      "p90_m": 0.5550431355322706,
+      "pct_within_0p10": 6.451612903225806,
+      "pct_within_0p25": 49.193548387096776,
+      "pct_within_0p50": 85.48387096774194
+    },
+    "theirs_to_ours": {
+      "n": 402339,
+      "median_m": 8.143497805825385,
+      "rmse_m": 9.82887644177704,
+      "p90_m": 15.490956556177117,
+      "pct_within_0p10": 0.004225292601512654,
+      "pct_within_0p25": 0.37530540166377113,
+      "pct_within_0p50": 1.490782648463112
+    }
+  },
+  "post_icp": {
+    "ours_to_theirs": {
+      "n": 124,
+      "median_m": 0.08561501804501935,
+      "rmse_m": 0.17073106800971352,
+      "p90_m": 0.2684300441662809,
+      "pct_within_0p10": 56.451612903225815,
+      "pct_within_0p25": 86.29032258064517,
+      "pct_within_0p50": 97.58064516129032
+    },
+    "theirs_to_ours": {
+      "n": 402339,
+      "median_m": 8.153748594205837,
+      "rmse_m": 9.864434957725233,
+      "p90_m": 15.608158486740326,
+      "pct_within_0p10": 0.22443760112740746,
+      "pct_within_0p25": 1.1037955554892764,
+      "pct_within_0p50": 2.035099754187389
+    }
+  },
+  "note": "validation (non-verdict). ours->theirs=precision, theirs->ours=coverage. Their premap is PGO-corrected; residual frame offset absorbed by ICP (norm reported)."
+}

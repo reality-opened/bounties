@@ -1,0 +1,27 @@
+{
+  "cell": "go2_bigoffice",
+  "tag": "lc080",
+  "n_pose_sign_repairs": 0,
+  "n_poses_written": 690,
+  "export_errors": [
+    "submap 119: empty, skipped",
+    "submap 306: empty, skipped",
+    "submap 544: empty, skipped",
+    "submap 561: empty, skipped",
+    "submap 578: empty, skipped",
+    "submap 646: empty, skipped"
+  ],
+  "frames_total": 2075,
+  "frames_kept": 650,
+  "submaps": 41,
+  "loop_closures": 0,
+  "total_time_s": 116.03,
+  "config": {
+    "submap_size": 16,
+    "max_loops": 1,
+    "min_disparity": 50.0,
+    "conf_threshold": 25.0,
+    "lc_thres": 0.8,
+    "downsample": 1
+  }
+}

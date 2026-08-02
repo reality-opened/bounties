@@ -1,0 +1,66 @@
+{
+  "schema_version": "openreality-export/0.1",
+  "scan_id": "fixture",
+  "fps": 10.0,
+  "coordinate_frame": "slam_world",
+  "up_to_scale": true,
+  "gravity_aligned": false,
+  "metric": false,
+  "units_note": "Coordinates/sizes are up-to-scale (SLAM world frame); not guaranteed metric.",
+  "features": {
+    "observation.images.ego_view": {
+      "dtype": "video",
+      "shape": [
+        240,
+        320,
+        3
+      ],
+      "names": [
+        "height",
+        "width",
+        "channel"
+      ]
+    },
+    "observation.state": {
+      "dtype": "float32",
+      "shape": [
+        7
+      ],
+      "names": [
+        "tx",
+        "ty",
+        "tz",
+        "qx",
+        "qy",
+        "qz",
+        "qw"
+      ]
+    },
+    "action": {
+      "dtype": "float32",
+      "shape": [
+        6
+      ],
+      "names": [
+        "dx",
+        "dy",
+        "dz",
+        "rx",
+        "ry",
+        "rz"
+      ]
+    },
+    "observation.intrinsics": {
+      "dtype": "float32",
+      "shape": [
+        4
+      ],
+      "names": [
+        "fx",
+        "fy",
+        "cx",
+        "cy"
+      ]
+    }
+  }
+}

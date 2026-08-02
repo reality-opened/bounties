@@ -1,0 +1,1116 @@
+{
+  "episode_id": "Home__twist_bottle_cap__20260320_141029_818",
+  "status": "OK",
+  "flags": [
+    "short_approach"
+  ],
+  "n_frames_used": 550,
+  "meta": {
+    "n_frames_ingest": 550,
+    "frame_hw": [
+      480,
+      640
+    ],
+    "video_fps": 30.0
+  },
+  "alignment": {
+    "window_source": "provenance",
+    "n_windows": 5,
+    "s_bar": 0.7105810095047836,
+    "alignment_degenerate": false,
+    "n_refit": 1,
+    "n_none": 0,
+    "windows": [
+      {
+        "start": 0,
+        "end": 120,
+        "n_valid": 120,
+        "fit_kind": "direct",
+        "refit": false,
+        "s": 0.8297265371708653,
+        "s_direct": 0.8297265371708653,
+        "ate_mm": 30.457415925312073,
+        "ate_mm_direct": 30.457415925312073,
+        "path_m": 0.41324794222663613,
+        "R": [
+          [
+            0.9793037247395823,
+            -0.06522715332845239,
+            -0.19159758135176777
+          ],
+          [
+            -0.18656061371559862,
+            -0.6579850728100234,
+            -0.7295551941897526
+          ],
+          [
+            -0.07848154000298356,
+            0.7502006814365438,
+            -0.6565360503817785
+          ]
+        ],
+        "t": [
+          0.8277022140917304,
+          0.15672781230965163,
+          0.08243613805351938
+        ]
+      },
+      {
+        "start": 120,
+        "end": 240,
+        "n_valid": 120,
+        "fit_kind": "direct",
+        "refit": false,
+        "s": 0.46650143423689766,
+        "s_direct": 0.46650143423689766,
+        "ate_mm": 5.367303605612742,
+        "ate_mm_direct": 5.367303605612742,
+        "path_m": 0.15026077039819666,
+        "R": [
+          [
+            0.9263867062550386,
+            0.23093112462751325,
+            -0.29745333441098454
+          ],
+          [
+            -0.22717142435860466,
+            -0.28726493130829334,
+            -0.9305224356216912
+          ],
+          [
+            -0.3003345042262444,
+            0.9295965118903545,
+            -0.21365746102690325
+          ]
+        ],
+        "t": [
+          0.7611780475899353,
+          0.1717842229295291,
+          0.10998169261902829
+        ]
+      },
+      {
+        "start": 240,
+        "end": 360,
+        "n_valid": 120,
+        "fit_kind": "refit",
+        "refit": true,
+        "s": 0.7105810095047836,
+        "s_direct": 0.2396601520360486,
+        "ate_mm": 34.96695029659763,
+        "ate_mm_direct": 11.945394580040142,
+        "path_m": 0.27133491230743645,
+        "R": [
+          [
+            0.9934592757938264,
+            -0.09070047997788848,
+            -0.06936923144296087
+          ],
+          [
+            -0.11270756805933005,
+            -0.6814216297688246,
+            -0.7231608165445295
+          ],
+          [
+            0.018321338416117456,
+            0.7262492584608813,
+            -0.6871872693405073
+          ]
+        ],
+        "t": [
+          0.797570851555821,
+          0.16161539726296725,
+          0.08485333941777205
+        ]
+      },
+      {
+        "start": 360,
+        "end": 480,
+        "n_valid": 120,
+        "fit_kind": "direct",
+        "refit": false,
+        "s": 0.7105810095047836,
+        "s_direct": 0.7105810095047836,
+        "ate_mm": 10.313648452158395,
+        "ate_mm_direct": 10.313648452158395,
+        "path_m": 0.22414393722859474,
+        "R": [
+          [
+            0.9447860615149241,
+            -0.11835030403003068,
+            -0.3055691468442405
+          ],
+          [
+            -0.2808353392515086,
+            -0.7729385300414856,
+            -0.5689442336510646
+          ],
+          [
+            -0.16885144415908168,
+            0.6233451967516128,
+            -0.7634984973738232
+          ]
+        ],
+        "t": [
+          0.7494083974891644,
+          0.16516344974123523,
+          0.1111792255934886
+        ]
+      },
+      {
+        "start": 480,
+        "end": 550,
+        "n_valid": 70,
+        "fit_kind": "direct",
+        "refit": false,
+        "s": 0.8021964371010422,
+        "s_direct": 0.8021964371010422,
+        "ate_mm": 28.530393226260305,
+        "ate_mm_direct": 28.530393226260305,
+        "path_m": 0.37069203358749314,
+        "R": [
+          [
+            0.9674433896731549,
+            -0.16492063596310613,
+            0.19197518488398707
+          ],
+          [
+            0.11316445764549958,
+            -0.39659873895192127,
+            -0.9109902555941783
+          ],
+          [
+            0.22637820854383559,
+            0.9030562685100365,
+            -0.36502367402842917
+          ]
+        ],
+        "t": [
+          0.6689526962289358,
+          0.10417212024167717,
+          0.03341758886771676
+        ]
+      }
+    ],
+    "global_fallback": {
+      "R": [
+        [
+          0.9786549037651815,
+          -0.037992428607303785,
+          0.20196820221233264
+        ],
+        [
+          0.16452138214420933,
+          -0.44409962703151024,
+          -0.8807430022928554
+        ],
+        [
+          0.12315556891071557,
+          0.8951715459279258,
+          -0.4283697108891862
+        ]
+      ],
+      "t": [
+        0.7643193909337317,
+        0.15702168650630566,
+        0.08632267345722851
+      ],
+      "s": 0.3498542100841865,
+      "ate_mm": 52.46667120430768,
+      "n_valid": 550,
+      "path_m": 1.441572344571695
+    }
+  },
+  "contacting_hand": "left",
+  "contacting_hand_scores": {
+    "left": 359,
+    "right": 308
+  },
+  "reference": {
+    "rule": "_contact_baseline_rel(sensor_left_sum + sensor_right_sum), EXP-22 verbatim; v2 onset = >=5 consecutive valid 0-frames immediately before a sustained >=3 1-run (scoring_prereg.md section 2)",
+    "n_onsets": 5,
+    "onsets": [
+      43,
+      96,
+      194,
+      209,
+      433
+    ],
+    "t0": 43,
+    "t0_eligible": true,
+    "t0_surface_frames": 28,
+    "n_contact_frames_baseline_rel": 340,
+    "n_contact_frames_ingest_frozen_threshold": 0
+  },
+  "surface_window": {
+    "end_frame": 28,
+    "n_frames": 28,
+    "guard": 15,
+    "cloud_A_n_points": 400000,
+    "cloud_B_n_points": 400000,
+    "cloud_A_per_window": {
+      "0": 400000
+    },
+    "cloud_B_per_window": {
+      "0": 400000
+    }
+  },
+  "scores": {
+    "A": {
+      "a": {
+        "n_valid_index": 545,
+        "n_valid_thumb": 545,
+        "n_valid_d": 545,
+        "tau_sweep_mm": [
+          {
+            "tau": 0.005,
+            "n_pred": 4,
+            "tp": 1,
+            "fp": 3,
+            "fn": 4,
+            "precision": 0.25,
+            "recall": 0.2,
+            "f1": 0.22222222222222224,
+            "offsets": [
+              -4.0
+            ],
+            "median_offset": -4.0,
+            "mad_offset": 0.0,
+            "tau_mm": 5.0
+          },
+          {
+            "tau": 0.01,
+            "n_pred": 3,
+            "tp": 0,
+            "fp": 3,
+            "fn": 5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": NaN,
+            "offsets": [],
+            "median_offset": NaN,
+            "mad_offset": NaN,
+            "tau_mm": 10.0
+          },
+          {
+            "tau": 0.015,
+            "n_pred": 4,
+            "tp": 0,
+            "fp": 4,
+            "fn": 5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": NaN,
+            "offsets": [],
+            "median_offset": NaN,
+            "mad_offset": NaN,
+            "tau_mm": 15.0
+          },
+          {
+            "tau": 0.02,
+            "n_pred": 5,
+            "tp": 1,
+            "fp": 4,
+            "fn": 4,
+            "precision": 0.2,
+            "recall": 0.2,
+            "f1": 0.20000000000000004,
+            "offsets": [
+              -12.0
+            ],
+            "median_offset": -12.0,
+            "mad_offset": 0.0,
+            "tau_mm": 20.0
+          },
+          {
+            "tau": 0.03,
+            "n_pred": 4,
+            "tp": 0,
+            "fp": 4,
+            "fn": 5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": NaN,
+            "offsets": [],
+            "median_offset": NaN,
+            "mad_offset": NaN,
+            "tau_mm": 30.0
+          },
+          {
+            "tau": 0.05,
+            "n_pred": 6,
+            "tp": 0,
+            "fp": 6,
+            "fn": 5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": NaN,
+            "offsets": [],
+            "median_offset": NaN,
+            "mad_offset": NaN,
+            "tau_mm": 50.0
+          },
+          {
+            "tau": 0.075,
+            "n_pred": 9,
+            "tp": 2,
+            "fp": 7,
+            "fn": 3,
+            "precision": 0.2222222222222222,
+            "recall": 0.4,
+            "f1": 0.2857142857142857,
+            "offsets": [
+              11.0,
+              -13.0
+            ],
+            "median_offset": -1.0,
+            "mad_offset": 12.0,
+            "tau_mm": 75.0
+          },
+          {
+            "tau": 0.1,
+            "n_pred": 11,
+            "tp": 1,
+            "fp": 10,
+            "fn": 4,
+            "precision": 0.09090909090909091,
+            "recall": 0.2,
+            "f1": 0.12500000000000003,
+            "offsets": [
+              8.0
+            ],
+            "median_offset": 8.0,
+            "mad_offset": 0.0,
+            "tau_mm": 100.0
+          }
+        ],
+        "contrast": {
+          "eligible": true,
+          "n_valid_approach": 29,
+          "d_at_onset_mm": 3.306120600568003,
+          "d_approach_mm": 14.176763518034038,
+          "ratio": 0.2332070078168645,
+          "difference_mm": -10.870642917466036
+        },
+        "h2": {
+          "eligible": true,
+          "tau_star_mm": 50.0,
+          "detected": false,
+          "offset_frames": null,
+          "argmin_offset_frames": -2.0,
+          "pre_onset_fp_count": 1,
+          "predicted_onsets_taustar": [
+            0,
+            258,
+            330,
+            345,
+            472,
+            512
+          ]
+        },
+        "jerk_index_mm": 40.02716492412436,
+        "jerk_thumb_mm": 19.861824832116092,
+        "jerk_primary_mm": 40.02716492412436
+      },
+      "b": {
+        "n_valid_index": 545,
+        "n_valid_thumb": 545,
+        "n_valid_d": 545,
+        "tau_sweep_mm": [
+          {
+            "tau": 0.005,
+            "n_pred": 2,
+            "tp": 0,
+            "fp": 2,
+            "fn": 5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": NaN,
+            "offsets": [],
+            "median_offset": NaN,
+            "mad_offset": NaN,
+            "tau_mm": 5.0
+          },
+          {
+            "tau": 0.01,
+            "n_pred": 6,
+            "tp": 2,
+            "fp": 4,
+            "fn": 3,
+            "precision": 0.3333333333333333,
+            "recall": 0.4,
+            "f1": 0.3636363636363636,
+            "offsets": [
+              7.0,
+              9.0
+            ],
+            "median_offset": 8.0,
+            "mad_offset": 1.0,
+            "tau_mm": 10.0
+          },
+          {
+            "tau": 0.015,
+            "n_pred": 7,
+            "tp": 3,
+            "fp": 4,
+            "fn": 2,
+            "precision": 0.42857142857142855,
+            "recall": 0.6,
+            "f1": 0.5,
+            "offsets": [
+              7.0,
+              9.0,
+              10.0
+            ],
+            "median_offset": 9.0,
+            "mad_offset": 1.0,
+            "tau_mm": 15.0
+          },
+          {
+            "tau": 0.02,
+            "n_pred": 8,
+            "tp": 3,
+            "fp": 5,
+            "fn": 2,
+            "precision": 0.375,
+            "recall": 0.6,
+            "f1": 0.4615384615384615,
+            "offsets": [
+              5.0,
+              9.0,
+              10.0
+            ],
+            "median_offset": 9.0,
+            "mad_offset": 1.0,
+            "tau_mm": 20.0
+          },
+          {
+            "tau": 0.03,
+            "n_pred": 14,
+            "tp": 3,
+            "fp": 11,
+            "fn": 2,
+            "precision": 0.21428571428571427,
+            "recall": 0.6,
+            "f1": 0.3157894736842105,
+            "offsets": [
+              3.0,
+              9.0,
+              -10.0
+            ],
+            "median_offset": 3.0,
+            "mad_offset": 6.0,
+            "tau_mm": 30.0
+          },
+          {
+            "tau": 0.05,
+            "n_pred": 10,
+            "tp": 2,
+            "fp": 8,
+            "fn": 3,
+            "precision": 0.2,
+            "recall": 0.4,
+            "f1": 0.26666666666666666,
+            "offsets": [
+              2.0,
+              9.0
+            ],
+            "median_offset": 5.5,
+            "mad_offset": 3.5,
+            "tau_mm": 50.0
+          },
+          {
+            "tau": 0.075,
+            "n_pred": 11,
+            "tp": 2,
+            "fp": 9,
+            "fn": 3,
+            "precision": 0.18181818181818182,
+            "recall": 0.4,
+            "f1": 0.25000000000000006,
+            "offsets": [
+              -2.0,
+              9.0
+            ],
+            "median_offset": 3.5,
+            "mad_offset": 5.5,
+            "tau_mm": 75.0
+          },
+          {
+            "tau": 0.1,
+            "n_pred": 9,
+            "tp": 1,
+            "fp": 8,
+            "fn": 4,
+            "precision": 0.1111111111111111,
+            "recall": 0.2,
+            "f1": 0.14285714285714285,
+            "offsets": [
+              8.0
+            ],
+            "median_offset": 8.0,
+            "mad_offset": 0.0,
+            "tau_mm": 100.0
+          }
+        ],
+        "contrast": {
+          "eligible": true,
+          "n_valid_approach": 29,
+          "d_at_onset_mm": 24.495720784192713,
+          "d_approach_mm": 34.64572166097512,
+          "ratio": 0.7070345084421967,
+          "difference_mm": -10.150000876782407
+        },
+        "h2": {
+          "eligible": true,
+          "tau_star_mm": 50.0,
+          "detected": false,
+          "offset_frames": null,
+          "argmin_offset_frames": 18.0,
+          "pre_onset_fp_count": 1,
+          "predicted_onsets_taustar": [
+            0,
+            105,
+            240,
+            258,
+            329,
+            396,
+            412,
+            435,
+            463,
+            512
+          ]
+        },
+        "jerk_index_mm": 64.66160699700477,
+        "jerk_thumb_mm": 75.94177231857641,
+        "jerk_primary_mm": 64.66160699700477
+      }
+    },
+    "B": {
+      "a": {
+        "n_valid_index": 545,
+        "n_valid_thumb": 545,
+        "n_valid_d": 545,
+        "tau_sweep_mm": [
+          {
+            "tau": 0.005,
+            "n_pred": 2,
+            "tp": 0,
+            "fp": 2,
+            "fn": 5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": NaN,
+            "offsets": [],
+            "median_offset": NaN,
+            "mad_offset": NaN,
+            "tau_mm": 5.0
+          },
+          {
+            "tau": 0.01,
+            "n_pred": 5,
+            "tp": 0,
+            "fp": 5,
+            "fn": 5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": NaN,
+            "offsets": [],
+            "median_offset": NaN,
+            "mad_offset": NaN,
+            "tau_mm": 10.0
+          },
+          {
+            "tau": 0.015,
+            "n_pred": 6,
+            "tp": 0,
+            "fp": 6,
+            "fn": 5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": NaN,
+            "offsets": [],
+            "median_offset": NaN,
+            "mad_offset": NaN,
+            "tau_mm": 15.0
+          },
+          {
+            "tau": 0.02,
+            "n_pred": 7,
+            "tp": 0,
+            "fp": 7,
+            "fn": 5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": NaN,
+            "offsets": [],
+            "median_offset": NaN,
+            "mad_offset": NaN,
+            "tau_mm": 20.0
+          },
+          {
+            "tau": 0.03,
+            "n_pred": 8,
+            "tp": 0,
+            "fp": 8,
+            "fn": 5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": NaN,
+            "offsets": [],
+            "median_offset": NaN,
+            "mad_offset": NaN,
+            "tau_mm": 30.0
+          },
+          {
+            "tau": 0.05,
+            "n_pred": 10,
+            "tp": 0,
+            "fp": 10,
+            "fn": 5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": NaN,
+            "offsets": [],
+            "median_offset": NaN,
+            "mad_offset": NaN,
+            "tau_mm": 50.0
+          },
+          {
+            "tau": 0.075,
+            "n_pred": 15,
+            "tp": 3,
+            "fp": 12,
+            "fn": 2,
+            "precision": 0.2,
+            "recall": 0.6,
+            "f1": 0.3,
+            "offsets": [
+              -2.0,
+              5.0,
+              7.0
+            ],
+            "median_offset": 5.0,
+            "mad_offset": 2.0,
+            "tau_mm": 75.0
+          },
+          {
+            "tau": 0.1,
+            "n_pred": 12,
+            "tp": 2,
+            "fp": 10,
+            "fn": 3,
+            "precision": 0.16666666666666666,
+            "recall": 0.4,
+            "f1": 0.23529411764705882,
+            "offsets": [
+              -2.0,
+              -9.0
+            ],
+            "median_offset": -5.5,
+            "mad_offset": 3.5,
+            "tau_mm": 100.0
+          }
+        ],
+        "contrast": {
+          "eligible": true,
+          "n_valid_approach": 29,
+          "d_at_onset_mm": 75.57257236843917,
+          "d_approach_mm": 48.59953815937973,
+          "ratio": 1.5550059780527694,
+          "difference_mm": 26.973034209059435
+        },
+        "h2": {
+          "eligible": true,
+          "tau_star_mm": 50.0,
+          "detected": false,
+          "offset_frames": null,
+          "argmin_offset_frames": 21.0,
+          "pre_onset_fp_count": 2,
+          "predicted_onsets_taustar": [
+            0,
+            26,
+            62,
+            273,
+            356,
+            372,
+            388,
+            449,
+            512,
+            536
+          ]
+        },
+        "jerk_index_mm": 136.68063490436128,
+        "jerk_thumb_mm": 128.5971301227519,
+        "jerk_primary_mm": 136.68063490436128
+      },
+      "b": {
+        "n_valid_index": 545,
+        "n_valid_thumb": 545,
+        "n_valid_d": 545,
+        "tau_sweep_mm": [
+          {
+            "tau": 0.005,
+            "n_pred": 0,
+            "tp": 0,
+            "fp": 0,
+            "fn": 5,
+            "precision": NaN,
+            "recall": 0.0,
+            "f1": NaN,
+            "offsets": [],
+            "median_offset": NaN,
+            "mad_offset": NaN,
+            "tau_mm": 5.0
+          },
+          {
+            "tau": 0.01,
+            "n_pred": 0,
+            "tp": 0,
+            "fp": 0,
+            "fn": 5,
+            "precision": NaN,
+            "recall": 0.0,
+            "f1": NaN,
+            "offsets": [],
+            "median_offset": NaN,
+            "mad_offset": NaN,
+            "tau_mm": 10.0
+          },
+          {
+            "tau": 0.015,
+            "n_pred": 0,
+            "tp": 0,
+            "fp": 0,
+            "fn": 5,
+            "precision": NaN,
+            "recall": 0.0,
+            "f1": NaN,
+            "offsets": [],
+            "median_offset": NaN,
+            "mad_offset": NaN,
+            "tau_mm": 15.0
+          },
+          {
+            "tau": 0.02,
+            "n_pred": 1,
+            "tp": 1,
+            "fp": 0,
+            "fn": 4,
+            "precision": 1.0,
+            "recall": 0.2,
+            "f1": 0.33333333333333337,
+            "offsets": [
+              4.0
+            ],
+            "median_offset": 4.0,
+            "mad_offset": 0.0,
+            "tau_mm": 20.0
+          },
+          {
+            "tau": 0.03,
+            "n_pred": 2,
+            "tp": 1,
+            "fp": 1,
+            "fn": 4,
+            "precision": 0.5,
+            "recall": 0.2,
+            "f1": 0.28571428571428575,
+            "offsets": [
+              4.0
+            ],
+            "median_offset": 4.0,
+            "mad_offset": 0.0,
+            "tau_mm": 30.0
+          },
+          {
+            "tau": 0.05,
+            "n_pred": 3,
+            "tp": 1,
+            "fp": 2,
+            "fn": 4,
+            "precision": 0.3333333333333333,
+            "recall": 0.2,
+            "f1": 0.25,
+            "offsets": [
+              4.0
+            ],
+            "median_offset": 4.0,
+            "mad_offset": 0.0,
+            "tau_mm": 50.0
+          },
+          {
+            "tau": 0.075,
+            "n_pred": 6,
+            "tp": 1,
+            "fp": 5,
+            "fn": 4,
+            "precision": 0.16666666666666666,
+            "recall": 0.2,
+            "f1": 0.1818181818181818,
+            "offsets": [
+              -5.0
+            ],
+            "median_offset": -5.0,
+            "mad_offset": 0.0,
+            "tau_mm": 75.0
+          },
+          {
+            "tau": 0.1,
+            "n_pred": 8,
+            "tp": 2,
+            "fp": 6,
+            "fn": 3,
+            "precision": 0.25,
+            "recall": 0.4,
+            "f1": 0.3076923076923077,
+            "offsets": [
+              -5.0,
+              12.0
+            ],
+            "median_offset": 3.5,
+            "mad_offset": 8.5,
+            "tau_mm": 100.0
+          }
+        ],
+        "contrast": {
+          "eligible": true,
+          "n_valid_approach": 29,
+          "d_at_onset_mm": 75.848811930822,
+          "d_approach_mm": 47.307266299189834,
+          "ratio": 1.6033226576890778,
+          "difference_mm": 28.541545631632157
+        },
+        "h2": {
+          "eligible": true,
+          "tau_star_mm": 50.0,
+          "detected": false,
+          "offset_frames": null,
+          "argmin_offset_frames": -31.0,
+          "pre_onset_fp_count": 1,
+          "predicted_onsets_taustar": [
+            0,
+            100,
+            280
+          ]
+        },
+        "jerk_index_mm": 81.82341293709736,
+        "jerk_thumb_mm": 85.13140222788506,
+        "jerk_primary_mm": 81.82341293709736
+      }
+    },
+    "Brs": {
+      "b": {
+        "n_valid_index": 545,
+        "n_valid_thumb": 545,
+        "n_valid_d": 545,
+        "tau_sweep_mm": [
+          {
+            "tau": 0.005,
+            "n_pred": 0,
+            "tp": 0,
+            "fp": 0,
+            "fn": 5,
+            "precision": NaN,
+            "recall": 0.0,
+            "f1": NaN,
+            "offsets": [],
+            "median_offset": NaN,
+            "mad_offset": NaN,
+            "tau_mm": 5.0
+          },
+          {
+            "tau": 0.01,
+            "n_pred": 2,
+            "tp": 0,
+            "fp": 2,
+            "fn": 5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": NaN,
+            "offsets": [],
+            "median_offset": NaN,
+            "mad_offset": NaN,
+            "tau_mm": 10.0
+          },
+          {
+            "tau": 0.015,
+            "n_pred": 6,
+            "tp": 2,
+            "fp": 4,
+            "fn": 3,
+            "precision": 0.3333333333333333,
+            "recall": 0.4,
+            "f1": 0.3636363636363636,
+            "offsets": [
+              4.0,
+              -7.0
+            ],
+            "median_offset": -1.5,
+            "mad_offset": 5.5,
+            "tau_mm": 15.0
+          },
+          {
+            "tau": 0.02,
+            "n_pred": 6,
+            "tp": 2,
+            "fp": 4,
+            "fn": 3,
+            "precision": 0.3333333333333333,
+            "recall": 0.4,
+            "f1": 0.3636363636363636,
+            "offsets": [
+              4.0,
+              -8.0
+            ],
+            "median_offset": -2.0,
+            "mad_offset": 6.0,
+            "tau_mm": 20.0
+          },
+          {
+            "tau": 0.03,
+            "n_pred": 5,
+            "tp": 1,
+            "fp": 4,
+            "fn": 4,
+            "precision": 0.2,
+            "recall": 0.2,
+            "f1": 0.20000000000000004,
+            "offsets": [
+              4.0
+            ],
+            "median_offset": 4.0,
+            "mad_offset": 0.0,
+            "tau_mm": 30.0
+          },
+          {
+            "tau": 0.05,
+            "n_pred": 5,
+            "tp": 1,
+            "fp": 4,
+            "fn": 4,
+            "precision": 0.2,
+            "recall": 0.2,
+            "f1": 0.20000000000000004,
+            "offsets": [
+              4.0
+            ],
+            "median_offset": 4.0,
+            "mad_offset": 0.0,
+            "tau_mm": 50.0
+          },
+          {
+            "tau": 0.075,
+            "n_pred": 9,
+            "tp": 1,
+            "fp": 8,
+            "fn": 4,
+            "precision": 0.1111111111111111,
+            "recall": 0.2,
+            "f1": 0.14285714285714285,
+            "offsets": [
+              -5.0
+            ],
+            "median_offset": -5.0,
+            "mad_offset": 0.0,
+            "tau_mm": 75.0
+          },
+          {
+            "tau": 0.1,
+            "n_pred": 10,
+            "tp": 1,
+            "fp": 9,
+            "fn": 4,
+            "precision": 0.1,
+            "recall": 0.2,
+            "f1": 0.13333333333333333,
+            "offsets": [
+              -10.0
+            ],
+            "median_offset": -10.0,
+            "mad_offset": 0.0,
+            "tau_mm": 100.0
+          }
+        ],
+        "contrast": {
+          "eligible": true,
+          "n_valid_approach": 29,
+          "d_at_onset_mm": 9.36966325932509,
+          "d_approach_mm": 28.323938716101726,
+          "ratio": 0.3308036835286111,
+          "difference_mm": -18.954275456776635
+        },
+        "h2": {
+          "eligible": true,
+          "tau_star_mm": 50.0,
+          "detected": false,
+          "offset_frames": null,
+          "argmin_offset_frames": 4.0,
+          "pre_onset_fp_count": 1,
+          "predicted_onsets_taustar": [
+            9,
+            71,
+            100,
+            274,
+            480
+          ]
+        },
+        "jerk_index_mm": null,
+        "jerk_thumb_mm": null,
+        "jerk_primary_mm": null
+      }
+    }
+  },
+  "d_series_path": "/root/data/exp26_scores_et/Home__twist_bottle_cap__20260320_141029_818_dseries.npz",
+  "b_rescale": {
+    "median_A_mm": 875.1022071723969,
+    "median_B_mm": 1997.0703125,
+    "rescale_factor": 0.4381929878457381
+  },
+  "provenance": {
+    "params": {
+      "taus_mm": [
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        30.0,
+        50.0,
+        75.0,
+        100.0
+      ],
+      "guard": 15,
+      "min_run": 3,
+      "min_gap": 15,
+      "match_window": 15,
+      "approach_window": [
+        90,
+        15
+      ],
+      "approach_min_valid": 5,
+      "tau_star_mm": 50.0,
+      "onset_tolerance": 2,
+      "conf_floor_pct": 30.0,
+      "max_points": 400000,
+      "dilate_frac": 0.2,
+      "index_tip": 8,
+      "thumb_tip": 4,
+      "root_idx": 9,
+      "window_max": 120,
+      "min_valid_direct": 10,
+      "min_valid_refit": 3,
+      "min_path_m": 0.05,
+      "min_zero_prefix": 5
+    },
+    "detector_roles": {
+      "a": "H3 jerk PRIMARY (EXP-22-verbatim pixel-depth lift; geometry degenerate by construction -- reported for context only elsewhere, scoring_prereg.md section 3)",
+      "b": "H1/H2 PRIMARY geometric detector (root-anchored MANO metric offset)"
+    },
+    "tau_sweep_note": "exploratory: F1 computed over ALL reference onsets (n_onsets), not just t0 -- later onsets scored against a static pre-t0 cloud are contaminated by object motion (scoring_prereg.md section 4). The frozen H2 primary statistic is cell.h2 (anchored on t0 only).",
+    "git_shas": {
+      "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+      "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+    },
+    "runtime_s": 32.67
+  }
+}

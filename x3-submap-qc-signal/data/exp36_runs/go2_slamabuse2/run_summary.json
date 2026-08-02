@@ -1,0 +1,26 @@
+{
+  "cell": "go2_slamabuse2",
+  "tag": "",
+  "n_pose_sign_repairs": 0,
+  "n_poses_written": 693,
+  "export_errors": [
+    "submap 51: empty, skipped",
+    "submap 68: empty, skipped",
+    "submap 265: empty, skipped",
+    "submap 607: empty, skipped",
+    "submap 626: empty, skipped"
+  ],
+  "frames_total": 1763,
+  "frames_kept": 653,
+  "submaps": 41,
+  "loop_closures": 31,
+  "total_time_s": 582.71,
+  "config": {
+    "submap_size": 16,
+    "max_loops": 1,
+    "min_disparity": 50.0,
+    "conf_threshold": 25.0,
+    "lc_thres": 0.95,
+    "downsample": 1
+  }
+}

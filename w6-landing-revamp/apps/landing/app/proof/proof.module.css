@@ -1,0 +1,443 @@
+/* /proof — full EXP-21 benchmark page. Built on the shared surveyor's-instrument
+   tokens (globals.css); "lab report" register — numbers always mono + tabular-nums,
+   traffic-light verdicts via --signal-*, figure plates on a fixed-light ground so
+   the matplotlib PNGs read the same in either theme. */
+
+.page {
+  padding: clamp(120px, 15vw, 168px) 0 96px;
+}
+
+/* ── Verdict tone ── */
+.win { --tone: var(--signal-ok); }
+.tie { --tone: var(--signal-warn); }
+.loss { --tone: var(--signal-err); }
+.neutral { --tone: var(--ink-faint); }
+
+/* ── Masthead ── */
+.mast {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.eyebrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 20px;
+  color: var(--ink-soft);
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.pill {
+  padding: 3px 9px;
+  color: var(--signal-ok);
+  border: 1px solid color-mix(in srgb, var(--signal-ok) 55%, transparent);
+  border-radius: var(--radius);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+
+.title {
+  margin: 0 0 20px;
+  color: var(--ink);
+  font-family: var(--font-display), serif;
+  font-size: clamp(40px, 6vw, 68px);
+  font-weight: 500;
+  line-height: 1.0;
+  letter-spacing: -0.015em;
+}
+
+.title em {
+  font-style: italic;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.thesis {
+  margin: 0 0 30px;
+  max-width: 62ch;
+  color: var(--ink-soft);
+  font-family: var(--font-display), serif;
+  font-size: clamp(17px, 2.2vw, 22px);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.metarow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1px;
+  margin: 0;
+  background: var(--border-soft);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
+.metacell {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 16px;
+  margin: 0;
+  background: var(--paper-bright);
+}
+
+.metaLabel {
+  color: var(--ink-faint);
+  font-family: var(--font-mono), monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.metaVal {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-mono), monospace;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* ── Verdict strip ── */
+.strip {
+  list-style: none;
+  margin: 0 0 clamp(2.5rem, 5vw, 4rem);
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 10px;
+}
+
+.chip {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  background: var(--paper-bright);
+  border: 1px solid var(--border-soft);
+  border-left: 2px solid var(--tone);
+  border-radius: var(--radius-card);
+}
+
+.chipTag {
+  color: var(--ink-faint);
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.chipVerdict {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--tone);
+  font-family: var(--font-display), serif;
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 500;
+  line-height: 1.05;
+}
+
+.dot {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  background: var(--tone);
+  border-radius: 1px;
+}
+
+.chipNote {
+  color: var(--ink-soft);
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+
+/* ── Sections ── */
+.sec {
+  padding: clamp(2rem, 4vw, 3.25rem) 0;
+  border-top: 1px solid var(--border-soft);
+}
+
+.secTag {
+  margin: 0 0 12px;
+  color: var(--accent);
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.secTitle {
+  margin: 0 0 16px;
+  color: var(--ink);
+  font-family: var(--font-display), serif;
+  font-size: clamp(28px, 3.6vw, 44px);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.01em;
+}
+
+.lede {
+  margin: 0 0 28px;
+  max-width: 70ch;
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.lede b {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* ── Tables ── */
+.tblWrap {
+  margin: 0 0 24px;
+  overflow-x: auto;
+}
+
+.tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.tbl th {
+  padding: 10px 14px;
+  color: var(--ink-faint);
+  text-align: left;
+  border-bottom: 1px solid var(--border-medium);
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.tbl td {
+  padding: 13px 14px;
+  color: var(--ink-soft);
+  border-bottom: 1px dotted var(--border-soft);
+  vertical-align: top;
+}
+
+.tbl tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.tbl td:first-child {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.num {
+  text-align: right;
+  font-family: var(--font-mono), monospace;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.best {
+  color: var(--signal-ok);
+  font-weight: 600;
+}
+
+.muted {
+  color: var(--ink-faint);
+}
+
+.cellDetail {
+  display: block;
+  margin-top: 3px;
+  color: var(--ink-faint);
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.tagCell {
+  display: inline-block;
+  padding: 3px 9px;
+  color: var(--tone);
+  background: color-mix(in srgb, var(--tone) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--tone) 45%, transparent);
+  border-radius: var(--radius);
+  font-family: var(--font-mono), monospace;
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.unit {
+  margin: 12px 0 0;
+  color: var(--ink-faint);
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ── Callout ── */
+.callout {
+  padding: 18px 20px;
+  background: color-mix(in srgb, var(--tone) 8%, var(--paper-bright));
+  border: 1px solid var(--border-soft);
+  border-left: 3px solid var(--tone);
+  border-radius: var(--radius-card);
+}
+
+.calloutLabel {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--tone);
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.calloutText {
+  margin: 0;
+  max-width: 70ch;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.calloutText b {
+  color: var(--ink);
+  font-family: var(--font-mono), monospace;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Figure plates (fixed light ground for the matplotlib PNGs) ── */
+.figRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 14px;
+  margin-top: 4px;
+}
+
+.figThree {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.plate {
+  margin: 0;
+  padding: 14px;
+  background: #f3efe4;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-card);
+}
+
+.plateImg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 1px;
+}
+
+.plateCap {
+  margin-top: 10px;
+  color: #5c5748;
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* ── Honesty list ── */
+.honesty {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+}
+
+.honestyItem {
+  position: relative;
+  padding: 16px 0 16px 26px;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--border-soft);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.honestyItem:last-child {
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.honestyItem::before {
+  content: "";
+  position: absolute;
+  top: 21px;
+  left: 2px;
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--accent);
+  border-radius: 1px;
+}
+
+.honestyItem b {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* ── Foot ── */
+.foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding-top: 22px;
+  border-top: 1px solid var(--border-soft);
+}
+
+.reproduce {
+  margin: 0;
+  color: var(--ink-faint);
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+}
+
+.reproduce code {
+  color: var(--ink-soft);
+}
+
+.backLink {
+  color: var(--accent);
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  font-family: var(--font-mono), monospace;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: var(--transition);
+}
+
+.backLink:hover {
+  border-bottom-color: var(--accent);
+}
+
+/* ── Responsive ── */
+@media (max-width: 720px) {
+  .figThree {
+    grid-template-columns: 1fr;
+  }
+}

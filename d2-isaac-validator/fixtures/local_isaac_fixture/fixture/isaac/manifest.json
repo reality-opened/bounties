@@ -1,0 +1,59 @@
+{
+  "schema_version": "openreality-isaac/0.1",
+  "scan_id": "fixture",
+  "fps": 10.0,
+  "num_keyframes": 3,
+  "scene_usd": "scene.usd",
+  "trajectory_usd": "trajectory.usd",
+  "alignment": {
+    "transform": [
+      [
+        0.25,
+        0.0,
+        0.0,
+        -0.007975985895847974
+      ],
+      [
+        0.0,
+        0.25,
+        0.0,
+        0.012707305200682539
+      ],
+      [
+        0.0,
+        0.0,
+        0.25,
+        -0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "scale": 0.25,
+    "scale_source": "user:factor",
+    "metric": true,
+    "up_axis": "Z",
+    "meters_per_unit": 1.0,
+    "gravity_aligned": true,
+    "up_vector_slam": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "floor_inlier_fraction": 0.8333333333333334,
+    "gravity_source": "floor_plane",
+    "recentered_xy": true
+  },
+  "geometry": {
+    "representation": "mesh",
+    "num_vertices": 5637,
+    "num_faces": 11082,
+    "num_points": 0,
+    "has_collision": true,
+    "reconstruction": "poisson"
+  },
+  "notes": ""
+}

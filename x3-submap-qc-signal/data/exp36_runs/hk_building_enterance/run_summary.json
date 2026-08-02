@@ -1,0 +1,29 @@
+{
+  "cell": "hk_building_enterance",
+  "tag": "",
+  "n_pose_sign_repairs": 0,
+  "n_poses_written": 325,
+  "export_errors": [
+    "submap 34: empty, skipped",
+    "submap 85: empty, skipped",
+    "submap 102: empty, skipped",
+    "submap 138: empty, skipped",
+    "submap 155: empty, skipped",
+    "submap 172: empty, skipped",
+    "submap 276: empty, skipped",
+    "submap 310: empty, skipped"
+  ],
+  "frames_total": 876,
+  "frames_kept": 306,
+  "submaps": 20,
+  "loop_closures": 4,
+  "total_time_s": 371.14,
+  "config": {
+    "submap_size": 16,
+    "max_loops": 1,
+    "min_disparity": 50.0,
+    "conf_threshold": 25.0,
+    "lc_thres": 0.95,
+    "downsample": 1
+  }
+}

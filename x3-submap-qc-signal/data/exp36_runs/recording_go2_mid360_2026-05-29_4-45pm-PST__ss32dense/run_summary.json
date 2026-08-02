@@ -1,0 +1,32 @@
+{
+  "cell": "recording_go2_mid360_2026-05-29_4-45pm-PST",
+  "tag": "ss32dense",
+  "n_pose_sign_repairs": 0,
+  "n_poses_written": 2589,
+  "export_errors": [
+    "submap 270: empty, skipped",
+    "submap 637: empty, skipped",
+    "submap 670: empty, skipped",
+    "submap 773: empty, skipped",
+    "submap 942: empty, skipped",
+    "submap 1010: empty, skipped",
+    "submap 1043: empty, skipped",
+    "submap 1484: empty, skipped",
+    "submap 1519: empty, skipped",
+    "submap 1554: empty, skipped",
+    "submap 1898: empty, skipped"
+  ],
+  "frames_total": 5562,
+  "frames_kept": 2511,
+  "submaps": 79,
+  "loop_closures": 40,
+  "total_time_s": 534.91,
+  "config": {
+    "submap_size": 32,
+    "max_loops": 1,
+    "min_disparity": 25.0,
+    "conf_threshold": 25.0,
+    "lc_thres": 0.95,
+    "downsample": 1
+  }
+}

@@ -1,0 +1,8 @@
+# Deps to run scripts/make_local_export_fixture.py and reference/inspect_export.py.
+# Whatever schema/jsonschema library you pick for the validator itself is on top of this.
+numpy
+scipy
+pandas
+pyarrow
+opencv-python-headless
+pydantic

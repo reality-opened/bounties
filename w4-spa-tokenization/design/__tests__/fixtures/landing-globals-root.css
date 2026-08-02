@@ -1,0 +1,35 @@
+/*
+ * Fixture copy of the `:root { ... }` block from apps/landing/app/globals.css (captured at kit
+ * assembly time), used ONLY so ../tokens.test.ts has something to parity-check against without
+ * pulling in the actual apps/landing app (out of scope for this kit — see ../../README.md,
+ * "design/ tokens test" section, for why this file exists instead of the original test's
+ * `../../apps/landing/app/globals.css` read).
+ *
+ * If you change packages/design/tokens.ts's `cssVars` in the real platform repo, this fixture
+ * will drift from the real landing/app/globals.css — that's expected and fine inside this kit;
+ * it is not read by anything outside ../tokens.test.ts.
+ */
+:root {
+  --paper: #e7e2d2;
+  --paper-raised: #eeeadc;
+  --paper-bright: #f6f3e8;
+  --ink: #211f1a;
+  --ink-soft: #56524a;
+  --ink-faint: #8b8678;
+  --text-on-accent: #f6f3e8;
+
+  --accent: #0e7c8a; /* readable teal: text + borders */
+  --accent-bright: #0aa5b5; /* ticks and marks only, never long text */
+
+  --signal-ok: #3d7a4a;
+  --signal-warn: #a96f14;
+  --signal-err: #a23b2a;
+
+  --border-soft: rgba(33, 31, 26, 0.16);
+  --border-medium: rgba(33, 31, 26, 0.32);
+  --border-strong: rgba(33, 31, 26, 0.55);
+
+  --radius: 2px;
+  --radius-card: 3px;
+  --transition: all 0.18s ease;
+}

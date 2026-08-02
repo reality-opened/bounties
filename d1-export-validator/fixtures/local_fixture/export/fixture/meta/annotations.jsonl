@@ -1,0 +1,2 @@
+{"frame_start": 0, "frame_end": 7, "channel": "scene.caption", "text": "A small synthetic office.", "evidence": null}
+{"frame_start": 0, "frame_end": 5, "channel": "object.caption", "text": "laptop", "evidence": {"submap_id": 0, "frame_idx": 2}}

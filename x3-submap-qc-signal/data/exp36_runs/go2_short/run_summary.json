@@ -1,0 +1,16 @@
+{
+  "cell": "go2_short",
+  "frames_total": 428,
+  "frames_kept": 99,
+  "submaps": 7,
+  "loop_closures": 0,
+  "total_time_s": 135.6,
+  "config": {
+    "submap_size": 16,
+    "max_loops": 1,
+    "min_disparity": 50.0,
+    "conf_threshold": 25.0,
+    "lc_thres": 0.95,
+    "downsample": 1
+  }
+}

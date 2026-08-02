@@ -1,0 +1,510 @@
+/* Spatial Agent demo — calm "surveyor's instrument" on paper, with a dark ink
+   viewer card. On the canvas: a caption (what this is), a legend (what the
+   marks mean), 3D-anchored object labels, and a narration log synced to the
+   simulated sweep. Dark-teal chips keep overlays readable over the point cloud
+   (mirrors MotionTracking's overlay treatment). */
+
+/* Stage: viewer + log side by side; the log overlaps on the right at wide
+   widths, then drops below the viewer on narrow screens. */
+.stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: stretch;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: #16150f;
+}
+
+.viewerCard {
+  position: relative;
+  min-height: 480px;
+  background: #16150f;
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+
+.canvas:active {
+  cursor: grabbing;
+}
+
+.canvas canvas {
+  display: block;
+}
+
+/* Static stand-in when WebGL is unavailable or ?lite=1 — the ink field keeps a
+   faint survey grid; the log panel carries the sweep narrative instead. */
+.canvasFallback,
+.canvasFallback:active {
+  display: grid;
+  place-items: center;
+  cursor: default;
+  background:
+    radial-gradient(
+      ellipse 75% 60% at 50% 42%,
+      rgba(14, 124, 138, 0.14),
+      transparent 65%
+    ),
+    linear-gradient(rgba(246, 243, 232, 0.05) 1px, transparent 1px) 0 0 / 44px
+      44px,
+    linear-gradient(90deg, rgba(246, 243, 232, 0.05) 1px, transparent 1px) 0 0 /
+      44px 44px,
+    #16150f;
+}
+
+.fallbackNote {
+  max-width: 34ch;
+  padding: 0 1rem;
+  color: rgba(246, 243, 232, 0.55);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.7;
+}
+
+/* ── Caption: states what the viewer is, top-left ── */
+.caption {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  max-width: min(70%, 320px);
+  padding: 0.45rem 0.65rem;
+  pointer-events: none;
+  background: rgba(8, 36, 41, 0.74);
+  border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent);
+  border-radius: var(--radius);
+  backdrop-filter: blur(3px);
+}
+
+.captionTitle {
+  display: flex;
+  align-items: center;
+  color: var(--accent-bright);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.66rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.captionTitle::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  margin-right: 8px;
+  background: var(--accent-bright);
+}
+
+.captionSub {
+  color: color-mix(in srgb, var(--text-on-accent) 72%, transparent);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Sweep progress rail: a thin scrubber under the caption text. The fill width
+   is driven by the engine each frame, so it reads as a timed playback. */
+.captionTrack {
+  position: relative;
+  margin-top: 6px;
+  width: 100%;
+  height: 2px;
+  overflow: hidden;
+  background: rgba(246, 243, 232, 0.16);
+}
+
+.captionProgress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  background: var(--accent-bright);
+}
+
+/* ── Legend: maps each mark to its meaning, bottom-left ── */
+.legend {
+  position: absolute;
+  left: 1rem;
+  bottom: 0.9rem;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.5rem 0.7rem;
+  pointer-events: none;
+  background: rgba(8, 36, 41, 0.74);
+  border: 1px solid rgba(246, 243, 232, 0.16);
+  border-radius: var(--radius);
+  backdrop-filter: blur(3px);
+}
+
+.legendTitle {
+  color: color-mix(in srgb, var(--text-on-accent) 58%, transparent);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.56rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.legendRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: color-mix(in srgb, var(--text-on-accent) 86%, transparent);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.glyph {
+  flex: none;
+  display: inline-block;
+  width: 14px;
+  height: 12px;
+}
+
+/* Agent viewpoint: a forward-pointing triangle riding a path line. */
+.glyphView {
+  position: relative;
+}
+
+.glyphView::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 14px;
+  height: 0;
+  border-top: 1px dashed var(--accent-bright);
+  transform: translateY(-50%);
+}
+
+.glyphView::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  width: 0;
+  height: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 7px solid var(--accent-bright);
+  transform: translateY(-50%);
+}
+
+/* Grounded object: a small teal box outline. */
+.glyphObject {
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--accent-bright);
+  border-radius: 1px;
+}
+
+/* Flagged take: same box, amber. */
+.glyphFlag {
+  width: 12px;
+  height: 12px;
+  border: 1px solid #e0a84e;
+  border-radius: 1px;
+}
+
+/* ── 3D-anchored object labels (positioned by the engine each frame) ── */
+.labelLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.anchorLabel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  will-change: transform;
+}
+
+.anchorChip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  padding: 0.16rem 0.42rem;
+  background: rgba(8, 36, 41, 0.82);
+  border: 1px solid var(--accent-bright);
+  border-radius: var(--radius);
+  white-space: nowrap;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Connector tick from the chip down to the box top it labels. */
+.anchorChip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 1px;
+  height: 7px;
+  background: var(--accent-bright);
+  transform: translateX(-50%);
+}
+
+.anchorChipFlag {
+  border-color: #e0a84e;
+}
+
+.anchorChipFlag::after {
+  background: #e0a84e;
+}
+
+.anchorPending {
+  opacity: 0;
+  transform: translateY(5px) scale(0.96);
+}
+
+.anchorVisible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.anchorName {
+  color: var(--text-on-accent);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.04em;
+}
+
+.anchorChipFlag .anchorName {
+  color: #f0d2a0;
+}
+
+.anchorDetail {
+  color: var(--accent-bright);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.56rem;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.anchorChipFlag .anchorDetail {
+  color: #e0a84e;
+}
+
+/* The moving agent marker's tag. Filled bright teal (vs. the outlined object
+   chips) so the active viewpoint reads as distinct from grounded objects. */
+.agentTag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  padding: 0.12rem 0.4rem;
+  background: var(--accent-bright);
+  color: #08242a;
+  border-radius: var(--radius);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.54rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  visibility: hidden;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Tick connecting the tag down to the marker it rides. */
+.agentTag::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 1px;
+  height: 6px;
+  background: var(--accent-bright);
+  transform: translateX(-50%);
+}
+
+/* ── Interaction hint, bottom-right ── */
+.viewerHint {
+  position: absolute;
+  right: 1rem;
+  bottom: 0.9rem;
+  z-index: 2;
+  margin: 0;
+  padding: 0.28rem 0.55rem;
+  pointer-events: none;
+  color: color-mix(in srgb, var(--text-on-accent) 80%, transparent);
+  background: rgba(8, 36, 41, 0.6);
+  border: 1px solid rgba(246, 243, 232, 0.14);
+  border-radius: var(--radius);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ── Narration log: terminal panel synced to the sweep ── */
+.logPanel {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 4;
+  width: min(300px, 44%);
+  display: flex;
+  flex-direction: column;
+  background: rgba(8, 36, 41, 0.86);
+  border: 1px solid color-mix(in srgb, var(--accent) 60%, transparent);
+  border-radius: var(--radius);
+  backdrop-filter: blur(3px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+}
+
+.logHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.75rem;
+  color: color-mix(in srgb, var(--text-on-accent) 78%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.logDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-bright);
+  box-shadow: 0 0 8px var(--accent-bright);
+  animation: logPulse 1.8s ease-in-out infinite;
+}
+
+.logBody {
+  list-style: none;
+  margin: 0;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  min-height: 11rem;
+}
+
+.logLine {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  color: color-mix(in srgb, var(--text-on-accent) 92%, transparent);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.72rem;
+  line-height: 1.35;
+  font-variant-numeric: tabular-nums;
+}
+
+.logPrompt {
+  color: var(--accent-bright);
+  flex: none;
+}
+
+/* A flagged take reads amber in both the box and the log. */
+.logLineFlag {
+  color: #e0a84e;
+}
+
+.logLineFlag .logPrompt {
+  color: #e0a84e;
+}
+
+@keyframes logPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.note {
+  margin: 1.75rem 0 0;
+  max-width: 62ch;
+  color: var(--ink-soft);
+  font-family: var(--font-body), sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.noteLink {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  transition: var(--transition);
+}
+
+.noteLink:hover {
+  color: var(--accent-bright);
+}
+
+/* Responsive: log moves below the viewer as a full-width panel. */
+@media (max-width: 820px) {
+  .viewerCard {
+    min-height: 380px;
+  }
+
+  .logPanel {
+    position: static;
+    width: auto;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    backdrop-filter: none;
+    box-shadow: none;
+    background: #131209;
+  }
+
+  .logBody {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 520px) {
+  /* Keep the canvas readable on small screens: caption + hint stay,
+     legend collapses to its rows without crowding the labels. */
+  .caption {
+    max-width: 78%;
+  }
+
+  .viewerHint {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logDot {
+    animation: none;
+  }
+
+  .anchorChip {
+    transition: none;
+  }
+}

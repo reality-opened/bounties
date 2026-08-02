@@ -1,0 +1,20 @@
+{
+  "cell": "go2_mid360_stairs",
+  "tag": "",
+  "n_pose_sign_repairs": 0,
+  "n_poses_written": 206,
+  "export_errors": [],
+  "frames_total": 419,
+  "frames_kept": 194,
+  "submaps": 13,
+  "loop_closures": 9,
+  "total_time_s": 136.34,
+  "config": {
+    "submap_size": 16,
+    "max_loops": 1,
+    "min_disparity": 50.0,
+    "conf_threshold": 25.0,
+    "lc_thres": 0.95,
+    "downsample": 1
+  }
+}

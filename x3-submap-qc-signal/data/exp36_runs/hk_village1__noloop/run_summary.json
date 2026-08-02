@@ -1,0 +1,28 @@
+{
+  "cell": "hk_village1",
+  "tag": "noloop",
+  "n_pose_sign_repairs": 0,
+  "n_poses_written": 586,
+  "export_errors": [
+    "submap 68: empty, skipped",
+    "submap 153: empty, skipped",
+    "submap 187: empty, skipped",
+    "submap 255: empty, skipped",
+    "submap 272: empty, skipped",
+    "submap 357: empty, skipped",
+    "submap 527: empty, skipped"
+  ],
+  "frames_total": 992,
+  "frames_kept": 552,
+  "submaps": 35,
+  "loop_closures": 0,
+  "total_time_s": 108.18,
+  "config": {
+    "submap_size": 16,
+    "max_loops": 0,
+    "min_disparity": 50.0,
+    "conf_threshold": 25.0,
+    "lc_thres": 0.95,
+    "downsample": 1
+  }
+}

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 174" width="200" height="174" role="img" aria-label="Open Reality logo">
+  <title>Open Reality</title>
+  <!-- Tetrahedron net: outer equilateral triangle with midpoints connected.
+       Vertices: top (100, 12), bottom-left (12, 164), bottom-right (188, 164).
+       Midpoints: left-mid (56, 88), right-mid (144, 88), bottom-mid (100, 164).
+       Side length 176, height 152. -->
+  <polygon points="100,12 12,164 188,164"
+           fill="none"
+           stroke="currentColor"
+           stroke-width="6"
+           stroke-linejoin="round"/>
+  <polygon points="56,88 144,88 100,164"
+           fill="currentColor"
+           stroke="currentColor"
+           stroke-width="6"
+           stroke-linejoin="round"/>
+</svg>

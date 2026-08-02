@@ -1,0 +1,314 @@
+/* HowItWorks — a "signal path" pipeline diagram.
+   A hairline rail carries each demo through reconstruction, grounding + QA,
+   and export; a traveling teal packet shows the dataset moving down the line.
+   The experimental Isaac preview branches off the trunk on a dashed,
+   warn-colored connector so it never reads as part of the validated flow.
+   Built on the shared surveyor's-instrument tokens (globals.css). */
+
+.pipeline {
+  --rail-gap: clamp(1.75rem, 3vw, 2.75rem);
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+/* ── Trunk: four stages, horizontal on desktop ── */
+
+.trunk {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: stretch;
+  gap: var(--rail-gap);
+}
+
+.node {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 1.25rem 1.25rem 1.4rem;
+  background: var(--paper-bright);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-card);
+  transition: var(--transition);
+}
+
+.node:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  box-shadow: 0 12px 26px -20px rgba(33, 31, 26, 0.7);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.glyph {
+  flex: none;
+  width: 2rem;
+  height: 2rem;
+  color: var(--accent);
+}
+
+.glyph svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.role {
+  color: var(--ink-faint);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.roleWarn {
+  color: var(--signal-warn);
+}
+
+.title {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-display), serif;
+  font-size: clamp(1.15rem, 1.6vw, 1.45rem);
+  font-weight: 500;
+  line-height: 1.12;
+}
+
+.body {
+  margin: 0;
+  color: var(--ink-soft);
+  font-family: var(--font-body), sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+/* Artifact tag — the data shape that flows out of this stage.
+   margin-top:auto pins it to the card floor so tags line up across stages. */
+.artifact {
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 0.25rem 0.55rem;
+  color: var(--accent);
+  background: var(--paper-raised);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+}
+
+/* ── Rail: dashed bus segment in the gap + a traveling packet ── */
+
+.rail {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: var(--rail-gap);
+  height: 1px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to right,
+    var(--border-medium) 0 5px,
+    transparent 5px 10px
+  );
+}
+
+.railDot {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  margin: -3.5px 0 0 -3.5px;
+  border-radius: 50%;
+  background: var(--accent-bright);
+  box-shadow: 0 0 8px rgba(10, 165, 181, 0.8);
+  animation: railFlow 2.6s ease-in-out infinite;
+}
+
+.node:nth-child(2) .railDot {
+  animation-delay: 0.55s;
+}
+
+.node:nth-child(3) .railDot {
+  animation-delay: 1.1s;
+}
+
+@keyframes railFlow {
+  0% {
+    left: 0;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+/* ── Experimental branch: hangs off the end of the trunk ── */
+
+.branch {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Width matches one trunk node so it reads as branching from the dataset. */
+.branchInner {
+  display: flex;
+  flex-direction: column;
+  width: calc((100% - 3 * var(--rail-gap)) / 4);
+}
+
+.branchConnector {
+  position: relative;
+  height: 2.4rem;
+}
+
+.branchConnector::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  border-left: 1px dashed
+    color-mix(in srgb, var(--signal-warn) 50%, var(--border-medium));
+}
+
+.branchConnector::after {
+  content: "↓";
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--signal-warn);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
+.nodeExperimental {
+  border-style: dashed;
+  border-color: color-mix(in srgb, var(--signal-warn) 55%, var(--border-medium));
+  background: color-mix(in srgb, var(--paper-bright) 90%, transparent);
+}
+
+.nodeExperimental:hover {
+  border-color: var(--signal-warn);
+  box-shadow: 0 12px 26px -20px rgba(169, 111, 20, 0.5);
+}
+
+.nodeExperimental .glyph {
+  color: var(--signal-warn);
+}
+
+.nodeExperimental .artifact {
+  color: var(--signal-warn);
+}
+
+.badge {
+  align-self: flex-start;
+  padding: 0.2rem 0.5rem;
+  color: var(--signal-warn);
+  background: color-mix(in srgb, var(--signal-warn) 12%, var(--paper-bright));
+  border: 1px solid color-mix(in srgb, var(--signal-warn) 45%, transparent);
+  border-radius: var(--radius);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* ── Footer readout ── */
+
+.spec {
+  margin: clamp(2rem, 4vw, 3rem) 0 0;
+  color: var(--ink-faint);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.68rem;
+  line-height: 1.7;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ── Stacked layout: vertical flow on narrow viewports ── */
+
+@media (max-width: 980px) {
+  .trunk {
+    flex-direction: column;
+    gap: 2.4rem;
+  }
+
+  .rail {
+    top: 100%;
+    left: 50%;
+    width: 1px;
+    height: 2.4rem;
+    transform: translateX(-50%);
+    background: repeating-linear-gradient(
+      to bottom,
+      var(--border-medium) 0 5px,
+      transparent 5px 10px
+    );
+  }
+
+  .railDot {
+    top: 0;
+    left: 50%;
+    animation-name: railFlowVertical;
+  }
+
+  .branch {
+    justify-content: stretch;
+  }
+
+  .branchInner {
+    width: 100%;
+  }
+}
+
+@keyframes railFlowVertical {
+  0% {
+    top: 0;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+/* ── Reduced motion: freeze the packet at the rail midpoint ── */
+
+@media (prefers-reduced-motion: reduce) {
+  .railDot {
+    animation: none;
+    top: 50%;
+    left: 50%;
+    opacity: 0.9;
+  }
+
+  .node:hover,
+  .nodeExperimental:hover {
+    transform: none;
+  }
+}

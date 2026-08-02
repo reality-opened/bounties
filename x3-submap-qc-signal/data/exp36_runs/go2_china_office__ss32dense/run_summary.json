@@ -1,0 +1,23 @@
+{
+  "cell": "go2_china_office",
+  "tag": "ss32dense",
+  "n_pose_sign_repairs": 0,
+  "n_poses_written": 644,
+  "export_errors": [
+    "submap 33: empty, skipped",
+    "submap 200: empty, skipped"
+  ],
+  "frames_total": 963,
+  "frames_kept": 625,
+  "submaps": 20,
+  "loop_closures": 10,
+  "total_time_s": 85.73,
+  "config": {
+    "submap_size": 32,
+    "max_loops": 1,
+    "min_disparity": 25.0,
+    "conf_threshold": 25.0,
+    "lc_thres": 0.95,
+    "downsample": 1
+  }
+}

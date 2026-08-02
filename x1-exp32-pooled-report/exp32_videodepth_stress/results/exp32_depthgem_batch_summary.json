@@ -1,0 +1,2382 @@
+{
+  "episodes": [
+    "Home__fold_t_shirt__20260320_151657_818",
+    "Home__fold_t_shirt__20260320_151749_372",
+    "Home__fold_t_shirt__20260320_152013_279",
+    "Home__fold_t_shirt__20260320_152106_159",
+    "Home__fold_t_shirt__20260320_152255_123",
+    "Home__twist_bottle_cap__20260320_140533_807",
+    "Home__twist_bottle_cap__20260320_140558_825",
+    "Home__twist_bottle_cap__20260320_141001_137",
+    "Home__twist_bottle_cap__20260320_141029_818",
+    "Home__twist_bottle_cap__20260320_141312_690",
+    "Outdoor__toss_and_catch_tennis_ball__20260319_203315_683",
+    "Outdoor__toss_and_catch_tennis_ball__20260319_203407_250",
+    "Outdoor__toss_and_catch_tennis_ball__20260319_203419_420",
+    "Outdoor__toss_and_catch_tennis_ball__20260319_203439_742",
+    "Outdoor__toss_and_catch_tennis_ball__20260319_203502_480",
+    "Retail__pick_up_fruit__20260313_231637_009",
+    "Retail__pick_up_fruit__20260313_231756_414",
+    "Retail__pick_up_fruit__20260313_232223_201",
+    "Retail__pick_up_fruit__20260313_232744_367",
+    "Retail__pick_up_fruit__20260313_232802_810",
+    "Workbench__use_scissors__20260319_110858_950",
+    "Workbench__use_scissors__20260319_110926_583",
+    "Workbench__use_scissors__20260319_110954_585",
+    "Workbench__use_scissors__20260319_111136_331",
+    "Workbench__use_scissors__20260319_111206_208",
+    "HE__serve_bread__000",
+    "HE__serve_bread__001",
+    "HE__serve_bread__002",
+    "HE__serve_bread__003",
+    "HE__serve_bread__004",
+    "HE__serve_bread__005",
+    "HE__serve_bread__006",
+    "HE__serve_bread__007",
+    "HE__serve_bread__008",
+    "HE__serve_bread__009",
+    "HE__water_flowers__001",
+    "HE__water_flowers__002",
+    "HE__water_flowers__003",
+    "HE__water_flowers__004",
+    "HE__water_flowers__005",
+    "HE__water_flowers__006",
+    "HE__water_flowers__007",
+    "HE__water_flowers__008",
+    "HE__water_flowers__009"
+  ],
+  "results": [
+    {
+      "stage": "depthB_gem",
+      "episode_id": "Home__fold_t_shirt__20260320_151657_818",
+      "manifest_hash": "adc1a2b44937af908da9d2a2e27a18d37bef1691a41aaa265d21be46ef94a597",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 818,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00136,
+      "depth_max_units": 0.10013,
+      "depth_median_units": 0.00503,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-40GB",
+      "peak_gpu_mem_gb": 15.571,
+      "runtime_s": 162.47,
+      "cost_est_usd": 0.09477,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 1.0,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 1.0
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "Home__fold_t_shirt__20260320_151749_372",
+      "manifest_hash": "8b2570522049d7eb74cc27dbd000325833e15db54432712a36d6e5b428827766",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 764,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00132,
+      "depth_max_units": 1.72003,
+      "depth_median_units": 0.00488,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-40GB",
+      "peak_gpu_mem_gb": 15.571,
+      "runtime_s": 149.74,
+      "cost_est_usd": 0.08735,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 1.0,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 1.0
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "Home__fold_t_shirt__20260320_152013_279",
+      "manifest_hash": "ed86209be5f732c370a09f1c41938ade781b08744889340362e32ea71bea013f",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 809,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00166,
+      "depth_max_units": 1.26328,
+      "depth_median_units": 0.00555,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-40GB",
+      "peak_gpu_mem_gb": 15.571,
+      "runtime_s": 177.32,
+      "cost_est_usd": 0.10344,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 1.0,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 1.0
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "Home__fold_t_shirt__20260320_152106_159",
+      "manifest_hash": "e1a21a1135e23c5fc5e11cf3834dff5a1fa2b0821c0d0f9b33a18f8f2ac51e63",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 766,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00133,
+      "depth_max_units": 338.35947,
+      "depth_median_units": 0.00503,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-80GB",
+      "peak_gpu_mem_gb": 15.571,
+      "runtime_s": 134.76,
+      "cost_est_usd": 0.07861,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 1.0,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 1.0
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "Home__fold_t_shirt__20260320_152255_123",
+      "manifest_hash": "671aac4c57f3a76f0ad65e37d87acfc75d5456b2152ab9ec48e58c1c695fe564",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 712,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00141,
+      "depth_max_units": 0.40986,
+      "depth_median_units": 0.005,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-40GB",
+      "peak_gpu_mem_gb": 15.571,
+      "runtime_s": 140.61,
+      "cost_est_usd": 0.08202,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 1.0,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 1.0
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "Home__twist_bottle_cap__20260320_140533_807",
+      "manifest_hash": "e43b8fbf4575913063fae33c5e621dd03a6572627459e5402dc5fabae7ae6299",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 606,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00186,
+      "depth_max_units": 0.07619,
+      "depth_median_units": 0.00614,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100 80GB PCIe",
+      "peak_gpu_mem_gb": 15.571,
+      "runtime_s": 148.5,
+      "cost_est_usd": 0.08663,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 1.0,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 1.0
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "Home__twist_bottle_cap__20260320_140558_825",
+      "manifest_hash": "3f5cdf2534edd6967719012b82c94e5f55dc431cb84629a23664d4a33e4b46cc",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 612,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00172,
+      "depth_max_units": 0.04749,
+      "depth_median_units": 0.00596,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-40GB",
+      "peak_gpu_mem_gb": 15.571,
+      "runtime_s": 133.33,
+      "cost_est_usd": 0.07778,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 1.0,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 1.0
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "Home__twist_bottle_cap__20260320_141001_137",
+      "manifest_hash": "e4795289e004940da3ec05f730953851a65885e7eb5a0c7c75443740657a6df3",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 562,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00166,
+      "depth_max_units": 0.08935,
+      "depth_median_units": 0.00599,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-80GB",
+      "peak_gpu_mem_gb": 15.571,
+      "runtime_s": 313.51,
+      "cost_est_usd": 0.18288,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 1.0,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 1.0
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "Home__twist_bottle_cap__20260320_141029_818",
+      "manifest_hash": "bd1e3c6ea669cdd153754d5770fb5b64244f6895bbf9ebf59550049dbd6e012e",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 550,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00157,
+      "depth_max_units": 0.0454,
+      "depth_median_units": 0.00584,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-80GB",
+      "peak_gpu_mem_gb": 18.417,
+      "runtime_s": 95.16,
+      "cost_est_usd": 0.05551,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 1.0,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 1.0
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "Home__twist_bottle_cap__20260320_141312_690",
+      "manifest_hash": "0abe981709d4ccb87aac5c081a68a8f8cda9cc54c7fc734586562237808e89fa",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 535,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00171,
+      "depth_max_units": 0.07152,
+      "depth_median_units": 0.00605,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-40GB",
+      "peak_gpu_mem_gb": 18.417,
+      "runtime_s": 102.61,
+      "cost_est_usd": 0.05986,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 1.0,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 1.0
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "Outdoor__toss_and_catch_tennis_ball__20260319_203315_683",
+      "manifest_hash": "2160f8bf54c1d8be59655e647a9946655eba671cd0e582146d49364e3b541902",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 233,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00177,
+      "depth_max_units": 0.05799,
+      "depth_median_units": 0.00653,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-40GB",
+      "peak_gpu_mem_gb": 18.417,
+      "runtime_s": 55.1,
+      "cost_est_usd": 0.03214,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 1.0,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 1.0
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "Outdoor__toss_and_catch_tennis_ball__20260319_203407_250",
+      "manifest_hash": "2ef3e53d5d01cdda205dfd5bcf10bd383c42f3423c2eb8cc78adf08e250e80d4",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 244,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00101,
+      "depth_max_units": 23831.27344,
+      "depth_median_units": 0.00467,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-40GB",
+      "peak_gpu_mem_gb": 18.417,
+      "runtime_s": 52.66,
+      "cost_est_usd": 0.03072,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 0.99749,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 0.99749
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "Outdoor__toss_and_catch_tennis_ball__20260319_203419_420",
+      "manifest_hash": "f98f2f53cc3a90ed346da5913d9069b1fb074229ee9745b8973f23051253079a",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 254,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00099,
+      "depth_max_units": 523.58984,
+      "depth_median_units": 0.00479,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100 80GB PCIe",
+      "peak_gpu_mem_gb": 18.417,
+      "runtime_s": 65.18,
+      "cost_est_usd": 0.03802,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 0.99999,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 0.99999
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "Outdoor__toss_and_catch_tennis_ball__20260319_203439_742",
+      "manifest_hash": "befe67b1ce94f4eec9a3d9337c9bf298b8b50597c4d681111bc39e02f67dbb24",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 267,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00162,
+      "depth_max_units": 0.0448,
+      "depth_median_units": 0.00579,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-40GB",
+      "peak_gpu_mem_gb": 18.417,
+      "runtime_s": 57.61,
+      "cost_est_usd": 0.03361,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 1.0,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 1.0
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "Outdoor__toss_and_catch_tennis_ball__20260319_203502_480",
+      "manifest_hash": "371a6f3e4e0a78c2ec302f49d6ca23ca39d0fb2f00a241de1c5c796559bdc726",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 276,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00159,
+      "depth_max_units": 0.14785,
+      "depth_median_units": 0.00645,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-40GB",
+      "peak_gpu_mem_gb": 18.417,
+      "runtime_s": 61.96,
+      "cost_est_usd": 0.03614,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 1.0,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 1.0
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "Retail__pick_up_fruit__20260313_231637_009",
+      "manifest_hash": "6dc3b3779a398f11507e5ce263d4a565931207cb67ff9a6ed5bf67dc94cf530c",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 141,
+      "image_hw": [
+        240,
+        320
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00178,
+      "depth_max_units": 0.03471,
+      "depth_median_units": 0.00606,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-40GB",
+      "peak_gpu_mem_gb": 18.402,
+      "runtime_s": 32.38,
+      "cost_est_usd": 0.01889,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 1.0,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 1.0
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "Retail__pick_up_fruit__20260313_231756_414",
+      "manifest_hash": "e932a7bf188c9e8f1fd0d3a2b888be5f99ffe6fa2a11554c10353ad400faa34d",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 141,
+      "image_hw": [
+        240,
+        320
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00204,
+      "depth_max_units": 985.50378,
+      "depth_median_units": 0.00534,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-40GB",
+      "peak_gpu_mem_gb": 18.402,
+      "runtime_s": 36.1,
+      "cost_est_usd": 0.02106,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 0.99824,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 0.99824
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "Retail__pick_up_fruit__20260313_232223_201",
+      "manifest_hash": "2ef92175d5f16cbd8fdace00ec75dff1f527bfb5133dd4d47a2db892832ee5ac",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 158,
+      "image_hw": [
+        240,
+        320
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00261,
+      "depth_max_units": 0.0354,
+      "depth_median_units": 0.00656,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100 80GB PCIe",
+      "peak_gpu_mem_gb": 18.402,
+      "runtime_s": 41.37,
+      "cost_est_usd": 0.02413,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 1.0,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 1.0
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "Retail__pick_up_fruit__20260313_232744_367",
+      "manifest_hash": "04e592369337fdf61ea165d07c99ce07aa0861424605ced3d39d456a9bfdc93f",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 179,
+      "image_hw": [
+        240,
+        320
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00195,
+      "depth_max_units": 0.09853,
+      "depth_median_units": 0.00671,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-40GB",
+      "peak_gpu_mem_gb": 18.402,
+      "runtime_s": 38.49,
+      "cost_est_usd": 0.02245,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 1.0,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 1.0
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "Retail__pick_up_fruit__20260313_232802_810",
+      "manifest_hash": "ad883e0890d725fd566eb735be5ab369b1923e14b3b038fce76f21fef516b21e",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 172,
+      "image_hw": [
+        240,
+        320
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00189,
+      "depth_max_units": 0.07251,
+      "depth_median_units": 0.00568,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-40GB",
+      "peak_gpu_mem_gb": 18.402,
+      "runtime_s": 36.48,
+      "cost_est_usd": 0.02128,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 1.0,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 1.0
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "Workbench__use_scissors__20260319_110858_950",
+      "manifest_hash": "c16972485173d4b1284e58d088c5acc54c2f16b5c6b24e0c45e3ec02aae827f3",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 533,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.0018,
+      "depth_max_units": 0.03946,
+      "depth_median_units": 0.00511,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-80GB",
+      "peak_gpu_mem_gb": 18.417,
+      "runtime_s": 91.32,
+      "cost_est_usd": 0.05327,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 1.0,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 1.0
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "Workbench__use_scissors__20260319_110926_583",
+      "manifest_hash": "0c0eeb0d0ffb7f834a3af0fbf60c85abc6e7993d46e94a86bfe9fe18675fa4b8",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 388,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00139,
+      "depth_max_units": 0.03154,
+      "depth_median_units": 0.00439,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-40GB",
+      "peak_gpu_mem_gb": 18.417,
+      "runtime_s": 87.52,
+      "cost_est_usd": 0.05105,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 1.0,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 1.0
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "Workbench__use_scissors__20260319_110954_585",
+      "manifest_hash": "beb4a23ad2e50c6e4dba8dd2ea7a1d4c25568b3e2a8f572cb2ef0d86c8bcddd2",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 374,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00164,
+      "depth_max_units": 0.03036,
+      "depth_median_units": 0.00505,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-40GB",
+      "peak_gpu_mem_gb": 18.417,
+      "runtime_s": 80.95,
+      "cost_est_usd": 0.04722,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 1.0,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 1.0
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "Workbench__use_scissors__20260319_111136_331",
+      "manifest_hash": "1c3130a6377ef5263973d4ae9770b174b9fb1a72edff668a17de16ab9efe616d",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 386,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00173,
+      "depth_max_units": 0.04663,
+      "depth_median_units": 0.0047,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-40GB",
+      "peak_gpu_mem_gb": 18.417,
+      "runtime_s": 74.95,
+      "cost_est_usd": 0.04372,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 1.0,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 1.0
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "Workbench__use_scissors__20260319_111206_208",
+      "manifest_hash": "1800855054d8e2ecc6838f2b00bbcd79ae7532ab1179bf8020149f613dd70fcd",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 315,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00175,
+      "depth_max_units": 0.03147,
+      "depth_median_units": 0.00503,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-40GB",
+      "peak_gpu_mem_gb": 18.417,
+      "runtime_s": 64.74,
+      "cost_est_usd": 0.03776,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 1.0,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 1.0
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "HE__serve_bread__000",
+      "manifest_hash": "6db2a82e5d3aab3cae9f3771c5c4dc170ae831cffb5fcca538a60ce734145b25",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 1002,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.0006,
+      "depth_max_units": 353.44266,
+      "depth_median_units": 0.00352,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100 80GB PCIe",
+      "peak_gpu_mem_gb": 18.417,
+      "runtime_s": 226.81,
+      "cost_est_usd": 0.13231,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 1.0,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 1.0
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "HE__serve_bread__001",
+      "manifest_hash": "efc633f6950fa8177302e79f9ac72562c5a7ce0624bb642de2bf2d365bbb9ea2",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 999,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00057,
+      "depth_max_units": 437.97879,
+      "depth_median_units": 0.00366,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-40GB",
+      "peak_gpu_mem_gb": 18.417,
+      "runtime_s": 158.47,
+      "cost_est_usd": 0.09244,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 1.0,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 1.0
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "HE__serve_bread__002",
+      "manifest_hash": "824e36f2139a87bae664d96f0c1478c82bf0d0850b357df81acae1d8c621f951",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 1085,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00057,
+      "depth_max_units": 2.699,
+      "depth_median_units": 0.00359,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-80GB",
+      "peak_gpu_mem_gb": 18.417,
+      "runtime_s": 589.36,
+      "cost_est_usd": 0.34379,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 1.0,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 1.0
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "HE__serve_bread__003",
+      "manifest_hash": "6f83c910c016e0ce28ce74ade10f944f4ee5214af77fd921e17e5d35d179c74c",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 1077,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00051,
+      "depth_max_units": 15.95839,
+      "depth_median_units": 0.00343,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-40GB",
+      "peak_gpu_mem_gb": 18.417,
+      "runtime_s": 180.27,
+      "cost_est_usd": 0.10516,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 1.0,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 1.0
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "HE__serve_bread__004",
+      "manifest_hash": "d97cc70a852a14b04602d843950df21da7054eae7fe8e99d8e77b2416bde4d38",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 1034,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00053,
+      "depth_max_units": 965.98431,
+      "depth_median_units": 0.00344,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-40GB",
+      "peak_gpu_mem_gb": 18.417,
+      "runtime_s": 184.49,
+      "cost_est_usd": 0.10762,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 0.99997,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 0.99997
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "HE__serve_bread__005",
+      "manifest_hash": "5af9d79f14df50f23c89897cbcd47d2ce3bc3c91aff2d35abb7ab5cb25eacd51",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 1166,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00037,
+      "depth_max_units": 142835.01562,
+      "depth_median_units": 0.00314,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-40GB",
+      "peak_gpu_mem_gb": 18.417,
+      "runtime_s": 254.37,
+      "cost_est_usd": 0.14838,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 0.99999,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 0.99999
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "HE__serve_bread__006",
+      "manifest_hash": "e28747279606ccfe5cdf78f5d51dab6317f490d5639373334f9e7501ee0d9fee",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 1141,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00072,
+      "depth_max_units": 17476.26758,
+      "depth_median_units": 0.00478,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-40GB",
+      "peak_gpu_mem_gb": 18.417,
+      "runtime_s": 247.05,
+      "cost_est_usd": 0.14411,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 0.99991,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 0.99991
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "HE__serve_bread__007",
+      "manifest_hash": "c7204dc7a50bbd5a839f6d6aa4ee7b879052cb447c3fa040d567a818bb2e9c8f",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 1191,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00036,
+      "depth_max_units": 0.16623,
+      "depth_median_units": 0.0034,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-80GB",
+      "peak_gpu_mem_gb": 18.417,
+      "runtime_s": 368.46,
+      "cost_est_usd": 0.21493,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 1.0,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 1.0
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "HE__serve_bread__008",
+      "manifest_hash": "3d9f8bc00faf72b26b7fb29ea4bd95c0ce170055c7d4f1864416cc12a632cc81",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 981,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00074,
+      "depth_max_units": 17.18951,
+      "depth_median_units": 0.00457,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-40GB",
+      "peak_gpu_mem_gb": 18.417,
+      "runtime_s": 163.26,
+      "cost_est_usd": 0.09524,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 1.0,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 1.0
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "HE__serve_bread__009",
+      "manifest_hash": "0dd123e011e427bc350d38b601ea815664aefdefe5996bcbf2f105f94a112e55",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 1193,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00061,
+      "depth_max_units": 28926.23438,
+      "depth_median_units": 0.00382,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100 80GB PCIe",
+      "peak_gpu_mem_gb": 18.417,
+      "runtime_s": 267.75,
+      "cost_est_usd": 0.15619,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 0.99978,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 0.99978
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "HE__water_flowers__001",
+      "manifest_hash": "34becb51c6d655d053f0b8c083e05549963d2aaeb0a6052d05f61864ec329bc5",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 862,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00068,
+      "depth_max_units": 0.01845,
+      "depth_median_units": 0.00346,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-40GB",
+      "peak_gpu_mem_gb": 18.417,
+      "runtime_s": 141.87,
+      "cost_est_usd": 0.08276,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 1.0,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 1.0
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "HE__water_flowers__002",
+      "manifest_hash": "4c98e4f90da63ecbdeb6bacb835b8c272a2778592fff3a498c1988d2977c9951",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 902,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00054,
+      "depth_max_units": 0.01806,
+      "depth_median_units": 0.00296,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-40GB",
+      "peak_gpu_mem_gb": 18.417,
+      "runtime_s": 164.98,
+      "cost_est_usd": 0.09624,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 1.0,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 1.0
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "HE__water_flowers__003",
+      "manifest_hash": "bdde142912b906ee41476a4e3dc610f71e8c1b6411570d7054db02c3a28e5fb4",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 865,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00045,
+      "depth_max_units": 0.01925,
+      "depth_median_units": 0.00239,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-40GB",
+      "peak_gpu_mem_gb": 18.417,
+      "runtime_s": 203.92,
+      "cost_est_usd": 0.11895,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 1.0,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 1.0
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "HE__water_flowers__004",
+      "manifest_hash": "6e30fbf314a8076ca69c89d71af13efa474388ba7d6a40f9755e0f1c1e4f3e92",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 840,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00053,
+      "depth_max_units": 0.01684,
+      "depth_median_units": 0.00286,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-40GB",
+      "peak_gpu_mem_gb": 18.417,
+      "runtime_s": 206.6,
+      "cost_est_usd": 0.12052,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 1.0,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 1.0
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "HE__water_flowers__005",
+      "manifest_hash": "ac72b51ee3053fc3a834e280c4d93b421ab71158aa0fc32677ff169c22c5fd16",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 830,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00059,
+      "depth_max_units": 0.01727,
+      "depth_median_units": 0.00318,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-40GB",
+      "peak_gpu_mem_gb": 18.417,
+      "runtime_s": 134.34,
+      "cost_est_usd": 0.07837,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 1.0,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 1.0
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "HE__water_flowers__006",
+      "manifest_hash": "9bde4556fae1dac4f7f06bf0cc3d5556bde8f7899ac9d97f123f8a80571267ba",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 804,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.0006,
+      "depth_max_units": 0.01902,
+      "depth_median_units": 0.00336,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-40GB",
+      "peak_gpu_mem_gb": 18.417,
+      "runtime_s": 130.1,
+      "cost_est_usd": 0.07589,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 1.0,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 1.0
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "HE__water_flowers__007",
+      "manifest_hash": "128f4aa976dd9c2b65e7eb5b0c813943752378a1da909fffb4002181511a73e8",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 868,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00071,
+      "depth_max_units": 0.01925,
+      "depth_median_units": 0.00329,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-40GB",
+      "peak_gpu_mem_gb": 18.417,
+      "runtime_s": 157.51,
+      "cost_est_usd": 0.09188,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 1.0,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 1.0
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "HE__water_flowers__008",
+      "manifest_hash": "aa5bbea972e6603d429cc9f197536ddba8b6c1ecb59fb055148540ed42bc2964",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 809,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.00055,
+      "depth_max_units": 0.01726,
+      "depth_median_units": 0.00297,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-80GB",
+      "peak_gpu_mem_gb": 18.417,
+      "runtime_s": 243.37,
+      "cost_est_usd": 0.14197,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 1.0,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 1.0
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    },
+    {
+      "stage": "depthB_gem",
+      "episode_id": "HE__water_flowers__009",
+      "manifest_hash": "25dfdfc1ab538cf4120f308e4e5c107f534328cfe1468b8f395fddc055428fc7",
+      "model": "GemDepth (encoder=vitl, MIT License)",
+      "model_repo": "https://github.com/Yuecheng919/GemDepth",
+      "model_weights": "https://huggingface.co/YuechengLiu/GemDepth (gemdepth.pth)",
+      "paper": "Liu, Cheng, Liu, Liao, Cheng, Wang, Yang. \"GemDepth: Geometry-Embedded Features for 3D-Consistent Video Depth.\" arXiv:2605.10525, 2026 (ICML 2026).",
+      "output_semantics": "RELATIVE / AFFINE-INVARIANT inverse depth (disparity), NOT metric -- see this file's module docstring 'OUTPUT-SEMANTICS DETERMINATION' for the repo-source evidence (compute_scale_and_shift per-window affine stitching, frame_to_world_points's explicit inverse_depth->depth=1/inverse_depth inversion, VideoDepthAnything-protocol AbsRel benchmarking). PREREG.md section 0: B-gem is RELATIVE -> the geometry-only Brs rescale is PRIMARY for H1; this npz's raw (inverted-but-unscaled) depth is reported for context only.",
+      "depth_units": "arbitrary/relative units (1.0 / GemDepth's raw disparity output) -- NOT metres. Downstream b_rescale (scoring_core.py, unmodified) makes this unit-agnostic by construction: rescale_factor = median_A_mm / median_B_<these units>.",
+      "gemdepth_infer_config": {
+        "encoder": "vitl",
+        "input_size": 518,
+        "infer_len": 16,
+        "overlap": 6,
+        "keyframes": [
+          0,
+          6,
+          12,
+          13,
+          14,
+          15
+        ],
+        "interp_len": 4,
+        "memory_profile": "README 'GPU memory adjustment schemes' MEDIUM tier (~25GB) -- the default tier (INFER_LEN=32/OVERLAP=10) needs ~44GB; the smallest tier (~15GB, INFER_LEN=8) was rejected because it would shrink GemDepth's own temporal window to 8 frames, under-testing the video temporal-consistency claim this experiment stress-tests (see module docstring).",
+        "fp32": false
+      },
+      "n_frames": 922,
+      "image_hw": [
+        480,
+        640
+      ],
+      "resolution_note": "native input resolution (RAW RGB, matches modal_exp26_depthB.py's own convention, NOT Arm A's 448x592 VGGT raster) -- the scorer resamples via normalized coords, not a shared raster with Arm A",
+      "depth_min_units": 0.0006,
+      "depth_max_units": 0.0176,
+      "depth_median_units": 0.00316,
+      "gpu": "A100-40GB",
+      "gpu_name": "NVIDIA A100-SXM4-40GB",
+      "peak_gpu_mem_gb": 18.417,
+      "runtime_s": 147.83,
+      "cost_est_usd": 0.08623,
+      "git_shas": {
+        "platform": "72a930343cd9e3b98c096798643123b2066a4ebc",
+        "core": "ec0a3c1290e89c74d6cb53917eeac1d1f95f8716"
+      },
+      "sanity": {
+        "depth_finite_frac": 1.0,
+        "depth_shape_matches_native_input": true,
+        "raw_disparity_nonneg_frac": 1.0,
+        "raw_disparity_above_eps_frac": 1.0
+      },
+      "input_identity": "RGB-only (input_loader, native resolution); oracles/ and Arm A recon never read"
+    }
+  ]
+}

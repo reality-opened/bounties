@@ -1,0 +1,28 @@
+{
+  "verdict_attempt2": {
+    "go2_bigoffice": "fc-01KY76F20EMRQNBDPCBHFEAC67",
+    "go2_china_office": "fc-01KY76FQ5JQ71YWK42MKAJYPY2",
+    "hk_village1": "fc-01KY76GBRKF8M5YRPMW8K5XWN0",
+    "hk_village3": "fc-01KY76GZX4DC5KYGH65DZ247AK"
+  },
+  "completed": {
+    "go2_short_smoke": "fc-01KY6VCW3AC0JDXVX8VT7DJ5ZH",
+    "go2_short__disp25": "fc-01KY6X1SW034WAB30EE4BM2FA4",
+    "drone": "fc-01KY749XT1VTZW7DY6826AZK8C"
+  },
+  "failed_attempt1": {
+    "note": "all 4 crashed at export after full SLAM: bigoffice=improper rotation in core write_poses_to_file; others=empty-array max() in cloud export. Fixed in harness (sign repair + non-fatal exports + poses-first).",
+    "go2_bigoffice": "fc-01KY6WVQ8KV5QZK8DS0877EM0M",
+    "go2_china_office": "fc-01KY6WWCC4NDRMB5NAKRPJP82S",
+    "hk_village1": "fc-01KY6XYRSXXSS9G49HSPD4NH1M",
+    "hk_village3": "fc-01KY6XZE8A575P7JFAY46187ZD"
+  },
+  "ablations": {
+    "go2_china_office__noloop": "fc-01KY772JCSF8VNWWCV670QDZWK",
+    "go2_china_office__lc080": "fc-01KY773949HXVCG1HJX7Q4HKT4",
+    "hk_village1__noloop": "fc-01KY773XMM993J56MFTYBNZ8XX",
+    "hk_village1__lc080": "fc-01KY774HWD5BNAMY0T1DAP1JYV",
+    "go2_bigoffice__noloop": "fc-01KY77562S99J0BCK0T0H44X9K",
+    "go2_bigoffice__lc080": "fc-01KY775TS1XPPZ8FAG0CNHN6DA"
+  }
+}

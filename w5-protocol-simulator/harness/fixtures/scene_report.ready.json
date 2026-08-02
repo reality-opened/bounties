@@ -1,0 +1,43 @@
+{
+  "summary": "Mock room scan with a chair.",
+  "room_type": "office",
+  "objects": [
+    {
+      "name": "chair",
+      "location": "near the center of the scan",
+      "evidence": [{ "submap_id": 2, "frame_idx": 12 }]
+    }
+  ],
+  "observations": ["The room has one detected chair."],
+  "coverage_note": "Mock coverage is limited to fixture data.",
+  "facts": {
+    "metrics": {
+      "dimensions": [2, 1, 2],
+      "bbox_min": [0, 0, 0],
+      "bbox_max": [2, 1, 2],
+      "trajectory_length": 2,
+      "num_submaps": 3,
+      "num_keyframes": 3,
+      "point_count": 6,
+      "vertical_axis_known": true
+    },
+    "objects": [
+      {
+        "query": "chair",
+        "center": [1, 0, 0],
+        "extent": [0.5, 0.5, 0.5],
+        "confidence": 0.81,
+        "evidence": [{ "submap_id": 2, "frame_idx": 12 }]
+      }
+    ],
+    "object_counts": { "chair": 1 },
+    "relations": [],
+    "coverage_estimate": 0.5,
+    "scene_center": [1, 0, 0],
+    "units_note": "meters"
+  },
+  "model": "mock",
+  "degraded": false,
+  "final": true,
+  "generated_at": 1760000000
+}

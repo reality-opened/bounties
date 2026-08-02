@@ -1,0 +1,26 @@
+{
+  "frame_id": 2,
+  "num_submaps": 2,
+  "num_loops": 0,
+  "points_b64": "AACAPwAAgD8AAAAAAAAAQAAAgD8AAAAA",
+  "colors_b64": "//8AAP//",
+  "points": [],
+  "colors": [],
+  "camera_positions": [[1, 0, 0]],
+  "camera_rotations": [[[1, 0, 0], [0, 1, 0], [0, 0, 1]]],
+  "scene_center": [0.5, 0, 0],
+  "n_points": 2,
+  "n_cameras": 1,
+  "resolved_beacons": [{ "beacon_id": 1, "x": 1, "y": 0, "z": 0 }],
+  "detections": [
+    {
+      "success": true,
+      "query": "chair",
+      "confidence": 0.81,
+      "matched_submap": 2,
+      "matched_frame": 12
+    }
+  ],
+  "type": "incremental",
+  "submap_id": 2
+}

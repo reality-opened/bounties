@@ -1,0 +1,20 @@
+{
+  "cell": "go2_short",
+  "tag": "ss32dense",
+  "n_pose_sign_repairs": 0,
+  "n_poses_written": 211,
+  "export_errors": [],
+  "frames_total": 428,
+  "frames_kept": 205,
+  "submaps": 7,
+  "loop_closures": 0,
+  "total_time_s": 42.18,
+  "config": {
+    "submap_size": 32,
+    "max_loops": 1,
+    "min_disparity": 25.0,
+    "conf_threshold": 25.0,
+    "lc_thres": 0.95,
+    "downsample": 1
+  }
+}

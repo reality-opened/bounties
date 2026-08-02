@@ -1,0 +1,20 @@
+{
+  "cell": "tum_fr3_long_office",
+  "tag": "",
+  "n_pose_sign_repairs": 0,
+  "n_poses_written": 79,
+  "export_errors": [],
+  "frames_total": 2585,
+  "frames_kept": 75,
+  "submaps": 5,
+  "loop_closures": 1,
+  "total_time_s": 754.69,
+  "config": {
+    "submap_size": 16,
+    "max_loops": 1,
+    "min_disparity": 50.0,
+    "conf_threshold": 25.0,
+    "lc_thres": 0.95,
+    "downsample": 1
+  }
+}

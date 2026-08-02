@@ -1,0 +1,15 @@
+{
+  "frame_id": 1,
+  "num_submaps": 1,
+  "num_loops": 0,
+  "points_b64": "AAAAAAAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAgD8AAAAA",
+  "colors_b64": "/wAAAP8AAAD/",
+  "points": [],
+  "colors": [],
+  "camera_positions": [[0, 0, 0]],
+  "camera_rotations": [[[1, 0, 0], [0, 1, 0], [0, 0, 1]]],
+  "scene_center": [0, 0, 0],
+  "n_points": 3,
+  "n_cameras": 1,
+  "type": "full"
+}

@@ -1,0 +1,20 @@
+{
+  "cell": "tum_fr2_desk",
+  "tag": "",
+  "n_pose_sign_repairs": 0,
+  "n_poses_written": 78,
+  "export_errors": [],
+  "frames_total": 2965,
+  "frames_kept": 74,
+  "submaps": 5,
+  "loop_closures": 3,
+  "total_time_s": 852.45,
+  "config": {
+    "submap_size": 16,
+    "max_loops": 1,
+    "min_disparity": 50.0,
+    "conf_threshold": 25.0,
+    "lc_thres": 0.95,
+    "downsample": 1
+  }
+}

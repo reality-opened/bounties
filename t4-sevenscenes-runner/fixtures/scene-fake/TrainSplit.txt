@@ -1,0 +1,2 @@
+# SYNTHETIC SAMPLE DATA — not real 7-Scenes data
+seq-01

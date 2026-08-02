@@ -1,0 +1,7 @@
+{
+  "scan_id": "fixture",
+  "num_keyframes": 8,
+  "trajectory_length": 2.1,
+  "room_type": "office",
+  "num_objects": 1
+}

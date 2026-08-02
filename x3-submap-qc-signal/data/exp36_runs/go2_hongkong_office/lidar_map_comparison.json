@@ -1,0 +1,51 @@
+{
+  "cell": "go2_hongkong_office",
+  "their_map": "go2_hongkong_office_twopass_map.pc2.lcm",
+  "their_points": 490457,
+  "our_points": 2160,
+  "sim3_scale_applied": 6.560492594584923,
+  "icp_fitness": 0.31342592592592594,
+  "icp_inlier_rmse_m": 0.2408322014895778,
+  "icp_translation_norm_m": 0.6212249352548869,
+  "pre_icp": {
+    "ours_to_theirs": {
+      "n": 2160,
+      "median_m": 1.3001419140705246,
+      "rmse_m": 2.0724921224497646,
+      "p90_m": 3.4954133149846855,
+      "pct_within_0p10": 8.518518518518519,
+      "pct_within_0p25": 18.47222222222222,
+      "pct_within_0p50": 30.648148148148145
+    },
+    "theirs_to_ours": {
+      "n": 490457,
+      "median_m": 4.118898148258805,
+      "rmse_m": 6.504961700241433,
+      "p90_m": 11.053044655377189,
+      "pct_within_0p10": 0.33723649575803794,
+      "pct_within_0p25": 3.6417055929469857,
+      "pct_within_0p50": 9.118026656771134
+    }
+  },
+  "post_icp": {
+    "ours_to_theirs": {
+      "n": 2160,
+      "median_m": 1.3472337305140887,
+      "rmse_m": 2.1889275114613214,
+      "p90_m": 3.6903518408917604,
+      "pct_within_0p10": 9.212962962962964,
+      "pct_within_0p25": 20.87962962962963,
+      "pct_within_0p50": 31.342592592592595
+    },
+    "theirs_to_ours": {
+      "n": 490457,
+      "median_m": 4.3280575960547285,
+      "rmse_m": 6.732329310448974,
+      "p90_m": 11.40582380824846,
+      "pct_within_0p10": 0.32643024770775014,
+      "pct_within_0p25": 3.8969777167009543,
+      "pct_within_0p50": 9.122104486224073
+    }
+  },
+  "note": "validation (non-verdict). ours->theirs=precision, theirs->ours=coverage. Their premap is PGO-corrected; residual frame offset absorbed by ICP (norm reported)."
+}

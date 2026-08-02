@@ -1,0 +1,304 @@
+{
+  "per_scene": [
+    {
+      "scene_id": "fr1_room",
+      "scene_class": "TUM-eval (office, mocap GT)",
+      "n_submaps": 12,
+      "n_matched_gt_frames": 197,
+      "n_window_pairs": 4573,
+      "gt_scale_m_per_unit": 1.4876445601099122,
+      "anchor_pick": {
+        "baseline_m": 0.7543337065557442,
+        "bucket": "0.6-1.0m",
+        "is_doorway_class": true,
+        "jitter_residual": 0.009902699506974644
+      },
+      "applied_scale_factor": 1.5023762571618662,
+      "click_noise_floor_pct": 0.41683390140367926,
+      "click_noise_n_samples": 1351,
+      "click_noise_n_doorway_pairs": 350,
+      "click_noise_n_pairs_sampled": 350,
+      "E_anchor_pct": 1.435768467210674,
+      "E_far_pct": 1.6139580476018323,
+      "drift_pct": 0.17818958039115818,
+      "local_depth_bias_pct": 1.0189345658069948,
+      "anchor_rank": 0,
+      "far_ranks": [
+        9,
+        10,
+        11
+      ],
+      "n_ranks_present": 12,
+      "H1_pass_le_2pct": true,
+      "H2_eligible_ge_8_submaps": true,
+      "H2_far_ge_2x_anchor": false,
+      "gt_gauge_source": "derived HERE via drift-robust local-window median, pooled over the whole scene (same method EXP-25 used for S1/S4/S5)"
+    },
+    {
+      "scene_id": "fr2_desk",
+      "scene_class": "TUM-eval (desk, mocap GT)",
+      "n_submaps": 5,
+      "n_matched_gt_frames": 62,
+      "n_window_pairs": 278,
+      "gt_scale_m_per_unit": 2.2355925377467685,
+      "anchor_pick": {
+        "baseline_m": 0.9949851012095979,
+        "bucket": "0.6-1.0m",
+        "is_doorway_class": true,
+        "jitter_residual": 0.0021458779640750603
+      },
+      "applied_scale_factor": 2.24038984651017,
+      "click_noise_floor_pct": 0.42672047029083116,
+      "click_noise_n_samples": 1392,
+      "click_noise_n_doorway_pairs": 350,
+      "click_noise_n_pairs_sampled": 350,
+      "E_anchor_pct": 0.7743114618036451,
+      "E_far_pct": 2.201894266308746,
+      "drift_pct": 1.4275828045051009,
+      "local_depth_bias_pct": 0.3475909915128139,
+      "anchor_rank": 0,
+      "far_ranks": [
+        4
+      ],
+      "n_ranks_present": 5,
+      "H1_pass_le_2pct": true,
+      "H2_eligible_ge_8_submaps": false,
+      "H2_far_ge_2x_anchor": true,
+      "gt_gauge_source": "derived HERE via drift-robust local-window median, pooled over the whole scene (same method EXP-25 used for S1/S4/S5)"
+    },
+    {
+      "scene_id": "fr3_long_office_household",
+      "scene_class": "TUM-eval (long office, mocap GT)",
+      "n_submaps": 5,
+      "n_matched_gt_frames": 79,
+      "n_window_pairs": 466,
+      "gt_scale_m_per_unit": 3.0437371213007234,
+      "anchor_pick": {
+        "baseline_m": 0.6856734283994564,
+        "bucket": "0.6-1.0m",
+        "is_doorway_class": true,
+        "jitter_residual": 0.011208765124804287
+      },
+      "applied_scale_factor": 3.077853655795031,
+      "click_noise_floor_pct": 0.7057914487465178,
+      "click_noise_n_samples": 1381,
+      "click_noise_n_doorway_pairs": 350,
+      "click_noise_n_pairs_sampled": 350,
+      "E_anchor_pct": 1.9094551739880061,
+      "E_far_pct": 0.9770352526259352,
+      "drift_pct": -0.932419921362071,
+      "local_depth_bias_pct": 1.2036637252414883,
+      "anchor_rank": 0,
+      "far_ranks": [
+        4
+      ],
+      "n_ranks_present": 5,
+      "H1_pass_le_2pct": true,
+      "H2_eligible_ge_8_submaps": false,
+      "H2_far_ge_2x_anchor": false,
+      "gt_gauge_source": "derived HERE via drift-robust local-window median, pooled over the whole scene (same method EXP-25 used for S1/S4/S5)"
+    },
+    {
+      "scene_id": "s1_tum_fr1",
+      "scene_class": "EXP-25-product-config (TUM office, mocap GT)",
+      "n_submaps": 8,
+      "n_matched_gt_frames": 255,
+      "n_window_pairs": 7838,
+      "gt_scale_m_per_unit": 1.410736,
+      "anchor_pick": {
+        "baseline_m": 0.6976701764951972,
+        "bucket": "0.6-1.0m",
+        "is_doorway_class": true,
+        "jitter_residual": 0.004059791909603927
+      },
+      "applied_scale_factor": 1.416463294599387,
+      "click_noise_floor_pct": 0.34614236174985713,
+      "click_noise_n_samples": 1375,
+      "click_noise_n_doorway_pairs": 350,
+      "click_noise_n_pairs_sampled": 350,
+      "E_anchor_pct": 5.154753443639038,
+      "E_far_pct": 4.456126762371038,
+      "drift_pct": -0.6986266812679998,
+      "local_depth_bias_pct": 4.808611081889181,
+      "anchor_rank": 0,
+      "far_ranks": [
+        6,
+        7
+      ],
+      "n_ranks_present": 8,
+      "H1_pass_le_2pct": false,
+      "H2_eligible_ge_8_submaps": true,
+      "H2_far_ge_2x_anchor": false,
+      "gt_gauge_source": "reused from raw/meta.yaml (documented, already-validated scale_factor)",
+      "depth_backbone_deviation": "VGGT-1B first-submap-only partial recon (scene's own product recon used VGGT-Omega) \u2014 see modal_exp30_tum.py module docstring"
+    },
+    {
+      "scene_id": "s2_arkit_467304",
+      "scene_class": "ARKit-sparse (kitchen-living, VIO GT)",
+      "n_submaps": 8,
+      "n_matched_gt_frames": 249,
+      "n_window_pairs": 3646,
+      "gt_scale_m_per_unit": 3.636881,
+      "anchor_pick": {
+        "baseline_m": 0.9270406362170462,
+        "bucket": "0.6-1.0m",
+        "is_doorway_class": true,
+        "jitter_residual": 0.0020474594770518717
+      },
+      "applied_scale_factor": 3.6443273664703595,
+      "click_noise_floor_pct": 0.2893662696826116,
+      "click_noise_n_samples": 1393,
+      "click_noise_n_doorway_pairs": 350,
+      "click_noise_n_pairs_sampled": 350,
+      "E_anchor_pct": 21.725731559988056,
+      "E_far_pct": 10.641009797991918,
+      "drift_pct": -11.084721761996136,
+      "local_depth_bias_pct": 21.436365290305442,
+      "anchor_rank": 0,
+      "far_ranks": [
+        6,
+        7
+      ],
+      "n_ranks_present": 8,
+      "H1_pass_le_2pct": false,
+      "H2_eligible_ge_8_submaps": true,
+      "H2_far_ge_2x_anchor": false,
+      "gt_gauge_source": "reused from raw/meta.yaml (documented, already-validated scale_factor)",
+      "depth_backbone_deviation": "VGGT-1B first-submap-only partial recon (scene's own product recon used VGGT-Omega) \u2014 see modal_exp30_tum.py module docstring"
+    },
+    {
+      "scene_id": "s3_arkit_466895",
+      "scene_class": "ARKit-sparse (kitchen-living, VIO GT)",
+      "n_submaps": 6,
+      "n_matched_gt_frames": 176,
+      "n_window_pairs": 2910,
+      "gt_scale_m_per_unit": 2.075074,
+      "anchor_pick": {
+        "baseline_m": 0.9230994150340034,
+        "bucket": "0.6-1.0m",
+        "is_doorway_class": true,
+        "jitter_residual": 0.0046611099193794026
+      },
+      "applied_scale_factor": 2.084746148004846,
+      "click_noise_floor_pct": 0.43126561431399146,
+      "click_noise_n_samples": 1383,
+      "click_noise_n_doorway_pairs": 350,
+      "click_noise_n_pairs_sampled": 350,
+      "E_anchor_pct": 16.357524974823058,
+      "E_far_pct": 5.840974627143503,
+      "drift_pct": -10.516550347679555,
+      "local_depth_bias_pct": 15.926259360509064,
+      "anchor_rank": 0,
+      "far_ranks": [
+        4,
+        5
+      ],
+      "n_ranks_present": 6,
+      "H1_pass_le_2pct": false,
+      "H2_eligible_ge_8_submaps": false,
+      "H2_far_ge_2x_anchor": false,
+      "gt_gauge_source": "reused from raw/meta.yaml (documented, already-validated scale_factor)",
+      "depth_backbone_deviation": "VGGT-1B first-submap-only partial recon (scene's own product recon used VGGT-Omega) \u2014 see modal_exp30_tum.py module docstring"
+    },
+    {
+      "scene_id": "s4_loris_office1",
+      "scene_class": "OpenLORIS-robot (office, mocap GT)",
+      "n_submaps": 2,
+      "n_matched_gt_frames": 45,
+      "n_window_pairs": 333,
+      "gt_scale_m_per_unit": 3.905452,
+      "anchor_pick": {
+        "baseline_m": 0.7275099413538499,
+        "bucket": "0.6-1.0m",
+        "is_doorway_class": true,
+        "jitter_residual": 0.009946531158343541
+      },
+      "applied_scale_factor": 3.9442977000054147,
+      "click_noise_floor_pct": 0.8394874827091947,
+      "click_noise_n_samples": 1374,
+      "click_noise_n_doorway_pairs": 350,
+      "click_noise_n_pairs_sampled": 350,
+      "E_anchor_pct": 1.4120130430922362,
+      "E_far_pct": 2.985000328664167,
+      "drift_pct": 1.5729872855719307,
+      "local_depth_bias_pct": 0.5725255603830415,
+      "anchor_rank": 0,
+      "far_ranks": [
+        1
+      ],
+      "n_ranks_present": 2,
+      "H1_pass_le_2pct": true,
+      "H2_eligible_ge_8_submaps": false,
+      "H2_far_ge_2x_anchor": true,
+      "gt_gauge_source": "reused from raw/meta.yaml (documented, already-validated scale_factor)",
+      "depth_backbone_deviation": "VGGT-1B first-submap-only partial recon (scene's own product recon used VGGT-Omega) \u2014 see modal_exp30_tum.py module docstring"
+    },
+    {
+      "scene_id": "s5_loris_home1",
+      "scene_class": "OpenLORIS-home-tour (apartment, laser GT)",
+      "n_submaps": 13,
+      "n_matched_gt_frames": 384,
+      "n_window_pairs": 5853,
+      "gt_scale_m_per_unit": 3.3089,
+      "anchor_pick": {
+        "baseline_m": 0.8823942833519004,
+        "bucket": "0.6-1.0m",
+        "is_doorway_class": true,
+        "jitter_residual": 0.015859959007913815
+      },
+      "applied_scale_factor": 3.256420981638714,
+      "click_noise_floor_pct": 1.389493014188381,
+      "click_noise_n_samples": 1253,
+      "click_noise_n_doorway_pairs": 350,
+      "click_noise_n_pairs_sampled": 350,
+      "E_anchor_pct": 18.96743389636172,
+      "E_far_pct": 35.236753366729445,
+      "drift_pct": 16.269319470367726,
+      "local_depth_bias_pct": 17.577940882173337,
+      "anchor_rank": 0,
+      "far_ranks": [
+        9,
+        10,
+        11
+      ],
+      "n_ranks_present": 12,
+      "H1_pass_le_2pct": false,
+      "H2_eligible_ge_8_submaps": true,
+      "H2_far_ge_2x_anchor": false,
+      "gt_gauge_source": "reused from raw/meta.yaml (documented, already-validated scale_factor)",
+      "depth_backbone_deviation": "VGGT-1B first-submap-only partial recon (scene's own product recon used VGGT-Omega) \u2014 see modal_exp30_tum.py module docstring"
+    }
+  ],
+  "summary": {
+    "n_scenes_total": 8,
+    "n_scenes_completed": 8,
+    "scenes_skipped_or_errored": [],
+    "H1": {
+      "bar": "anchor-submap realized error median <= 2% in >= 6/8 scenes",
+      "n_pass": 4,
+      "n_of_completed": 8,
+      "pass_scene_ids": [
+        "fr1_room",
+        "fr2_desk",
+        "fr3_long_office_household",
+        "s4_loris_office1"
+      ],
+      "verdict_met_bar": false
+    },
+    "H2": {
+      "bar": "in scenes with >=8 submaps, E_far >= 2*E_anchor, pooled sign test p<0.05",
+      "n_eligible_scenes": 4,
+      "n_success": 0,
+      "eligible_scene_ids": [
+        "fr1_room",
+        "s1_tum_fr1",
+        "s2_arkit_467304",
+        "s5_loris_home1"
+      ],
+      "success_scene_ids": [],
+      "sign_test_p_value": 1.0,
+      "verdict_met_bar": false
+    },
+    "verdict": "CLAIM-BOUNDED"
+  }
+}

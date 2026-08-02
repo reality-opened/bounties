@@ -1,0 +1,36 @@
+{
+  "dataset": "hk_building_park",
+  "streams": [
+    "color_image",
+    "lidar",
+    "odom"
+  ],
+  "fps_target": 10.0,
+  "camera": {
+    "n_frames": 1627,
+    "n_kept": 737,
+    "measured_fps_median": 14.45,
+    "span_s": 115.05,
+    "resolution": [
+      1280,
+      720
+    ],
+    "format": "ImageFormat.RGB"
+  },
+  "odom_stream": "odom",
+  "odom": {
+    "n_samples": 2121,
+    "rate_hz_median": 19.63,
+    "span_s": 115.28
+  },
+  "reference": {
+    "n_poses": 737,
+    "kept_frames_outside_odom_span": 0
+  },
+  "db_sha256": "b2f43a9de8596224f7142485655f6f1c79927c491e7694dcdabed7f1c081483d",
+  "extractor": {
+    "fps": 10.0,
+    "jpeg_quality": 95,
+    "version": 1
+  }
+}

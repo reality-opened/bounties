@@ -1,0 +1,22 @@
+{
+  "cell": "hk_building_all_around",
+  "tag": "",
+  "n_pose_sign_repairs": 0,
+  "n_poses_written": 356,
+  "export_errors": [
+    "submap 293: empty, skipped"
+  ],
+  "frames_total": 1578,
+  "frames_kept": 336,
+  "submaps": 21,
+  "loop_closures": 4,
+  "total_time_s": 307.14,
+  "config": {
+    "submap_size": 16,
+    "max_loops": 1,
+    "min_disparity": 50.0,
+    "conf_threshold": 25.0,
+    "lc_thres": 0.95,
+    "downsample": 1
+  }
+}

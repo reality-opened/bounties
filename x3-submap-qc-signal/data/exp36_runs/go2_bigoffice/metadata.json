@@ -1,0 +1,37 @@
+{
+  "dataset": "go2_bigoffice",
+  "streams": [
+    "color_image",
+    "color_image_embedded",
+    "lidar",
+    "odom"
+  ],
+  "fps_target": 10.0,
+  "camera": {
+    "n_frames": 4164,
+    "n_kept": 2075,
+    "measured_fps_median": 14.23,
+    "span_s": 292.49,
+    "resolution": [
+      1280,
+      720
+    ],
+    "format": "ImageFormat.RGB"
+  },
+  "odom_stream": "odom",
+  "odom": {
+    "n_samples": 5465,
+    "rate_hz_median": 18.77,
+    "span_s": 292.49
+  },
+  "reference": {
+    "n_poses": 2074,
+    "kept_frames_outside_odom_span": 1
+  },
+  "db_sha256": "c19be14d50ba5d559ca7bbd35b3ce515112615b2db8c7e9f06b0a7beb7b266ef",
+  "extractor": {
+    "fps": 10.0,
+    "jpeg_quality": 95,
+    "version": 1
+  }
+}

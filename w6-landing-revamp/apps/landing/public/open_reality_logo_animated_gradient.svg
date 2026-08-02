@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 200 200"
+     width="200"
+     height="200"
+     role="img"
+     aria-label="Open Reality logo animation: a flat tetrahedron net folding up into a 3D tetrahedron">
+  <title>Open Reality</title>
+
+     <defs>
+          <linearGradient id="logoGradient" x1="44" y1="12" x2="156" y2="172" gradientUnits="userSpaceOnUse">
+               <stop offset="0%" stop-color="#0aa5b5" />
+               <stop offset="40%" stop-color="#3b6dd6" />
+               <stop offset="70%" stop-color="#7c3aed" />
+               <stop offset="100%" stop-color="#0aa5b5" />
+          </linearGradient>
+     </defs>
+
+  <!-- SMIL-based fold animation. Each outer triangle rotates 180° (in 2D) around the
+       midpoint of its hinge with the center base. A 2D 180° rotation around a hinge
+       midpoint maps a triangle onto the mirror image across the hinge line — visually
+       a "fold" onto the base. Loops every 6s: flat → folded (40%) → hold → unfold (100%). -->
+
+  <!-- Center base — stays in place -->
+  <polygon points="56,88 144,88 100,164"
+           fill="url(#logoGradient)" stroke="url(#logoGradient)" stroke-width="5" stroke-linejoin="round"/>
+
+  <!-- Top face: hinge midpoint (100, 88) -->
+  <polygon points="100,12 56,88 144,88"
+           fill="url(#logoGradient)" stroke="url(#logoGradient)" stroke-width="5" stroke-linejoin="round">
+    <animateTransform attributeName="transform"
+                      type="rotate"
+                      values="0 100 88; 180 100 88; 180 100 88; 0 100 88"
+                      keyTimes="0; 0.4; 0.7; 1"
+                      dur="6s"
+                      repeatCount="indefinite"/>
+  </polygon>
+
+  <!-- Bottom-left face: hinge midpoint (78, 126) -->
+  <polygon points="12,164 56,88 100,164"
+           fill="url(#logoGradient)" stroke="url(#logoGradient)" stroke-width="5" stroke-linejoin="round">
+    <animateTransform attributeName="transform"
+                      type="rotate"
+                      values="0 78 126; 180 78 126; 180 78 126; 0 78 126"
+                      keyTimes="0; 0.4; 0.7; 1"
+                      dur="6s"
+                      repeatCount="indefinite"/>
+  </polygon>
+
+  <!-- Bottom-right face: hinge midpoint (122, 126) -->
+  <polygon points="188,164 144,88 100,164"
+           fill="url(#logoGradient)" stroke="url(#logoGradient)" stroke-width="5" stroke-linejoin="round">
+    <animateTransform attributeName="transform"
+                      type="rotate"
+                      values="0 122 126; 180 122 126; 180 122 126; 0 122 126"
+                      keyTimes="0; 0.4; 0.7; 1"
+                      dur="6s"
+                      repeatCount="indefinite"/>
+  </polygon>
+</svg>

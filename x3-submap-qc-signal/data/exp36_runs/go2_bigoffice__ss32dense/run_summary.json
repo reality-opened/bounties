@@ -1,0 +1,27 @@
+{
+  "cell": "go2_bigoffice",
+  "tag": "ss32dense",
+  "n_pose_sign_repairs": 275,
+  "n_poses_written": 1092,
+  "export_errors": [
+    "submap 497: empty, skipped",
+    "submap 831: empty, skipped",
+    "submap 897: empty, skipped",
+    "submap 998: empty, skipped",
+    "submap 1033: empty, skipped",
+    "submap 1066: empty, skipped"
+  ],
+  "frames_total": 2075,
+  "frames_kept": 1059,
+  "submaps": 34,
+  "loop_closures": 5,
+  "total_time_s": 107.99,
+  "config": {
+    "submap_size": 32,
+    "max_loops": 1,
+    "min_disparity": 25.0,
+    "conf_threshold": 25.0,
+    "lc_thres": 0.95,
+    "downsample": 1
+  }
+}

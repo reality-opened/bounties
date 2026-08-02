@@ -1,0 +1,359 @@
+=== hk_village2 12:55:09 ===
+fetching hk_village2.db.tar.gz (164.6 MB) via LFS batch API
+streams: ['color_image', 'lidar', 'odom']
+{
+  "dataset": "hk_village2",
+  "streams": [
+    "color_image",
+    "lidar",
+    "odom"
+  ],
+  "fps_target": 10.0,
+  "camera": {
+    "n_frames": 1451,
+    "n_kept": 727,
+    "measured_fps_median": 14.3,
+    "span_s": 101.66,
+    "resolution": [
+      1280,
+      720
+    ],
+    "format": "ImageFormat.RGB"
+  },
+  "odom_stream": "odom",
+  "odom": {
+    "n_samples": 1924,
+    "rate_hz_median": 18.78,
+    "span_s": 102.96
+  },
+  "reference": {
+    "n_poses": 727,
+    "kept_frames_outside_odom_span": 0
+  },
+  "db_sha256": "afdb1ef6feebd7d1d0e8cc5c02e2c68fc4cb661aa41f5a724b32258628cc8709",
+  "extractor": {
+    "fps": 10.0,
+    "jpeg_quality": 95,
+    "version": 1
+  }
+}
+✓ Uploaded file 'results/hk_village2/groundtruth.txt' to 
+'/hk_village2/groundtruth.txt'
+SPAWNED run hk_village2: fc-01KY7HP1BTZWJWVYSQ4VJ0YEFQ
+=== hk_village4 13:12:31 ===
+fetching hk_village4.db.tar.gz (287.1 MB) via LFS batch API
+streams: ['color_image', 'lidar', 'odom']
+{
+  "dataset": "hk_village4",
+  "streams": [
+    "color_image",
+    "lidar",
+    "odom"
+  ],
+  "fps_target": 10.0,
+  "camera": {
+    "n_frames": 2834,
+    "n_kept": 1413,
+    "measured_fps_median": 14.29,
+    "span_s": 198.85,
+    "resolution": [
+      1280,
+      720
+    ],
+    "format": "ImageFormat.RGB"
+  },
+  "odom_stream": "odom",
+  "odom": {
+    "n_samples": 3735,
+    "rate_hz_median": 18.78,
+    "span_s": 199.59
+  },
+  "reference": {
+    "n_poses": 1413,
+    "kept_frames_outside_odom_span": 0
+  },
+  "db_sha256": "edb64855102fc0e755e982873c3c8622edcbe48c17e1e8ab05d66e7a111a7fb9",
+  "extractor": {
+    "fps": 10.0,
+    "jpeg_quality": 95,
+    "version": 1
+  }
+}
+✓ Uploaded file 'results/hk_village4/groundtruth.txt' to 
+'/hk_village4/groundtruth.txt'
+SPAWNED run hk_village4: fc-01KY7KDDG92D3XJBCYPKKDJ5J0
+=== hk_village5 13:42:46 ===
+fetching hk_village5.db.tar.gz (173.2 MB) via LFS batch API
+streams: ['color_image', 'lidar', 'odom']
+{
+  "dataset": "hk_village5",
+  "streams": [
+    "color_image",
+    "lidar",
+    "odom"
+  ],
+  "fps_target": 10.0,
+  "camera": {
+    "n_frames": 1935,
+    "n_kept": 969,
+    "measured_fps_median": 14.28,
+    "span_s": 135.64,
+    "resolution": [
+      1280,
+      720
+    ],
+    "format": "ImageFormat.RGB"
+  },
+  "odom_stream": "odom",
+  "odom": {
+    "n_samples": 2556,
+    "rate_hz_median": 18.82,
+    "span_s": 136.8
+  },
+  "reference": {
+    "n_poses": 969,
+    "kept_frames_outside_odom_span": 0
+  },
+  "db_sha256": "54325dd6ee9ff35b25f8ba8ad349dc150982b184236a4bb7ce3333035c05be4a",
+  "extractor": {
+    "fps": 10.0,
+    "jpeg_quality": 95,
+    "version": 1
+  }
+}
+✓ Uploaded file 'results/hk_village5/groundtruth.txt' to 
+'/hk_village5/groundtruth.txt'
+SPAWNED run hk_village5: fc-01KY7MFMBB9E9JZ9Y6QVJZYBYW
+=== hk_village6 14:01:27 ===
+fetching hk_village6.db.tar.gz (227.5 MB) via LFS batch API
+streams: ['color_image', 'lidar', 'odom']
+{
+  "dataset": "hk_village6",
+  "streams": [
+    "color_image",
+    "lidar",
+    "odom"
+  ],
+  "fps_target": 10.0,
+  "camera": {
+    "n_frames": 2629,
+    "n_kept": 1314,
+    "measured_fps_median": 14.22,
+    "span_s": 184.94,
+    "resolution": [
+      1280,
+      720
+    ],
+    "format": "ImageFormat.RGB"
+  },
+  "odom_stream": "odom",
+  "odom": {
+    "n_samples": 3472,
+    "rate_hz_median": 18.83,
+    "span_s": 185.83
+  },
+  "reference": {
+    "n_poses": 1314,
+    "kept_frames_outside_odom_span": 0
+  },
+  "db_sha256": "fbde1ba11d82365685d875a046677b6e29b0e55642b6c41957e34b4fa3f3fa66",
+  "extractor": {
+    "fps": 10.0,
+    "jpeg_quality": 95,
+    "version": 1
+  }
+}
+✓ Uploaded file 'results/hk_village6/groundtruth.txt' to 
+'/hk_village6/groundtruth.txt'
+SPAWNED run hk_village6: fc-01KY7P0YWV6MHK0K1R2GBG2HE5
+=== hk_building_all_around 14:28:23 ===
+fetching hk_building_all_around.db.tar.gz (278.2 MB) via LFS batch API
+streams: ['color_image', 'lidar', 'odom']
+{
+  "dataset": "hk_building_all_around",
+  "streams": [
+    "color_image",
+    "lidar",
+    "odom"
+  ],
+  "fps_target": 10.0,
+  "camera": {
+    "n_frames": 3312,
+    "n_kept": 1578,
+    "measured_fps_median": 14.37,
+    "span_s": 234.73,
+    "resolution": [
+      1280,
+      720
+    ],
+    "format": "ImageFormat.RGB"
+  },
+  "odom_stream": "odom",
+  "odom": {
+    "n_samples": 4352,
+    "rate_hz_median": 18.99,
+    "span_s": 235.24
+  },
+  "reference": {
+    "n_poses": 1578,
+    "kept_frames_outside_odom_span": 0
+  },
+  "db_sha256": "406a7ed4095f626363b59e1a6c875d6f5efc7f43013b1f1345a54362b8011e9d",
+  "extractor": {
+    "fps": 10.0,
+    "jpeg_quality": 95,
+    "version": 1
+  }
+}
+UPLOAD FAILED hk_building_all_around
+=== hk_building_elevator 15:03:44 ===
+fetching hk_building_elevator.db.tar.gz (114.4 MB) via LFS batch API
+streams: ['color_image', 'lidar', 'odom']
+{
+  "dataset": "hk_building_elevator",
+  "streams": [
+    "color_image",
+    "lidar",
+    "odom"
+  ],
+  "fps_target": 10.0,
+  "camera": {
+    "n_frames": 1486,
+    "n_kept": 731,
+    "measured_fps_median": 14.27,
+    "span_s": 104.33,
+    "resolution": [
+      1280,
+      720
+    ],
+    "format": "ImageFormat.RGB"
+  },
+  "odom_stream": "odom",
+  "odom": {
+    "n_samples": 1986,
+    "rate_hz_median": 18.79,
+    "span_s": 105.73
+  },
+  "reference": {
+    "n_poses": 731,
+    "kept_frames_outside_odom_span": 0
+  },
+  "db_sha256": "05327ee9aba2d49ae3473f5aa14a9b320b4fa5d26c0c52fdae9a6959c585ac46",
+  "extractor": {
+    "fps": 10.0,
+    "jpeg_quality": 95,
+    "version": 1
+  }
+}
+UPLOAD FAILED hk_building_elevator
+=== hk_building_enterance 15:21:25 ===
+makeup: hk_building_all_around 15:24:15
+fetching hk_building_enterance.db.tar.gz (144.8 MB) via LFS batch API
+streams: ['color_image', 'lidar', 'odom']
+{
+  "dataset": "hk_building_enterance",
+  "streams": [
+    "color_image",
+    "lidar",
+    "odom"
+  ],
+  "fps_target": 10.0,
+  "camera": {
+    "n_frames": 1768,
+    "n_kept": 876,
+    "measured_fps_median": 14.26,
+    "span_s": 124.16,
+    "resolution": [
+      1280,
+      720
+    ],
+    "format": "ImageFormat.RGB"
+  },
+  "odom_stream": "odom",
+  "odom": {
+    "n_samples": 2331,
+    "rate_hz_median": 18.84,
+    "span_s": 124.74
+  },
+  "reference": {
+    "n_poses": 875,
+    "kept_frames_outside_odom_span": 1
+  },
+  "db_sha256": "92caff1df996afb8b51e429725e4b147ce4072643befc7afea81d433a2736674",
+  "extractor": {
+    "fps": 10.0,
+    "jpeg_quality": 95,
+    "version": 1
+  }
+}
+makeup UPLOAD FAILED AGAIN hk_building_all_around
+makeup: hk_building_elevator 15:36:59
+UPLOAD FAILED hk_building_enterance
+=== hk_building_park 15:45:20 ===
+makeup UPLOAD FAILED AGAIN hk_building_elevator
+MAKEUP_PASS_DONE 15:45:29
+tar-makeup: hk_building_all_around 15:45:47
+fetching hk_building_park.db.tar.gz (124.1 MB) via LFS batch API
+streams: ['color_image', 'lidar', 'odom']
+{
+  "dataset": "hk_building_park",
+  "streams": [
+    "color_image",
+    "lidar",
+    "odom"
+  ],
+  "fps_target": 10.0,
+  "camera": {
+    "n_frames": 1627,
+    "n_kept": 737,
+    "measured_fps_median": 14.45,
+    "span_s": 115.05,
+    "resolution": [
+      1280,
+      720
+    ],
+    "format": "ImageFormat.RGB"
+  },
+  "odom_stream": "odom",
+  "odom": {
+    "n_samples": 2121,
+    "rate_hz_median": 19.63,
+    "span_s": 115.28
+  },
+  "reference": {
+    "n_poses": 737,
+    "kept_frames_outside_odom_span": 0
+  },
+  "db_sha256": "b2f43a9de8596224f7142485655f6f1c79927c491e7694dcdabed7f1c081483d",
+  "extractor": {
+    "fps": 10.0,
+    "jpeg_quality": 95,
+    "version": 1
+  }
+}
+tar-makeup FAILED hk_building_all_around
+tar-makeup: hk_building_elevator 15:54:07
+cloud-prep second wave 16:00:53
+SPAWNED run hk_building_park: fc-01KY7VB280RHWVTHF86CY8CGPM
+SPAWNED run go2_slamabuse1: fc-01KY7VBRM5H7CT6MM28HBEADNN
+SPAWNED run go2_slamabuse2: fc-01KY7VCJMTA4Y3GMJX68XETSQJ
+SPAWNED run go2_mid360_stairs: fc-01KY7VD8RN28S6Z0YXC1M0RFKB
+SPAWNED run markers_go2: fc-01KY7VDYY2NGGGKYYPS0Q26118
+SPAWNED run china_office: fc-01KY7VEN3VC2237YDQGZ8FAZ27
+SPAWNED run recording_go2_mid360_2026-05-29_4-45pm-PST: fc-01KY7VGF7FPAX48HB5P3J0QW5C
+SPAWNED run recording_go2_mid360_2026-05-29_4-45pm-PST_corrected: fc-01KY7VH6F9ZYBP98NXCKGWY6RK
+SPAWNED run hk_building_all_around: fc-01KY7V68JMR2ZWZQ5WQWXF2CNJ (prep)
+SPAWNED run hk_building_elevator: fc-01KY7V6Y8MHJPTK14VEWHK8KPB (prep)
+SPAWNED run hk_building_enterance: fc-01KY7V7M047W5CQHK5BA5HYQ35 (prep)
+rescore wave (payload-odometry fallback) 16:33:06
+SPAWNED run hk_building_all_around: fc-01KY7X62CPH0PQGSE0YQMJJ7XR
+SPAWNED run hk_building_elevator: fc-01KY7X6T665Y3CWHTVW3AA5S00
+SPAWNED run hk_building_enterance: fc-01KY7X7HXX4ZKBN42Y9SF9ZF02
+SPAWNED run hk_building_park: fc-01KY7X88GWB51CXMT68SXEF1T4
+SPAWNED run go2_slamabuse1: fc-01KY7X8ZBD2S9BQWFZ7EZNNSJW
+SPAWNED run go2_slamabuse2: fc-01KY7X9PM53N69S3BNYDJK1TCY
+SPAWNED run go2_mid360_stairs: fc-01KY7XADVDR1TFHBDW54G9Q9VQ
+SPAWNED run markers_go2: fc-01KY7XB8YRBFSRAN9N959B748B
+SPAWNED run china_office: fc-01KY7XMMWW8C136T6PD1T9SRWA
+SPAWNED run recording_go2_mid360_2026-05-29_4-45pm-PST__ss32dense: fc-01KY7XNC7HDDBKVD5YBC7EB39Z
+SPAWNED run recording_go2_mid360_2026-05-29_4-45pm-PST_corrected__ss32dense: fc-01KY7XP1KS83GWCBR65SR9TE4S

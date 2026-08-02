@@ -1,0 +1,19 @@
+{
+  "name": "w4-spa-tokenization-pilot",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "SPA tokenization bounty kit — a standalone Refine-stage pilot page + the @reality/design tokens package. See README.md.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint:colors": "node scripts/check-no-raw-colors.mjs"
+  },
+  "dependencies": {
+    "@reality/design": "file:./design"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "vite": "^6.0.0"
+  }
+}

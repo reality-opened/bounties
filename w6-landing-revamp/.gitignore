@@ -1,0 +1,12 @@
+node_modules/
+.next/
+.vercel
+.env
+.env*.local
+*.tsbuildinfo
+.DS_Store
+coverage/
+
+# Large hero asset — not tracked upstream either (see docs/design-brief.md /
+# apps/landing/scripts/fetch-hero.sh); keep ignored if you fetch it locally.
+**/assets/Gaussian_splat.ply

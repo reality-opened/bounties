@@ -1,0 +1,24 @@
+{
+  "cell": "hk_building_elevator",
+  "tag": "",
+  "n_pose_sign_repairs": 0,
+  "n_poses_written": 224,
+  "export_errors": [
+    "submap 102: empty, skipped",
+    "submap 119: empty, skipped",
+    "submap 206: empty, skipped"
+  ],
+  "frames_total": 731,
+  "frames_kept": 211,
+  "submaps": 14,
+  "loop_closures": 1,
+  "total_time_s": 215.61,
+  "config": {
+    "submap_size": 16,
+    "max_loops": 1,
+    "min_disparity": 50.0,
+    "conf_threshold": 25.0,
+    "lc_thres": 0.95,
+    "downsample": 1
+  }
+}

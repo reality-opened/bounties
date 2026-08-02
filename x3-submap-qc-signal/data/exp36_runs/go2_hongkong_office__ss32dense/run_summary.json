@@ -1,0 +1,32 @@
+{
+  "cell": "go2_hongkong_office",
+  "tag": "ss32dense",
+  "n_pose_sign_repairs": 0,
+  "n_poses_written": 3009,
+  "export_errors": [
+    "submap 132: empty, skipped",
+    "submap 198: empty, skipped",
+    "submap 299: empty, skipped",
+    "submap 705: empty, skipped",
+    "submap 775: empty, skipped",
+    "submap 1511: empty, skipped",
+    "submap 2793: empty, skipped",
+    "submap 2828: empty, skipped",
+    "submap 2863: empty, skipped",
+    "submap 2898: empty, skipped",
+    "submap 2933: empty, skipped"
+  ],
+  "frames_total": 3974,
+  "frames_kept": 2918,
+  "submaps": 92,
+  "loop_closures": 36,
+  "total_time_s": 804.84,
+  "config": {
+    "submap_size": 32,
+    "max_loops": 1,
+    "min_disparity": 25.0,
+    "conf_threshold": 25.0,
+    "lc_thres": 0.95,
+    "downsample": 1
+  }
+}
