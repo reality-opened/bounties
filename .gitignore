@@ -1,0 +1,3 @@
+# operator-only staging output of publish-kit.sh — never commit
+.publish/
+.DS_Store

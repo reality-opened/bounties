@@ -1,21 +1,36 @@
 # Bounty kit staging area — OPERATOR INDEX (do not share with interns)
 
-Each subdirectory is a self-contained, scrubbed, git-initialized bounty kit (one commit,
-neutral author identity `OpenReality Bounty Program <bounty-kits@openreality.example>`).
-Nothing here has been pushed anywhere. The intern-facing board is the "Intern Bounty Board"
-artifact; this file is your publishing run-book.
+Each subdirectory is a self-contained, scrubbed bounty kit.
+The intern-facing board is the "Intern Bounty Board" artifact; this file is your publishing run-book.
 
-Sweep status (2026-07-28): all kits pass
+**Where this repo lives:** `reality-opened/bounties`, **private**. That's the operator-side staging
+repo — it holds this index, all kits, and internal-only material, and is *not* what an intern ever
+sees. Intern-facing repos are per-kit, built by `publish-kit.sh` and pushed to a **separate** org
+(see the run-book). Keep those two things separate: this repo is not, and must never become, a
+submodule of the `platform` super-repo, which exists to be cloned recursively. If `reality-opened`
+ever gains members beyond the founders, re-check who can read this repo before adding anyone.
+
+⚠️ **The kits are no longer individually git-initialized.** Commit `e3bf97d` ("Flatten sub-repos
+into super repo") collapsed them into this one repo, whose history is authored by a real name +
+personal email. Never `gh repo create --source <kit-dir>` from here — that would leak this operator
+index, all 27 kits (including internal-only X1), and the founder's identity. **Use
+`./publish-kit.sh <kit-dir>`**, which rebuilds the standalone one-commit repo with the neutral
+identity `OpenReality Bounty Program <bounty-kits@openreality.example>`, runs both scrub sweeps, and
+refuses to commit if either trips. Output lands in the gitignored `.publish/`.
+
+Sweep status (2026-07-28, R2 re-swept 2026-08-01): all kits pass
 `/usr/bin/grep -riE 'finc|efficura|chorus|labrador|neural[ _-]?motion|aurora|davzhang|galois|@gmail'`
 (content **and** `.git`, using /usr/bin/grep because the shell's grep alias skips `.git`),
-plus a secret-shaped-string scan. Re-run both before publishing if anything is edited.
+plus a secret-shaped-string scan. `publish-kit.sh` runs both automatically and additionally matches
+bare `david`, which the original pattern missed (it only had `davzhang`) — R2's onboarding doc
+tripped that and has been de-named to "任务负责人 / bounty owner". Re-run on any kit you edit.
 
 ## Kits
 
 | ID | Dir | Ring | Status | Notes |
 |----|-----|------|--------|-------|
 | R1 | r1-demand-dossiers | 0 | READY | agent prompt rewritten for humans; proprietary leads excluded; assign a vertical at claim |
-| R2 | r2-incumbent-pricing | 0 | READY | 2 freshly sourced [example] rows (2026-07-28); unverified seeds excluded |
+| R2 | r2-incumbent-pricing | 0 | READY* | reconciled 2026-08-01: zh onboarding doc + EN materials had diverged (different schema, tags, verticals, deliverable) — now one 10-col format + 4-tag ladder [verified]/[reported]/[inferred]/[example]; added findings-summary template; 3 [example] rows (2026-07-28), unverified seeds excluded. verticals ASSIGNED 2026-08-01 = physical-AI trio (Sim-ready 3D assets / Reality capture / Robot training data), framed as three routes to the same outcome. ⚠ BLOCKED ON US: IP agreement template still pending |
 | R3 | r3-contact-dataset-survey | 0 | READY | requirements brief distilled; review before invite |
 | R4 | r4-dataset-scaleup | 0 | READY | requirements brief distilled; review before invite |
 | X1 | x1-exp32-pooled-report | 1 | READY* | ⚠ HE arm only 10/19 scored (ET 25/25) — verdict will be honestly partial; pool_scores.py needs a documented input reshape (in kit README); NOTICE.md: internal-only (CC-BY-NC upstream) |
@@ -42,9 +57,11 @@ plus a secret-shaped-string scan. Re-run both before publishing if anything is e
 ## Publishing run-book (per kit)
 
 1. Sign the contributor IP agreement with the intern first (template pending — legal check).
-2. Optional hardening for D1/D2 (see table), then re-run the sweep grep on that kit.
-3. Create the private repo under a **separate org** (not reality-opened), e.g.:
-   `gh repo create openreality-bounties/<kit-dir> --private --source /tank/docs/code/bounties/<kit-dir> --push`
+2. Optional hardening for D1/D2 (see table), then build the standalone repo:
+   `./publish-kit.sh <kit-dir>` — scrubs, git-inits with the neutral identity, one commit.
+3. Create the private repo under a **separate org** (not reality-opened), sourcing the *staged*
+   tree, never the kit dir in this repo:
+   `gh repo create openreality-bounties/<kit-dir> --private --source .publish/<kit-dir> --push`
 4. Invite the intern as a collaborator on that one repo only (write access to the bounty repo is fine):
    `gh api orgs/openreality-bounties/... ` or repo Settings → Collaborators.
 5. Post the bounty ID + repo link to the intern; point them at README acceptance criteria.
@@ -54,6 +71,12 @@ plus a secret-shaped-string scan. Re-run both before publishing if anything is e
 ## Standing cautions
 
 - Kits R1–R4 deliverables are documents — no repo strictly needed; a repo still gives you PR-style review.
+- **The IP agreement template still doesn't exist** (run-book step 1), and both R2's README and its
+  onboarding doc tell the intern it must be signed before their first PR. Any kit handed out before
+  that template lands has a blocked deliverable. This gates R2 specifically, which is claimed.
+- R1/R3/R4 have the same two-document risk R2 had if you ever write a translated onboarding guide
+  for them: the translation drifts into being a *second spec*. Keep the format/tag definitions in
+  exactly one file and have every other doc point at it.
 - X1 is internal-only (NOTICE.md) — never let its numbers or media leave the company.
 - The `feat/efficura-chorus-pilot` branch NAME leaks client names in the org repos — irrelevant for kits,
   but rename it before ever mirroring those repos anywhere less private.
