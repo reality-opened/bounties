@@ -1,7 +1,10 @@
 # Bounty kit staging area — OPERATOR INDEX (do not share with interns)
 
 Each subdirectory is a self-contained, scrubbed bounty kit.
-The intern-facing board is the "Intern Bounty Board" artifact; this file is your publishing run-book.
+The intern-facing board is the website board at `open-reality.io/bounties` (stable unlisted URL
+since 2026-08-08 — noindex + no inbound links, no more BOUNTY_BOARD_SLUG capability key; old slug
+URLs redirect). The older "Intern Bounty Board" artifact is superseded. This file is your
+publishing run-book.
 
 **Where this repo lives:** `reality-opened/bounties`, **private**. That's the operator-side staging
 repo — it holds this index, all kits, and internal-only material, and is *not* what an intern ever
@@ -53,6 +56,39 @@ tripped that and has been de-named to "任务负责人 / bounty owner". Re-run o
 | W4 | w4-spa-tokenization | 2 | READY | scoped to workflow **Refine stage** (summary page too socket-coupled); raw-color lint works (fails pre-work, as intended) |
 | W5 | w5-protocol-simulator | 2 | READY | full protocol pkg w/ client literals → acme/rooftop; npm not run here |
 | W6 | w6-landing-revamp | 2 | READY | contact email stubbed; .env.example Modal-subdomain handle removed; unmerged-branch notes are prose-only |
+
+## 2026-08-08 wave — on the board, kits NOT built yet
+
+Added to the website board 2026-08-08 (22 bounties, new tracks H = Hardware & capture, P = Platform
+& product, I = Integrations & pilots; first ring-3 bounties). **No kit dirs exist yet** — build each
+kit before inviting anyone to claim, following the same scrub + sweep discipline. Partner names for
+I1–I3 are deliberately absent here and on the board (keeps this whole staging tree sweep-clean);
+the mapping lives in the platform pilots notes — share verbally at claim.
+
+| ID | Planned dir | Ring | Status | Notes |
+|----|-------------|------|--------|-------|
+| R5 | r5-iphone-lidar | 3 | TO BUILD | needs LiDAR iPhone; mobile repo read |
+| H1 | h1-glasses-capture | 3 | TO BUILD | glasses capture — note in-flight `apps/mobile/modules/glasses-camera` work; coordinate before arming |
+| H2 | h2-visionpro-capture | 3 | TO BUILD | device loaner question open |
+| H3 | h3-sensor-autodiscovery | 3 | TO BUILD | flagship hardware bounty; protocol pkg + simulator seed it |
+| H4 | h4-ondevice-recon | 3 | TO BUILD | needs reference scenes w/ server results |
+| P1 | p1-public-api | 3 | TO BUILD | productized layer over internal REST; auth+quota design review before invite |
+| P2 | p2-claude-skill | 2 | TO BUILD | can seed from W5 simulator kit |
+| P3 | p3-free-scan-tier | 3 | TO BUILD | pairs w/ P5 |
+| P4 | p4-short-links | 2 | TO BUILD | extract share-token module like D3-style kits |
+| P5 | p5-payments-redesign | 3 | TO BUILD | test-mode provider account on our side; pricing copy stays DRAFT (founder rule) |
+| P6 | p6-oss-release-cut | 3 | TO BUILD | do-not-ship list is founder-approved before anything moves |
+| W7 | w7-site-restructure | 2 | TO BUILD | coordinate w/ W6 if both claimed |
+| X5 | x5-vlm-3d-benchmark | 2 | TO BUILD | model calls via proxied budget, no keys |
+| X6 | x6-vla-policy | 2 | TO BUILD | ⚠ MUST stay decoupled from the pre-registered internal benchmark (EXP-42) — public episodes only, no shared arms |
+| X7 | x7-4d-time-axis | 3 | TO BUILD | time-bucketed submaps; format proposal first |
+| I1 | i1-health-xr | 2 | TO BUILD | partner named at claim; zero patient-adjacent data in kit |
+| I2 | i2-realestate-embed | 3 | TO BUILD | partner named at claim; staging scene only, never pilot embeds |
+| I3 | i3-latent-format-bridge | 2 | TO BUILD | partner named at claim; seed from D1 fixtures |
+| I4 | i4-isaac-splats | 2 | TO BUILD | seed from D2 fixtures |
+| T6 | t6-branch-gardening | 3 | TO BUILD | pruning proposal approval-gated — interns never delete branches |
+| T7 | t7-docs-revamp | 3 | TO BUILD | move-only diffs; pick the pilot component repo at claim |
+| T8 | t8-memory-sync | 1 | TO BUILD | greenfield; fixture memory dirs must be synthetic, never real memory files |
 
 ## Publishing run-book (per kit)
 
