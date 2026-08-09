@@ -1,14 +1,20 @@
 # Bounty kit staging area — OPERATOR INDEX (do not share with interns)
 
 Each subdirectory is a self-contained, scrubbed bounty kit.
-The intern-facing board is the website board at `open-reality.io/bounties` (stable unlisted URL
-since 2026-08-08 — noindex + no inbound links, no more BOUNTY_BOARD_SLUG capability key; old slug
-URLs redirect). The older "Intern Bounty Board" artifact is superseded. This file is your
-publishing run-book.
+The contributor-facing board is the website board at `open-reality.io/bounties` (stable URL since
+2026-08-08 — noindex + no inbound links, no more BOUNTY_BOARD_SLUG capability key; old slug URLs
+redirect). The older "Intern Bounty Board" artifact is superseded. This file is your **publishing**
+run-book.
+
+📌 **Writing a new bounty? Read [`AUTHORING.md`](AUTHORING.md) first.** It carries the current
+doctrine (rewritten by the founder 2026-08-09: rings mean complexity not trust, several people may
+share a bounty, bounties may point at the live codebase instead of a kit, payment is promised but
+undefined), the entry-field rules, the `done` lifecycle, the deploy traps, and the open founder
+questions. Where this file's older framing disagrees with it, `AUTHORING.md` wins.
 
 **Where this repo lives:** `reality-opened/bounties`, **private**. That's the operator-side staging
-repo — it holds this index, all kits, and internal-only material, and is *not* what an intern ever
-sees. Intern-facing repos are per-kit, built by `publish-kit.sh` and pushed to a **separate** org
+repo — it holds this index, `AUTHORING.md`, all kits, and internal-only material, and is *not* what
+a contributor ever sees. Intern-facing repos are per-kit, built by `publish-kit.sh` and pushed to a **separate** org
 (see the run-book). Keep those two things separate: this repo is not, and must never become, a
 submodule of the `platform` super-repo, which exists to be cloned recursively. If `reality-opened`
 ever gains members beyond the founders, re-check who can read this repo before adding anyone.
@@ -108,6 +114,12 @@ the mapping lives in the platform pilots notes — share verbally at claim.
    `Co-authored-by: <intern> <email>`; never grant product-repo access as part of a bounty.
 
 ## Standing cautions
+
+- **Ring 3 / direct-codebase bounties bypass the kit model's built-in scrubbing.** Granting a
+  contributor a component repo exposes the leak surface catalogued in `AUTHORING.md` — decide that
+  deliberately, per bounty, before the invite.
+- **The landing deploys from web `main` only, and its lint is a deploy gate.** A merged board change
+  can silently fail to publish (it did, in PR #6). Confirm with `curl` that the live page changed.
 
 - Kits R1–R4 deliverables are documents — no repo strictly needed; a repo still gives you PR-style review.
 - **The IP agreement template still doesn't exist** (run-book step 1), and both R2's README and its
