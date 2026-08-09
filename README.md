@@ -89,6 +89,9 @@ the mapping lives in the platform pilots notes — share verbally at claim.
 | T6 | t6-branch-gardening | 3 | TO BUILD | pruning proposal approval-gated — interns never delete branches |
 | T7 | t7-docs-revamp | 3 | TO BUILD | move-only diffs; pick the pilot component repo at claim |
 | T8 | t8-memory-sync | 1 | TO BUILD | greenfield; fixture memory dirs must be synthetic, never real memory files |
+| X8 | x8-so101-sim2real | 2 | TO BUILD | added 2026-08-09; extends X6 onto the real SO-101 (booth arm) — bench time supervised, ours; safety envelope doc required in kit |
+| I5 | i5-sim-capture-benchmark | 2 | TO BUILD | added 2026-08-09; robotics-data partner named at claim (same partner as I3); recon runs on our side |
+| I6 | i6-factory-digital-twin | 3 | TO BUILD | added 2026-08-09; 3 parts (scout factory / scan-to-twin runbook / mirror code execution in sim); site visits coordinated by us — access terms + insurance question before any visit |
 
 ## Publishing run-book (per kit)
 
