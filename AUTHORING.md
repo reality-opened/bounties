@@ -34,6 +34,7 @@ the board (see *Scrub rules*), and we never hand out credentials, deploy tokens,
 | Board entries (the 49 live bounties) | `web` repo → `apps/landing/app/bounties/bountyData.ts` |
 | Board UI | same dir → `BountyBoard.tsx`, `BountyBoard.module.css` |
 | Claims API + store | `web` → `app/api/bounties/claims/route.ts`, `app/lib/bountyClaims.ts` |
+| Posted-bounty API + store | `web` → `app/api/bounties/posts/route.ts`, `app/lib/bountyPosts.ts` |
 | Kits (operator staging) | this repo, one dir per bounty |
 | Publishing steps | `README.md` here |
 
@@ -138,15 +139,47 @@ total all ignore it — while the entry itself stays in the file as the record. 
 entry and do not reuse its id**: rows in `bounty_claims` reference bounty ids, and a recycled id
 would silently attach an old claimant to a new bounty.
 
-"Open bounties" on the board counts what is **not finished**. Claimed bounties still count as open,
-because several people may work the same one.
+"Open bounties" on the board counts what is **not finished**, board and posted together. Claimed
+bounties still count as open, because several people may work the same one.
+
+A contributor's post is retired by its poster, not by you — see *Contributor-posted bounties*.
 
 ## Contributor-posted bounties
 
-The board now invites contributors to post their own. There is no intake UI — the ask arrives by
-message and an operator writes the entry as above. If this becomes common, the shape to build is a
-proposal form writing to a `bounty_proposals` table, reviewed before it reaches `bountyData.ts`;
-contributors must not be able to publish board entries directly.
+**Built 2026-08-11** (web `7deba19`). Any signed-in user can post a bounty from the board itself; it
+appears alongside the authored ones and is claimable and joinable like any other. There is no
+operator review step in the path — a post is live the moment it is submitted.
+
+Posted bounties are a **second lifecycle**, deliberately separate from the one above:
+
+| | Board bounties (`bountyData.ts`) | Posted bounties (`bounty_posts` table) |
+|---|---|---|
+| Authored by | operators, in code | any signed-in user, from the page |
+| Ids | track letter + number (`H1`, `X8`) | `U<seq>` off a bigserial — namespaces cannot collide |
+| Retired by | an operator setting `done: true`, then a deploy | **its poster only**, from the page |
+| Reopen | edit the flag | the poster; finished posts stay visible to them alone |
+| Has a `kit` | yes | no — the board omits the line when empty |
+
+**Only the poster can mark a bounty complete**, and that is enforced in the store's `UPDATE … WHERE
+seq = $1 AND author_id = $2` rather than in a route-level `if`, so a future caller cannot forget it.
+A non-author gets `403 not_your_bounty` whether or not the bounty exists — the same answer either
+way, so the endpoint leaks nothing about ids it will not act on. Operators have **no UI path** to
+retire someone else's post; that is the intended asymmetry, and the escape hatch is SQL:
+
+```sql
+-- operator override, e.g. spam or an abandoned post
+UPDATE bounty_posts SET done_at = now() WHERE seq = <n>;
+```
+
+Guards in place: authenticated posting only, per-author cap of 25 open posts, field validation with
+length caps (title 120, description 4000, rest 2000), and author names that fall back
+`fullName → username → "Contributor"` so an email address can never surface. React escapes all of
+it on render; nothing here goes near `dangerouslySetInnerHTML`.
+
+Worth knowing when triaging: a posted bounty carries no kit and no scrub review, so **nothing about
+posting grants any repo access**. If a posted bounty is worth running for real, an operator promotes
+it into `bountyData.ts` as a proper entry with a kit — the post itself stays a proposal that
+happens to be claimable.
 
 ## Open questions for the founder
 
