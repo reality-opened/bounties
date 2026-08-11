@@ -132,7 +132,26 @@ curl -s https://www.open-reality.io/bounties | grep -o "<the new title>"
 curl -s -o /dev/null -w "%{http_code} %header{x-robots-tag}\n" https://www.open-reality.io/bounties
 ```
 
+## Who owns the authored bounties
+
+All 49 are attributed to **David Zhang** on the board (`BOARD_OWNER_NAME` in `bountyData.ts` —
+display only). Because a bounty's poster is the one who retires it, he can mark any authored bounty
+complete from the page too; that writes a `bounty_board_done` row and is reversible from the same
+screen, under "Retired from the board".
+
+Ownership is decided server-side in `app/lib/boardOwner.ts` by **email**, so it works with no
+out-of-band configuration: the default is the address already in `contact.ts`, every address on the
+Clerk account is checked (not just the primary — the founder signs in through Google OAuth), and
+either `BOUNTY_OWNER_EMAILS` (comma-separated) or a pinned `BOUNTY_OWNER_USER_ID` overrides it.
+That module never reaches a browser bundle. If ownership ever needs to move or widen — a second
+operator, a changed address — set `BOUNTY_OWNER_EMAILS` in the Vercel project and redeploy; nothing
+in the code needs editing.
+
 ## Finishing a bounty
+
+Two ways, and they do not interchange: `done: true` in the file is the permanent, code-reviewed
+close; a `bounty_board_done` row is the owner clearing the board without a deploy. Either hides the
+bounty; neither can un-hide what the other hid.
 
 Set `done: true` on the entry. It leaves the board — rows, filters, counts, and the "scoped work"
 total all ignore it — while the entry itself stays in the file as the record. **Do not delete the
@@ -156,8 +175,9 @@ Posted bounties are a **second lifecycle**, deliberately separate from the one a
 |---|---|---|
 | Authored by | operators, in code | any signed-in user, from the page |
 | Ids | track letter + number (`H1`, `X8`) | `U<seq>` off a bigserial — namespaces cannot collide |
-| Retired by | an operator setting `done: true`, then a deploy | **its poster only**, from the page |
-| Reopen | edit the flag | the poster; finished posts stay visible to them alone |
+| Attributed to | David Zhang, on every entry | the account that posted it |
+| Retired by | `done: true` + a deploy, **or** the board owner from the page | **its poster only**, from the page |
+| Reopen | edit the flag, or reopen from the page if it was retired there | the poster; finished posts stay visible to them alone |
 | Has a `kit` | yes | no — the board omits the line when empty |
 
 **Only the poster can mark a bounty complete**, and that is enforced in the store's `UPDATE … WHERE
@@ -196,5 +216,7 @@ These follow from the 2026-08-09 rewrite and are **not** settled in code or docs
 4. **Board visibility.** The "unlisted, don't share" footer is gone, but the route is still
    `noindex` with no inbound links. Either it is genuinely internal (keep the caution) or it is
    semi-public (then it deserves a link and a proper public framing).
-5. **Slack/Discord.** The board's claim step carries a note-to-self about setting one up once
-   multiple people share a bounty. That note currently renders on the page for contributors to read.
+5. **Slack/Discord.** ~~Not set up.~~ The Discord exists (invite `cNKGHYTAN`) and is linked from the
+   board masthead as of 2026-08-11. The claim step's note-to-self — "remind me to setup a slack /
+   discord channel" — is now stale but still renders to contributors; it is the founder's copy, so
+   it stays until he changes it.
